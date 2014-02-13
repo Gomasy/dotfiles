@@ -26,57 +26,59 @@ zstyle ':vcs_info:git:*' formats ' %B%F{yellow}%c%u(%b)%f '
 zstyle ':vcs_info:git:*' actionformats ' (%b|%a) '
 precmd() { vcs_info }
 
-setopt AUTO_MENU
-setopt AUTO_CD
-setopt AUTO_NAME_DIRS
-setopt AUTO_REMOVE_SLASH
-setopt AUTO_LIST
-setopt AUTO_PARAM_KEYS
-setopt PROMPT_SUBST
-setopt AUTO_RESUME
-setopt RM_STAR_WAIT
-setopt SUN_KEYBOARD_HACK
-setopt EXTENDED_GLOB
-setopt LIST_TYPES
-setopt NO_BEEP
-setopt ALWAYS_LAST_PROMPT
-setopt CDABLE_VARS
-setopt SH_WORD_SPLIT
-setopt ALL_EXPORT
-setopt AUTO_PARAM_SLASH
-setopt AUTO_PUSHD
-setopt CORRECT
-setopt LIST_PACKED
-setopt PUSHD_IGNORE_DUPS
-setopt NO_LIST_BEEP
-setopt NOTIFY
-setopt MULTIOS
-setopt NUMERIC_GLOB_SORT
-setopt MAGIC_EQUAL_SUBST
-setopt PRINT_EIGHT_BIT
-setopt TRANSIENT_RPROMPT
-setopt BRACE_CCL
-setopt HISTVERIFY
-setopt HIST_IGNORE_SPACE
-setopt APPEND_HISTORY
-setopt NO_CHECK_JOBS
-setopt EXTENDED_HISTORY
-setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_FIND_NO_DUPS
-setopt HIST_NO_FUNCTIONS
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-setopt INC_APPEND_HISTORY
-setopt HIST_NO_STORE
-setopt HIST_REDUCE_BLANKS
-setopt NO_PROMPTCR
-setopt AUTOREMOVESLASH
-setopt SHARE_HISTORY
-setopt FUNCTION_ARGZERO
-setopt NO_FLOW_CONTROL
-setopt INTERACTIVE_COMMENTS
-setopt COMPLETE_IN_WORD
-setopt NO_TIFY
+setopt auto_menu
+setopt auto_cd
+setopt auto_name_dirs
+setopt auto_remove_slash
+setopt auto_list
+setopt auto_param_keys
+setopt prompt_subst
+setopt auto_resume
+setopt rm_star_wait
+setopt sun_keyboard_hack
+setopt extended_glob
+setopt list_types
+setopt no_beep
+setopt always_last_prompt
+setopt cdable_vars
+setopt sh_word_split
+setopt all_export
+setopt auto_param_slash
+setopt auto_pushd
+setopt correct
+setopt list_packed
+setopt pushd_ignore_dups
+setopt no_list_beep
+setopt notify
+setopt multios
+setopt numeric_glob_sort
+setopt magic_equal_subst
+setopt print_eight_bit
+setopt transient_rprompt
+setopt brace_ccl
+setopt hist_verify
+setopt hist_ignore_space
+setopt append_history
+setopt no_check_jobs
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_find_no_dups
+setopt hist_no_functions
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_expand
+setopt inc_append_history
+setopt hist_no_store
+setopt hist_reduce_blanks
+setopt no_promptcr
+setopt autoremoveslash
+setopt share_history
+setopt function_argzero
+setopt no_flow_control
+setopt interactive_comments
+setopt complete_in_word
+setopt no_tify
 
 PROMPT='%B%F{green}%n@%m:%F{blue}%~${vcs_info_msg_0_}%#%b%f '
 HISTFILE=$HOME/.zsh_history
@@ -86,6 +88,7 @@ SAVEHIST=1000000
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
+alias ls="ls --color=auto"
 alias ll="ls -l"
 alias la="ls -A"
 alias l="ls -CF"
