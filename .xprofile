@@ -1,0 +1,7 @@
+#!/bin/sh
+
+export XMODIFIERS="@im=uim"
+export GTK_IM_MODULE="xim"
+export QT_IM_MODULE="xim"
+uim-xim &
+uim-toolbar-gtk3-systray &
