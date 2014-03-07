@@ -1,3 +1,4 @@
+"NeoBundle
 if has('vim_starting')
   set nocompatible
   set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -7,7 +8,9 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'AndrewRadev/switch.vim'
 
+"General
 syntax on
 colorscheme evening
 
@@ -24,3 +27,26 @@ set number
 set ruler
 set list
 set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮
+
+"Search
+set ignorecase
+set smartcase
+set incsearch
+set nowrapscan
+set history=1000
+
+"Tab
+set expandtab
+set tabstop=2
+set smarttab
+
+"Brackets
+set matchpairs& matchpairs+=<:>
+set showmatch
+set matchtime=3
+
+"unite.vim
+nnoremap <silent>,uf :<c-u>Unite file<cr>
+
+"switch.vim
+nnoremap <silent>,m :<C-u>Switch<CR>
