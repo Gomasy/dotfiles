@@ -35,18 +35,16 @@ set incsearch
 set nowrapscan
 set history=1000
 
-"Tab
-set expandtab
-set tabstop=2
-set smarttab
-
 "Brackets
 set matchpairs& matchpairs+=<:>
 set showmatch
 set matchtime=3
 
 "unite.vim
-nnoremap <silent>,uf :<c-u>Unite file<cr>
+nnoremap <silent>,uf :<C-u>Unite file<CR>
 
 "switch.vim
 nnoremap <silent>,m :<C-u>Switch<CR>
+
+"vim-quickrun
+nnoremap <silent>,qr :<C-u>QuickRun<CR>
