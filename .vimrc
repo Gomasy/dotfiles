@@ -12,7 +12,7 @@ NeoBundle 'AndrewRadev/switch.vim'
 
 "General
 syntax on
-colorscheme evening
+colorscheme ron
 
 set encoding=utf-8
 set fileencoding=utf-8
