@@ -3,12 +3,16 @@ if has('vim_starting')
   set nocompatible
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
+if has('gui_running')
+  set t_Co=256
+endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'AndrewRadev/switch.vim'
+NeoBundle 'itchyny/lightline.vim'
 
 "General
 syntax on
@@ -48,3 +52,52 @@ nnoremap <silent>,m :<C-u>Switch<CR>
 
 "vim-quickrun
 nnoremap <silent>,qr :<C-u>QuickRun<CR>
+
+"lightline.vim
+let g:lightline = {
+      \ 'colorscheme': 'default',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'filename' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'MyFugitive',
+      \   'readonly': 'MyReadonly',
+      \   'modified': 'MyModified',
+      \   'filename': 'MyFilename'
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ }
+
+function! MyModified()
+  if &filetype == "help"
+    return ""
+  elseif &modified
+    return "+"
+  elseif &modifiable
+    return ""
+  else
+    return ""
+  endif
+endfunction
+
+function! MyReadonly()
+  if &filetype == "help"
+    return ""
+  elseif &readonly
+    return "⭤"
+  else
+    return ""
+  endif
+endfunction
+
+function! MyFugitive()
+  return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
+
+function! MyFilename()
+  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+       \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
