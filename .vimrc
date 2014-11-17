@@ -6,13 +6,14 @@ endif
 if has('gui_running')
   set t_Co=256
 endif
-call neobundle#rc(expand('~/.vim/bundle/'))
 
+call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'itchyny/lightline.vim'
+call neobundle#end()
 
 "General
 syntax on
