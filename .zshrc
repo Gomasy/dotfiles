@@ -53,7 +53,10 @@ export PATH=$HOME/bin:$HOME/.rvm/bin:$HOME/.gem/ruby/2.2.0/bin:/usr/local/bin:$P
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.rvm/scripts/rvm
+
+if [[ `id -u` -ne 0 ]]; then
+  source $HOME/.rvm/scripts/rvm
+fi
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
