@@ -1,109 +1,86 @@
-# General
-bindkey -v
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
 
-setopt no_beep
-setopt auto_cd
-setopt auto_pushd
-setopt auto_resume
-setopt auto_name_dirs
-setopt auto_param_slash
-setopt pushd_ignore_dups
-setopt rm_star_wait
-setopt sun_keyboard_hack
-setopt extended_glob
-setopt prompt_subst
-setopt cdable_vars
-setopt sh_word_split
-setopt notify
-setopt multios
-setopt numeric_glob_sort
-setopt transient_rprompt
-setopt brace_ccl
-setopt function_argzero
-setopt interactive_comments
-setopt no_check_jobs
-setopt no_promptcr
-setopt no_flow_control
-setopt no_tify
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="agnoster"
 
-# Complement
-autoload -U compinit promptinit
-compinit
-zstyle ':completion::complete:*' use-cache true
-zstyle ':completion:*:default' menu select=1
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-autoload colors
-zstyle ':completion:*' list-colors "${LS_COLORS}"
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31'
-zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-setopt auto_list
-setopt auto_menu
-setopt auto_remove_slash
-setopt auto_param_keys
-setopt list_packed
-setopt list_types
-setopt no_list_beep
-setopt print_eight_bit
-setopt always_last_prompt
-setopt all_export
-setopt correct
-setopt magic_equal_subst
-setopt complete_in_word
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-# History
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
 
-bindkey "^P" history-beginning-search-backward-end
-bindkey "^N" history-beginning-search-forward-end
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-HISTFILE=$HOME/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=1000000
-setopt hist_expire_dups_first
-setopt hist_find_no_dups
-setopt hist_no_functions
-setopt hist_ignore_dups
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_expand
-setopt hist_no_store
-setopt hist_reduce_blanks
-setopt hist_verify
-setopt hist_ignore_space
-setopt inc_append_history
-setopt extended_history
-setopt share_history
-setopt append_history
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-# Appearance
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "!"
-zstyle ':vcs_info:git:*' unstagedstr "+"
-zstyle ':vcs_info:git:*' formats ' %B%F{yellow}%c%u(%b)%f '
-zstyle ':vcs_info:git:*' actionformats ' (%b|%a) '
-precmd() { vcs_info }
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-export LSCOLORS=Exfxcxdxbxegedabagacad
-export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-export ZLS_COLORS=$LS_COLORS
-export CLICOLOR=true
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+# User configuration
+
+export PATH=$HOME/bin:$HOME/.rvm/bin:$HOME/.gem/ruby/2.2.0/bin:/usr/local/bin:$PATH
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
+source $HOME/.rvm/scripts/rvm
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+export EDITOR="vim"
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# 256 color
 export TERM=xterm-256color
 
-# Prompt
-PROMPT='%B%F{green}%n@%m:%F{blue}%~${vcs_info_msg_0_}%#%b%f '
-
-# Alias
-alias grep="grep --color=auto"
-alias fgrep="fgrep --color=auto"
-alias egrep="egrep --color=auto"
-alias ls="ls --color=auto"
-alias ll="ls -l"
-alias la="ls -A"
-alias l="ls -CF"
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias sl="ruby ~/Public/sl_tweet/sl.rb"
