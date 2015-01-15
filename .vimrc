@@ -1,6 +1,7 @@
 "--------------------------------------------------
 " NeoBundle settings
 "--------------------------------------------------
+
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -11,6 +12,7 @@ endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'mattn/emmet-vim'
@@ -123,18 +125,27 @@ set shiftwidth=2
 " Plugin settings
 "--------------------------------------------------
 
-"vim-quickrun
-nnoremap <silent>,qr :<C-u>QuickRun<CR>
-
 "vim-indent-guides
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
+
+
+"neocomplete.vim
+let g:neocomplete#enable_at_startup=1
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+
 
 "emmet-vim
 let g:user_emmet_settings = {
       \  'indentation': '    ',
       \  'lang': 'ja'
       \ }
+
 
 "lightline.vim
 let g:lightline = {
