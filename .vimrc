@@ -11,15 +11,15 @@ if has('gui_running')
 endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'nathanaelkane/vim-indent-guides'
+  NeoBundleFetch 'Shougo/neobundle.vim'
+  NeoBundle 'Shougo/neocomplete.vim'
+  NeoBundle 'itchyny/lightline.vim'
+  NeoBundle 'scrooloose/nerdtree'
+  NeoBundle 'mattn/emmet-vim'
+  NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'thinca/vim-quickrun'
+  NeoBundle 'bronson/vim-trailing-whitespace'
+  NeoBundle 'nathanaelkane/vim-indent-guides'
 call neobundle#end()
 
 
