@@ -26,7 +26,7 @@ fi
 
 # Gem settings
 if [[ -e $HOME/.gem ]]; then
-  export PATH=$HOME/.gem/ruby/`ls $HOME/.gem/ruby | sed -e '1d'`/bin:$PATH
+  export PATH=`gem environment | grep ".gem/ruby" | sed -e 's/     - //g'`/bin:$PATH
 fi
 
 # Set of use editor
