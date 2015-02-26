@@ -15,11 +15,18 @@ plugins=(git)
 
 # User configuration
 
-export PATH=$HOME/bin:$HOME/.rvm/bin:$HOME/.gem/ruby/2.2.0/bin:/usr/local/bin:$PATH
-
 source $ZSH/oh-my-zsh.sh
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# RVM settings
 if [[ -e $HOME/.rvm ]]; then
+  export PATH=$HOME/.rvm/bin:$PATH
   source $HOME/.rvm/scripts/rvm
+fi
+
+# Gem settings
+if [[ -e $HOME/.gem ]]; then
+  export PATH=$HOME/.gem/ruby/`ls $HOME/.gem/ruby | sed -e '1d'`/bin:$PATH
 fi
 
 # Set of use editor
