@@ -18,7 +18,7 @@ plugins=(git)
 export PATH=$HOME/bin:$HOME/.rvm/bin:$HOME/.gem/ruby/2.2.0/bin:/usr/local/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
-if [[ `id -u` -ne 0 ]]; then
+if [[ -e $HOME/.rvm ]]; then
   source $HOME/.rvm/scripts/rvm
 fi
 
