@@ -14,6 +14,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'Shougo/neocomplete.vim'
   NeoBundle 'itchyny/lightline.vim'
+  NeoBundle 'AndrewRadev/switch.vim'
   NeoBundle 'scrooloose/nerdtree'
   NeoBundle 'mattn/emmet-vim'
   NeoBundle 'tpope/vim-fugitive'
@@ -125,6 +126,10 @@ set shiftwidth=2
 " Plugin settings
 "--------------------------------------------------
 
+"switch.vim
+nnoremap t :Switch<cr>
+
+
 "vim-indent-guides
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
@@ -142,8 +147,10 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 
 "emmet-vim
 let g:user_emmet_settings = {
-      \  'indentation': '    ',
-      \  'lang': 'ja'
+      \  'variables': {
+      \    'indentation': '    ',
+      \    'lang': 'ja'
+      \  }
       \ }
 
 
