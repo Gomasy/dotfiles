@@ -20,13 +20,13 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # RVM settings
 if [[ -e $HOME/.rvm ]]; then
-  export PATH=$HOME/.rvm/bin:$PATH
   source $HOME/.rvm/scripts/rvm
+  export PATH=$HOME/.rvm/bin:$PATH
 fi
 
 # Gem settings
 if [[ -e $HOME/.gem ]]; then
-  export PATH=`gem environment | grep ".gem/ruby" | sed -e 's/     - //g'`/bin:$PATH
+  export PATH=`gem environment | grep '^.*\/.gem\/ruby/[0-9]\+\?\.[0-9]\+\?\.\?[0-9]$' | sed -e 's/     - //g'`/bin:$PATH
 fi
 
 # Set of use editor
