@@ -1,7 +1,6 @@
 "--------------------------------------------------
 " NeoBundle settings
 "--------------------------------------------------
-
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -27,51 +26,21 @@ call neobundle#end()
 "--------------------------------------------------
 " General settings
 "--------------------------------------------------
-
-"シンタックスハイライトを有効化
-syntax on
-
-"カラースキームを設定
-colorscheme ron
-
-"エンコーディングを設定
-set encoding=utf-8
-
-"カレントバッファ内のファイルの文字エンコーディングを設定
-set fileencoding=utf-8
-
-"スクロール時、指定した分行数に余裕を持たせる
-set scrolloff=5
-
-"ステータスラインを表示するウィンドウを設定する
-set laststatus=2
-
-"マウスを使えるようにする
-set mouse=a
-
-"移動コマンドを使った際行頭に移動しない
-set nostartofline
-
-"一時ファイルを作成しない
-set noswapfile
-
-"バックアップを作成しない
-set nobackup
-
-"ファイルを上書きする際バックアップを作成しない
-set nowritebackup
-
-"ターミナルのタイトルに編集中のファイル名を表示
-set title
-
-"行番号を表示
-set number
-
-"カーソルがどこに置かれているか表示する
-set ruler
-
-"タブ文字、行末などの不可視文字を表示する
-set list
+syntax on              "シンタックスハイライトを有効化
+colorscheme ron        "カラースキームを設定
+set encoding=utf-8     "エンコーディングを設定
+set fileencoding=utf-8 "カレントバッファ内のファイルの文字エンコーディングを設定
+set scrolloff=5        "スクロール時、指定した分行数に余裕を持たせる
+set laststatus=2       "ステータスラインを表示するウィンドウを設定する
+set mouse=a            "マウスを使えるようにする
+set nostartofline      "移動コマンドを使った際行頭に移動しない
+set noswapfile         "一時ファイルを作成しない
+set nobackup           "バックアップを作成しない
+set nowritebackup      "ファイルを上書きする際バックアップを作成しない
+set title              "ターミナルのタイトルに編集中のファイル名を表示
+set number             "行番号を表示
+set ruler              "カーソルがどこに置かれているか表示する
+set list               "タブ文字、行末などの不可視文字を表示する
 
 "上記の設定で表示される文字のフォーマットを指定する
 set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮
@@ -80,46 +49,26 @@ set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮
 "--------------------------------------------------
 " Search settings
 "--------------------------------------------------
-
-"大文字小文字を区別しない
-set ignorecase
-
-"大文字も含めた検索の場合はその通りにする
-set smartcase
-
-"インクリメンタルサーチを行う
-set incsearch
-
-"ファイルの末端まで検索しても先頭へ戻らない
-set nowrapscan
-
-"履歴の最大値
-set history=1000
+set ignorecase   "大文字小文字を区別しない
+set smartcase    "大文字も含めた検索の場合はその通りにする
+set incsearch    "インクリメンタルサーチを行う
+set nowrapscan   "ファイルの末端まで検索しても先頭へ戻らない
+set history=1000 "履歴の最大値
 
 
 "--------------------------------------------------
 " Bracket settings
 "--------------------------------------------------
-
-"パーセントキーでカーソル移動できる組み合わせ
-set matchpairs=(:),{:},[:],<:>
-
-"対応する括弧やブレースを表示する
-set showmatch
-
-"括弧を表示する時間
-set matchtime=3
+set matchpairs=(:),{:},[:],<:> "パーセントキーでカーソル移動できる組み合わせ
+set showmatch                  "対応する括弧やブレースを表示する
+set matchtime=3                "括弧を表示する時間
 
 
 "--------------------------------------------------
 " Tab settings
 "--------------------------------------------------
-
-"タブの文字数を設定
-set tabstop=2
-
-"インデントのスペース数を設定
-set shiftwidth=2
+set tabstop=2    "タブの文字数を設定
+set shiftwidth=2 "インデントのスペース数を設定
 
 
 "--------------------------------------------------
