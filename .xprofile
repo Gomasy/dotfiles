@@ -4,5 +4,6 @@ export DISABLE_BUNDLER_SETUP=1
 export XMODIFIERS="@im=uim"
 export GTK_IM_MODULE="xim"
 export QT_IM_MODULE="xim"
+synclient VertEdgeScroll=1
 uim-xim &
 uim-toolbar-gtk3-systray &
