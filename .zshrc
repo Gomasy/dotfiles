@@ -45,3 +45,5 @@ export rvm_ignore_gemrc_issues=1
 
 # Spelling correction for commands
 setopt correct
+
+alias emacs=vim
