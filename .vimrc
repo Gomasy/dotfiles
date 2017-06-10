@@ -1,79 +1,75 @@
-"--------------------------------------------------
-" NeoBundle settings
-"--------------------------------------------------
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+"dein Scripts-----------------------------
+
+if !&compatible
+  set nocompatible
 endif
 
-if has('gui_running')
-  set t_Co=256
+"reset augroup
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
+"dein settings {{{
+let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+let s:dein_dir = s:cache_home . '/dein'
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if !isdirectory(s:dein_repo_dir)
+  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+endif
+let &runtimepath = s:dein_repo_dir .",". &runtimepath
+let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/.dein.toml'
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+  call dein#load_toml(s:toml_file)
+  call dein#end()
+  call dein#save_state()
+endif
+if has('vim_starting') && dein#check_install()
+  call dein#install()
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-  NeoBundleFetch 'Shougo/neobundle.vim'
-  NeoBundle 'Shougo/neocomplete.vim'
-  NeoBundle 'itchyny/lightline.vim'
-  NeoBundle 'AndrewRadev/switch.vim'
-  NeoBundle 'scrooloose/nerdtree'
-  NeoBundle 'mattn/emmet-vim'
-  NeoBundle 'tpope/vim-fugitive'
-  NeoBundle 'thinca/vim-quickrun'
-  NeoBundle 'bronson/vim-trailing-whitespace'
-  NeoBundle 'nathanaelkane/vim-indent-guides'
-call neobundle#end()
+"End dein Scripts-------------------------
 
 
-"--------------------------------------------------
-" General settings
-"--------------------------------------------------
-syntax on              "シンタックスハイライトを有効化
-colorscheme ron        "カラースキームを設定
-set encoding=utf-8     "エンコーディングを設定
-set fileencoding=utf-8 "カレントバッファ内のファイルの文字エンコーディングを設定
-set scrolloff=5        "スクロール時、指定した分行数に余裕を持たせる
-set laststatus=2       "ステータスラインを表示するウィンドウを設定する
-set mouse=a            "マウスを使えるようにする
-set nostartofline      "移動コマンドを使った際行頭に移動しない
-set noswapfile         "一時ファイルを作成しない
-set nobackup           "バックアップを作成しない
-set nowritebackup      "ファイルを上書きする際バックアップを作成しない
-set title              "ターミナルのタイトルに編集中のファイル名を表示
-set number             "行番号を表示
-set ruler              "カーソルがどこに置かれているか表示する
-set list               "タブ文字、行末などの不可視文字を表示する
-
-"上記の設定で表示される文字のフォーマットを指定する
+"General settings-------------------------
+syntax on
+colorscheme ron
+set encoding=utf-8
+set fileencoding=utf-8
+set scrolloff=5
+set laststatus=2
+set mouse=a
+set nostartofline
+set noswapfile
+set nobackup
+set nowritebackup
+set title
+set number
+set ruler
+set list
 set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮
 
 
-"--------------------------------------------------
-" Search settings
-"--------------------------------------------------
-set ignorecase   "大文字小文字を区別しない
-set smartcase    "大文字も含めた検索の場合はその通りにする
-set incsearch    "インクリメンタルサーチを行う
-set nowrapscan   "ファイルの末端まで検索しても先頭へ戻らない
-set history=1000 "履歴の最大値
+"Search settings--------------------------
+set ignorecase
+set smartcase
+set incsearch
+set nowrapscan
+set history=1000
 
 
-"--------------------------------------------------
-" Bracket settings
-"--------------------------------------------------
-set matchpairs=(:),{:},[:],<:> "パーセントキーでカーソル移動できる組み合わせ
-set showmatch                  "対応する括弧やブレースを表示する
-set matchtime=3                "括弧を表示する時間
+"Bracket settings-------------------------
+set matchpairs=(:),{:},[:],<:>
+set showmatch
+set matchtime=3
 
 
-"--------------------------------------------------
-" Tab settings
-"--------------------------------------------------
-set tabstop=2    "タブの文字数を設定
-set shiftwidth=2 "インデントのスペース数を設定
+"Tab settings-----------------------------
+set tabstop=2
+set shiftwidth=2
 
 
-"--------------------------------------------------
-" Plugin settings
-"--------------------------------------------------
+"Plugin settings--------------------------
 
 "switch.vim
 nnoremap t :Switch<cr>
@@ -92,15 +88,6 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 
 let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-
-
-"emmet-vim
-let g:user_emmet_settings = {
-      \  'variables': {
-      \    'indentation': '    ',
-      \    'lang': 'ja'
-      \  }
-      \ }
 
 
 "lightline.vim
