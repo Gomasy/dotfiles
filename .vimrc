@@ -165,29 +165,29 @@ nnoremap <silent>t :Switch<CR>
 "vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+let g:indent_guides_exclude_filetypes = [ 'help', 'nerdtree' ]
 
 
 "lightline.vim
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ 'mode_map': { 'c': 'NORMAL' },
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-      \ },
-      \ 'component_function': {
-      \   'modified': 'MyModified',
-      \   'readonly': 'MyReadonly',
-      \   'fugitive': 'MyFugitive',
-      \   'filename': 'MyFilename',
-      \   'fileformat': 'MyFileformat',
-      \   'filetype': 'MyFiletype',
-      \   'fileencoding': 'MyFileencoding',
-      \   'mode': 'MyMode',
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
+  \ 'colorscheme': 'solarized',
+  \ 'mode_map': { 'c': 'NORMAL' },
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+  \ },
+  \ 'component_function': {
+  \   'modified': 'MyModified',
+  \   'readonly': 'MyReadonly',
+  \   'fugitive': 'MyFugitive',
+  \   'filename': 'MyFilename',
+  \   'fileformat': 'MyFileformat',
+  \   'filetype': 'MyFiletype',
+  \   'fileencoding': 'MyFileencoding',
+  \   'mode': 'MyMode',
+  \ },
+  \ 'separator': { 'left': '', 'right': '' },
+  \ 'subseparator': { 'left': '', 'right': '' }
+  \ }
 
 function! MyModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
