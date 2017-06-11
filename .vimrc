@@ -4,11 +4,6 @@ if !&compatible
   set nocompatible
 endif
 
-"reset augroup
-augroup MyAutoCmd
-  autocmd!
-augroup END
-
 "dein settings {{{
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let s:dein_dir = s:cache_home . '/dein'
@@ -19,11 +14,15 @@ if !isdirectory(s:dein_repo_dir)
 endif
 
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
-let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/.dein.toml'
+let s:toml = fnamemodify(expand('<sfile>'), ':h').'/.dein.toml'
+let s:lazy_toml = fnamemodify(expand('<sfile>'), ':h').'/.dein_lazy.toml'
 
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
-  call dein#load_toml(s:toml_file)
+
+  call dein#load_toml(s:toml, {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
   call dein#end()
   call dein#save_state()
 endif
@@ -43,6 +42,7 @@ endif
 syntax on
 colorscheme molokai
 highlight Visual ctermbg=8
+
 set encoding=utf-8
 set fileencoding=utf-8
 set scrolloff=5
@@ -90,16 +90,33 @@ set shiftwidth=2
 "Plugin settings--------------------------
 
 "nerdtree
-autocmd stdinreadpre * let s:std_in=1
+autocmd stdinreadpre * let s:std_in = 1
 autocmd vimenter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+nnoremap <silent><C-n> :NERDTreeToggle<CR>
 
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
 
-nnoremap <C-n> :NERDTree<CR>
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+  exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('py', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('rb', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
 
 "neocomplete.vim
-let g:neocomplete#enable_at_startup=1
+let g:neocomplete#enable_at_startup = 1
 
 if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
@@ -142,12 +159,13 @@ nnoremap <C-e> :QuickRun<CR>
 
 
 "switch.vim
-nnoremap t :Switch<CR>
+nnoremap <silent>t :Switch<CR>
 
 
 "vim-indent-guides
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=2
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 
 
 "lightline.vim

@@ -6,16 +6,7 @@ repo = 'Shougo/vimproc.vim'
 build = 'make'
 
 [[plugins]]
-repo = 'Shougo/neocomplete.vim'
-
-[[plugins]]
-repo = 'Shougo/neosnippet'
-
-[[plugins]]
 repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
-repo = 'Shougo/vimshell'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -30,19 +21,10 @@ repo = 'itchyny/lightline.vim'
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-repo = 'thinca/vim-quickrun'
-
-[[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
-
-[[plugins]]
-repo = 'AndrewRadev/switch.vim'
-
-[[plugins]]
-repo = 'ujihisa/neco-look'
 
 [[plugins]]
 repo = 'tomasr/molokai'
