@@ -13,18 +13,26 @@ augroup END
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
 if !isdirectory(s:dein_repo_dir)
   call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
 endif
+
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
 let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/.dein.toml'
+
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
   call dein#load_toml(s:toml_file)
   call dein#end()
   call dein#save_state()
 endif
-if has('vim_starting') && dein#check_install()
+
+if dein#check_install(['vimproc.vim'])
+  call dein#install(['vimproc.vim'])
+endif
+
+if dein#check_install()
   call dein#install()
 endif
 
@@ -71,13 +79,10 @@ set shiftwidth=2
 
 "Plugin settings--------------------------
 
-"switch.vim
-nnoremap t :Switch<cr>
-
-
-"vim-indent-guides
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=2
+"nerdtree
+autocmd stdinreadpre * let s:std_in=1
+autocmd vimenter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+nnoremap <C-n> :NERDTree<CR>
 
 
 "neocomplete.vim
@@ -88,6 +93,42 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 
 let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+
+
+"neosnippet
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+imap <silent><C-k> <Esc>:let g:neosnippet_expanding_or_jumpping = 1<CR>a<Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+
+"neco-look
+if !exists('g:neocomplete#text_mode_filetypes')
+  let g:neocomplete#text_mode_filetypes = {}
+endif
+
+let g:neocomplete#text_mode_filetypes = {
+  \ 'gitrebase': 1,
+  \ 'gitcommit': 1,
+  \ 'markdown': 1,
+  \ 'hybrid' : 1,
+  \ 'text': 1,
+  \ 'help': 1,
+  \ }
+
+
+"vim-quickrun
+nnoremap <C-e> :QuickRun<CR>
+
+
+"switch.vim
+nnoremap t :Switch<CR>
+
+
+"vim-indent-guides
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
 
 
 "lightline.vim
