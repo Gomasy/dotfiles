@@ -90,11 +90,11 @@ set shiftwidth=2
 "Plugin settings--------------------------
 
 "nerdtree
+let NERDTreeShowHidden = 1
+
 autocmd stdinreadpre * let s:std_in = 1
 autocmd vimenter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 nnoremap <silent><C-n> :NERDTreeToggle<CR>
-
-let NERDTreeShowHidden = 1
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
   exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
@@ -155,7 +155,7 @@ nnoremap <silent>,irb :VimShellInteractive irb<CR>
 
 
 "vim-quickrun
-nnoremap <C-e> :QuickRun<CR>
+nnoremap <silent><C-e> :QuickRun<CR>
 
 
 "switch.vim
