@@ -41,7 +41,8 @@ endif
 
 "General settings-------------------------
 syntax on
-colorscheme ron
+colorscheme molokai
+highlight Visual ctermbg=8
 set encoding=utf-8
 set fileencoding=utf-8
 set scrolloff=5
@@ -51,6 +52,11 @@ set nostartofline
 set noswapfile
 set nobackup
 set nowritebackup
+set splitbelow
+set splitright
+set cursorline
+set cursorcolumn
+set showcmd
 set title
 set number
 set ruler
@@ -62,7 +68,8 @@ set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮
 set ignorecase
 set smartcase
 set incsearch
-set nowrapscan
+set hlsearch
+set wrapscan
 set history=1000
 
 
@@ -73,6 +80,9 @@ set matchtime=3
 
 
 "Tab settings-----------------------------
+set autoindent
+set smartindent
+set expandtab
 set tabstop=2
 set shiftwidth=2
 
@@ -82,6 +92,9 @@ set shiftwidth=2
 "nerdtree
 autocmd stdinreadpre * let s:std_in=1
 autocmd vimenter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+
+let NERDTreeShowHidden=1
+
 nnoremap <C-n> :NERDTree<CR>
 
 
@@ -116,6 +129,12 @@ let g:neocomplete#text_mode_filetypes = {
   \ 'text': 1,
   \ 'help': 1,
   \ }
+
+
+"vimshell
+nnoremap <silent>,is :VimShell<CR>
+nnoremap <silent>,ipy :VimShellInteractive python<CR>
+nnoremap <silent>,irb :VimShellInteractive irb<CR>
 
 
 "vim-quickrun

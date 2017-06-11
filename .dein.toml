@@ -21,6 +21,9 @@ repo = 'Shougo/vimshell'
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
@@ -40,3 +43,6 @@ repo = 'AndrewRadev/switch.vim'
 
 [[plugins]]
 repo = 'ujihisa/neco-look'
+
+[[plugins]]
+repo = 'tomasr/molokai'
