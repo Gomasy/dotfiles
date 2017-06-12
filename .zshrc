@@ -49,4 +49,6 @@ alias vi="vim"
 setopt correct
 
 # Show motd
-archey3
+if [[ -e /usr/bin/archey3 ]]; then
+  archey3
+fi
