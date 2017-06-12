@@ -47,3 +47,6 @@ alias vi="vim"
 
 # Spelling correction for commands
 setopt correct
+
+# Show motd
+archey3
