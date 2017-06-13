@@ -102,9 +102,9 @@ nnoremap <silent>,su :w !sudo tee %<CR>
 nnoremap <silent><C-n> :new<CR>
 nnoremap <silent><C-w>s :sp<CR>
 nnoremap <silent><C-w>v :vsp<CR>
-nnoremap <silent><C-w>os :sp<space>
-nnoremap <silent><C-w>ov :vsp<space>
-nnoremap <silent><C-o> :o<space>
+nnoremap <C-w>os :sp<space>
+nnoremap <C-w>ov :vsp<space>
+nnoremap <C-o> :o<space>
 
 
 "Plugin settings--------------------------
