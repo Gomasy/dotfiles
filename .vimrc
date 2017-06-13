@@ -52,11 +52,12 @@ set nostartofline
 set noswapfile
 set nobackup
 set nowritebackup
+set noshowmode
+set showcmd
 set splitbelow
 set splitright
 set cursorline
 set cursorcolumn
-set showcmd
 set title
 set number
 set ruler
