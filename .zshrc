@@ -50,5 +50,7 @@ setopt correct
 
 # Show motd
 if [[ -e /usr/bin/archey3 ]]; then
-  archey3
+  if [[ ! `id -u` -eq 0 ]]; then
+    archey3
+  fi
 fi
