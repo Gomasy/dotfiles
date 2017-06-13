@@ -45,24 +45,33 @@ highlight Visual ctermbg=8
 
 set encoding=utf-8
 set fileencoding=utf-8
-set scrolloff=5
-set laststatus=2
+set clipboard+=unnamed
 set mouse=a
-set nostartofline
+set emoji
+set hidden
+set autoread
+set lazyredraw
 set noswapfile
 set nobackup
 set nowritebackup
-set noshowmode
-set showcmd
+
+
+"UI settings------------------------------
+set termguicolors
 set splitbelow
 set splitright
 set cursorline
 set cursorcolumn
+set nostartofline
+set noshowmode
+set showcmd
 set title
 set number
 set ruler
 set list
 set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮
+set scrolloff=5
+set laststatus=2
 
 
 "Search settings--------------------------
@@ -88,6 +97,16 @@ set tabstop=2
 set shiftwidth=2
 
 
+"Key binding settings---------------------
+nnoremap <silent>,su :w !sudo tee %<CR>
+nnoremap <silent><C-n> :new<CR>
+nnoremap <silent><C-w>s :sp<CR>
+nnoremap <silent><C-w>v :vsp<CR>
+nnoremap <silent><C-w>os :sp<space>
+nnoremap <silent><C-w>ov :vsp<space>
+nnoremap <silent><C-o> :o<space>
+
+
 "Plugin settings--------------------------
 
 "nerdtree
@@ -95,7 +114,7 @@ let NERDTreeShowHidden = 1
 
 autocmd stdinreadpre * let s:std_in = 1
 autocmd vimenter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
-nnoremap <silent><C-n> :NERDTreeToggle<CR>
+nnoremap <silent><C-f> :NERDTreeToggle<CR>
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
   exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
@@ -171,7 +190,7 @@ let g:indent_guides_exclude_filetypes = [ 'help', 'nerdtree' ]
 
 "lightline.vim
 let g:lightline = {
-  \ 'colorscheme': 'solarized',
+  \ 'colorscheme': 'wombat',
   \ 'mode_map': { 'c': 'NORMAL' },
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
