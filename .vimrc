@@ -105,6 +105,33 @@ nnoremap <C-w>os :sp<space>
 nnoremap <C-w>ov :vsp<space>
 nnoremap <C-o> :o<space>
 
+function Tab_switch()
+  if &expandtab == '1'
+    set noexpandtab
+  else
+    set expandtab
+  endif
+endfunction
+nnoremap <silent><S-TAB> :call Tab_switch()<CR>
+
+function Wrap_switch()
+  if &wrap == '1'
+    set nowrap
+  else
+    set wrap
+  endif
+endfunction
+nnoremap <silent><ESC>w :call Wrap_switch()<CR>
+
+function TrueColor_switch()
+  if &termguicolors == '1'
+    set notermguicolors
+  else
+    set termguicolors
+  endif
+endfunction
+nnoremap <silent><ESC>g :call TrueColor_switch()<CR>
+
 
 "Plugin settings--------------------------
 
