@@ -33,7 +33,7 @@ fi
 export EDITOR="vim"
 
 # Using 256-colors mode
-export TERM=xterm-256color
+export TERM="xterm-256color"
 
 # Avoid gemrc warning
 export rvm_ignore_gemrc_issues=1
