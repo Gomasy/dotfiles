@@ -4,6 +4,11 @@ if !&compatible
   set nocompatible
 endif
 
+"reset augroup
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
 "dein settings {{{
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let s:dein_dir = s:cache_home . '/dein'
@@ -46,6 +51,7 @@ highlight Visual ctermbg=8
 set encoding=utf-8
 set fileencoding=utf-8
 set mouse=a
+set tildeop
 set emoji
 set hidden
 set autoread
@@ -88,9 +94,10 @@ set matchpairs=(:),{:},[:],<:>
 set matchtime=3
 
 
-"Tab settings-----------------------------
+"Indent settings-----------------------------
 set autoindent
 set smartindent
+set breakindent
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -106,7 +113,7 @@ nnoremap <C-w>ov :vsp<space>
 nnoremap <C-o> :o<space>
 
 function Tab_switch()
-  if &expandtab == '1'
+  if &expandtab
     set noexpandtab
   else
     set expandtab
@@ -115,7 +122,7 @@ endfunction
 nnoremap <silent><S-TAB> :call Tab_switch()<CR>
 
 function Wrap_switch()
-  if &wrap == '1'
+  if &wrap
     set nowrap
   else
     set wrap
@@ -124,7 +131,7 @@ endfunction
 nnoremap <silent><ESC>w :call Wrap_switch()<CR>
 
 function TrueColor_switch()
-  if &termguicolors == '1'
+  if &termguicolors
     set notermguicolors
   else
     set termguicolors
