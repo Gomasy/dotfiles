@@ -78,13 +78,13 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
-set wrapscan
+set nowrapscan
 set history=1000
 
 
 "Bracket settings-------------------------
-set matchpairs=(:),{:},[:],<:>
 set showmatch
+set matchpairs=(:),{:},[:],<:>
 set matchtime=3
 
 
@@ -131,6 +131,15 @@ function TrueColor_switch()
   endif
 endfunction
 nnoremap <silent><ESC>g :call TrueColor_switch()<CR>
+
+function Mouse_switch()
+  if &mouse == 'a'
+    set mouse=
+  else
+    set mouse=a
+  endif
+endfunction
+nnoremap <silent><ESC>m :call Mouse_switch()<CR>
 
 
 "Plugin settings--------------------------
@@ -195,7 +204,7 @@ let g:neocomplete#text_mode_filetypes = {
 
 
 "vimshell
-nnoremap <silent>,is :VimShell<CR>
+nnoremap <silent>,is :new<CR>:VimShell<CR>
 nnoremap <silent>,ipy :VimShellInteractive python<CR>
 nnoremap <silent>,irb :VimShellInteractive irb<CR>
 
