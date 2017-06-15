@@ -56,6 +56,7 @@ set display=uhex
 set mouse=a
 set visualbell t_vb=
 set noerrorbells
+set wildignorecase
 set wildmenu
 set tildeop
 set hidden
