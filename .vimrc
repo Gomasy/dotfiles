@@ -259,7 +259,7 @@ let g:lightline = {
   \   'mode': 'MyMode',
   \ },
   \ 'separator': { 'left': '', 'right': '' },
-  \ 'subseparator': { 'left': '', 'right': '' }
+  \ 'subseparator': { 'left': '', 'right': '' },
   \ }
 
 function! MyModified()
