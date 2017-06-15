@@ -25,8 +25,8 @@ let s:lazy_toml = fnamemodify(expand('<sfile>'), ':h').'/.dein_lazy.toml'
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
-  call dein#load_toml(s:toml, {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+  call dein#load_toml(s:toml, { 'lazy': 0 })
+  call dein#load_toml(s:lazy_toml, { 'lazy': 1 })
 
   call dein#end()
   call dein#save_state()
@@ -51,6 +51,9 @@ highlight Visual ctermbg=8
 set encoding=utf-8
 set fileencoding=utf-8
 set mouse=a
+set visualbell t_vb=
+set noerrorbells
+set wildmenu
 set tildeop
 set emoji
 set hidden
@@ -96,7 +99,6 @@ set matchtime=3
 
 "Indent settings-----------------------------
 set autoindent
-set smartindent
 set breakindent
 set expandtab
 set tabstop=2
@@ -105,6 +107,7 @@ set shiftwidth=2
 
 "Key binding settings---------------------
 nnoremap <silent>,su :w !sudo tee %<CR>
+nnoremap <silent><ESC><ESC> :noh<CR>
 nnoremap <silent><C-n> :new<CR>
 nnoremap <silent><C-w>s :sp<CR>
 nnoremap <silent><C-w>v :vsp<CR>
@@ -154,8 +157,8 @@ nnoremap <silent><ESC>m :call Mouse_switch()<CR>
 "nerdtree
 let NERDTreeShowHidden = 1
 
-autocmd stdinreadpre * let s:std_in = 1
-autocmd vimenter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+autocmd vimenter * if !argc() | NERDTree | endif
+autocmd bufenter * if winnr('$') && exists('b:NERDTree') | q | endif
 nnoremap <silent><C-f> :NERDTreeToggle<CR>
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -211,7 +214,7 @@ let g:neocomplete#text_mode_filetypes = {
 
 
 "vimshell
-nnoremap <silent>,is :new<CR>:VimShell<CR>
+nnoremap <silent>,is :VimShell<CR>
 nnoremap <silent>,ipy :VimShellInteractive python<CR>
 nnoremap <silent>,irb :VimShellInteractive irb<CR>
 

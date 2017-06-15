@@ -9,6 +9,9 @@ build = 'make'
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
+repo = 'Shougo/vimshell'
+
+[[plugins]]
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
