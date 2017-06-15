@@ -58,7 +58,6 @@ set visualbell t_vb=
 set noerrorbells
 set wildmenu
 set tildeop
-set emoji
 set hidden
 set autoread
 set lazyredraw
