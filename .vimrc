@@ -51,6 +51,7 @@ filetype plugin indent on
 
 set encoding=utf-8
 set fileencoding=utf-8
+set display=uhex
 set mouse=a
 set visualbell t_vb=
 set noerrorbells
