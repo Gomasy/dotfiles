@@ -215,14 +215,19 @@ let g:neocomplete#text_mode_filetypes = {
   \ }
 
 
+"vim-quickrun
+nnoremap <silent><C-e> :QuickRun<CR>
+let g:quickrun_config = {
+  \   '_': {
+  \     'runner': 'vimproc',
+  \     'runner/vimproc/updatetime': 60,
+  \   }
+  \ }
+
 "vimshell
 nnoremap <silent>,is :VimShell<CR>
 nnoremap <silent>,ipy :VimShellInteractive python<CR>
 nnoremap <silent>,irb :VimShellInteractive irb<CR>
-
-
-"vim-quickrun
-nnoremap <silent><C-e> :QuickRun<CR>
 
 
 "switch.vim
