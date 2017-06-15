@@ -1,0 +1,82 @@
+"General settings-------------------------
+if !&compatible
+  set nocompatible
+endif
+
+syntax on
+colorscheme ron
+filetype plugin indent on
+
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,cp932,sjis,euc-jp
+set display=uhex
+set mouse=a
+set visualbell t_vb=
+set noerrorbells
+set wildignorecase
+set wildmenu
+set tildeop
+set hidden
+set autoread
+set lazyredraw
+set noswapfile
+set nobackup
+set nowritebackup
+
+
+"UI settings------------------------------
+set splitbelow
+set splitright
+set cursorline
+set cursorcolumn
+set nostartofline
+set showcmd
+set title
+set number
+set ruler
+set scrolloff=5
+set laststatus=2
+
+
+"Search settings--------------------------
+set showmatch
+set matchpairs=(:),{:},[:],<:>
+set matchtime=3
+
+
+"Indent settings-----------------------------
+set autoindent
+set breakindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
+
+
+"Key binding settings---------------------
+function Tab_switch()
+  if &expandtab
+    set noexpandtab
+  else
+    set expandtab
+  endif
+endfunction
+nnoremap <silent><S-TAB> :call Tab_switch()<CR>
+
+function Wrap_switch()
+  if &wrap
+    set nowrap
+  else
+    set wrap
+  endif
+endfunction
+nnoremap <silent><ESC>w :call Wrap_switch()<CR>
+
+function Mouse_switch()
+  if &mouse == 'a'
+    set mouse=
+  else
+    set mouse=a
+  endif
+endfunction
+nnoremap <silent><ESC>m :call Mouse_switch()<CR>
