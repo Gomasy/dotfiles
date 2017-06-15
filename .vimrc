@@ -159,7 +159,7 @@ nnoremap <silent><ESC>m :call Mouse_switch()<CR>
 let NERDTreeShowHidden = 1
 
 autocmd vimenter * if !argc() | NERDTree | endif
-autocmd bufenter * if winnr('$') && exists('b:NERDTree') | q | endif
+autocmd bufenter * if winnr('$') == 1 && exists('b:NERDTree') | q | endif
 nnoremap <silent><C-f> :NERDTreeToggle<CR>
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
