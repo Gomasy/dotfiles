@@ -18,10 +18,10 @@ plugins=(git themes nyan)
 source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# RVM settings
-if [[ -e $HOME/.rvm ]]; then
-  source $HOME/.rvm/scripts/rvm
-  export PATH=$HOME/.rvm/bin:$PATH
+# rbenv settings
+if [[ -e $HOME/.rbenv ]]; then
+  export PATH=$HOME/.rbenv/bin:$PATH
+  eval "$(rbenv init -)"
 fi
 
 # Gem settings
@@ -34,9 +34,6 @@ export EDITOR="vim"
 
 # Using 256-colors mode
 export TERM="xterm-256color"
-
-# Avoid gemrc warning
-export rvm_ignore_gemrc_issues=1
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
