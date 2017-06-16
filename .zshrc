@@ -59,7 +59,7 @@ fi
 
 # Run tmux
 if [[ -e /usr/bin/tmux && ! -n $TMUX && ! $- == *l* ]]; then
-  if [[ "`tmux list-sessions 2>&1`" =~ "no.*$" ]]; then
+  if [[ `tmux list-sessions 2>&1` =~ "no.*$" ]]; then
     tmux
   else
     tmux a
