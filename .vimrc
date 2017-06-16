@@ -113,9 +113,9 @@ set shiftwidth=2
 nnoremap <silent>,su :w !sudo tee %<CR>
 nnoremap <silent><ESC><ESC> :noh<CR>
 nnoremap <silent><C-n> :new<CR>
-nnoremap <silent><C-w>s :sp<CR>
+nnoremap <silent><C-w>h :sp<CR>
 nnoremap <silent><C-w>v :vsp<CR>
-nnoremap <C-w>os :sp<space>
+nnoremap <C-w>oh :sp<space>
 nnoremap <C-w>ov :vsp<space>
 nnoremap <C-o> :o<space>
 
