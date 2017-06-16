@@ -46,6 +46,7 @@ export TERM="xterm-256color"
 # For a full list of active aliases, run `alias`.
 alias emacs=$EDITOR
 alias vi=$EDITOR
+alias quit="tmux detach-client"
 
 # Spelling correction for commands
 setopt correct
