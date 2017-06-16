@@ -58,7 +58,7 @@ if [[ -e /usr/bin/archey3 && -n $TMUX ]]; then
 fi
 
 # Run tmux
-if [[ -e /usr/bin/tmux && ! -n $TMUX ]]; then
+if [[ -e /usr/bin/tmux && ! -n $TMUX && ! $- == *l* ]]; then
   if [[ "`tmux list-sessions 2>&1`" =~ "no.*$" ]]; then
     tmux
   else
