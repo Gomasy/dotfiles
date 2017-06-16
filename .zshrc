@@ -29,6 +29,11 @@ if [[ -e $HOME/.gem ]]; then
   export PATH=`gem environment | grep 'USER INSTALLATION DIRECTORY:' | sed -e 's/  - USER INSTALLATION DIRECTORY: //g'`/bin:$PATH
 fi
 
+# Powerline settings
+if [[ -e $HOME/.cache/dein ]]; then
+  export PATH=$HOME/.cache/dein/repos/github.com/powerline/powerline/scripts:$PATH
+fi
+
 # Set of use editor
 export EDITOR="vim"
 
