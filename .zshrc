@@ -51,8 +51,19 @@ alias vi=$EDITOR
 setopt correct
 
 # Show motd
-if [[ -e /usr/bin/archey3 ]]; then
+if [[ -e /usr/bin/archey3 && -n $TMUX ]]; then
   if [[ ! `id -u` -eq 0 ]]; then
     archey3
   fi
+fi
+
+# Run tmux
+if [[ -e /usr/bin/tmux && ! -n $TMUX ]]; then
+  if [[ "`tmux list-sessions 2>&1`" =~ "no.*$" ]]; then
+    tmux
+  else
+    tmux a
+  fi
+  tmux kill-server
+  exit
 fi
