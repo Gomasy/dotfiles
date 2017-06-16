@@ -18,9 +18,6 @@ repo = 'scrooloose/nerdtree'
 repo = 'Xuyuanp/nerdtree-git-plugin'
 
 [[plugins]]
-repo = 'itchyny/lightline.vim'
-
-[[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
@@ -31,3 +28,6 @@ repo = 'nathanaelkane/vim-indent-guides'
 
 [[plugins]]
 repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'powerline/powerline'

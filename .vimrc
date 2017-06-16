@@ -18,7 +18,7 @@ if !isdirectory(s:dein_repo_dir)
   call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
 endif
 
-let &runtimepath = s:dein_repo_dir .",". &runtimepath
+let &runtimepath = s:dein_repo_dir .','. &runtimepath
 let s:toml = fnamemodify(expand('<sfile>'), ':h').'/.dein.toml'
 let s:lazy_toml = fnamemodify(expand('<sfile>'), ':h').'/.dein_lazy.toml'
 
@@ -83,6 +83,7 @@ set list
 set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮
 set scrolloff=5
 set laststatus=2
+set showtabline=2
 
 
 "Search settings--------------------------
@@ -241,64 +242,5 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_exclude_filetypes = [ 'help', 'nerdtree' ]
 
 
-"lightline.vim
-let g:lightline = {
-  \ 'colorscheme': 'wombat',
-  \ 'mode_map': { 'c': 'NORMAL' },
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
-  \ },
-  \ 'component_function': {
-  \   'modified': 'MyModified',
-  \   'readonly': 'MyReadonly',
-  \   'fugitive': 'MyFugitive',
-  \   'filename': 'MyFilename',
-  \   'fileformat': 'MyFileformat',
-  \   'filetype': 'MyFiletype',
-  \   'fileencoding': 'MyFileencoding',
-  \   'mode': 'MyMode',
-  \ },
-  \ 'separator': { 'left': '', 'right': '' },
-  \ 'subseparator': { 'left': '', 'right': '' },
-  \ }
-
-function! MyModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! MyReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '' : ''
-endfunction
-
-function! MyFilename()
-  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-      \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-      \  &ft == 'unite' ? unite#get_status_string() :
-      \  &ft == 'vimshell' ? vimshell#get_status_string() :
-      \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-      \ ('' != MyModified() ? ' ' . MyModified() : '')
-endfunction
-
-function! MyFugitive()
-  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
-    let _ = fugitive#head()
-    return strlen(_) ? ' '._ : ''
-  endif
-  return ''
-endfunction
-
-function! MyFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
-function! MyFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
-
-function! MyFileencoding()
-  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! MyMode()
-  return winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
+"powerline
+let &runtimepath = s:dein_dir .'/repos/github.com/powerline/powerline/powerline/bindings/vim' .','. &runtimepath
