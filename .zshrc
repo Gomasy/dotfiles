@@ -64,6 +64,5 @@ if [[ -e /usr/bin/tmux && ! -n $TMUX && ! $- == *l* ]]; then
   else
     tmux a
   fi
-  tmux kill-server
   exit
 fi
