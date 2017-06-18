@@ -68,7 +68,6 @@ set nowritebackup
 
 
 "UI settings------------------------------
-set termguicolors
 set splitbelow
 set splitright
 set cursorline
@@ -103,10 +102,13 @@ set matchtime=3
 
 "Indent settings-----------------------------
 set autoindent
-set breakindent
 set expandtab
 set tabstop=2
 set shiftwidth=2
+
+if (v:version == 704 && has('patch338')) || v:version >= 705
+  set breakindent
+endif
 
 
 "Key binding settings---------------------
@@ -137,15 +139,6 @@ function Wrap_switch()
 endfunction
 nnoremap <silent><ESC>w :call Wrap_switch()<CR>
 
-function TrueColor_switch()
-  if &termguicolors
-    set notermguicolors
-  else
-    set termguicolors
-  endif
-endfunction
-nnoremap <silent><ESC>g :call TrueColor_switch()<CR>
-
 function Mouse_switch()
   if &mouse == 'a'
     set mouse=
@@ -154,6 +147,19 @@ function Mouse_switch()
   endif
 endfunction
 nnoremap <silent><ESC>m :call Mouse_switch()<CR>
+
+if (v:version == 704 && has('patch1799')) || v:version >= 705
+  set termguicolors
+  nnoremap <silent><ESC>g :call TrueColor_switch()<CR>
+
+  function TrueColor_switch()
+    if &termguicolors
+      set notermguicolors
+    else
+      set termguicolors
+    endif
+  endfunction
+endif
 
 
 "Plugin settings--------------------------
