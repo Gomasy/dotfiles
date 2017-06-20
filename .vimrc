@@ -226,7 +226,7 @@ let g:neocomplete#text_mode_filetypes = {
 
 
 "vim-quickrun
-nnoremap <silent><C-e> :QuickRun<CR>
+nnoremap <silent><C-r> :QuickRun<CR>
 let g:quickrun_config = {
   \   '_': {
   \     'runner': 'vimproc',
