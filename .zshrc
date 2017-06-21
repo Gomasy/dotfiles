@@ -14,9 +14,7 @@ ZSH_THEME="agnoster"
 plugins=()
 
 # User configuration
-
 source $ZSH/oh-my-zsh.sh
-export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Ruby settings
 if [[ -e /usr/bin/ruby ]]; then
