@@ -9,10 +9,6 @@ on_ft = ['snippet']
 depends = ['neosnippet-snippets']
 
 [[plugins]]
-repo = 'thinca/vim-quickrun'
-on_i = 1
-
-[[plugins]]
 repo = 'tpope/vim-endwise'
 on_i = 1
 
