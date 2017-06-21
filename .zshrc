@@ -18,15 +18,25 @@ plugins=()
 source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# rbenv settings
-if [[ -e $HOME/.rbenv ]]; then
+# Ruby settings
+if [[ -e /usr/bin/ruby ]]; then
+  # rbenv settings
+  if [[ ! -e $HOME/.rbenv ]]; then
+    echo "[*] Installing rbenv..."
+    git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+    echo "[*] Installing ruby-build..."
+    mkdir ~/.rbenv/plugins
+    git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+  fi
   export PATH=$HOME/.rbenv/bin:$PATH
   eval "$(rbenv init -)"
-fi
 
-# Gem settings
-if [[ -e $HOME/.gem ]]; then
+  # gem settings
   export PATH=`gem environment | grep 'USER INSTALLATION DIRECTORY:' | sed -e 's/  - USER INSTALLATION DIRECTORY: //g'`/bin:$PATH
+  if [[ `which kramdown &> /dev/null; echo $?` -eq 1 ]]; then
+    echo "[*] Installing kramdown..."
+    gem install kramdown --no-document --user-install
+  fi
 fi
 
 # Powerline settings

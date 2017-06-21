@@ -17,6 +17,10 @@ repo = 'tpope/vim-endwise'
 on_i = 1
 
 [[plugins]]
+repo = 'tyru/open-browser.vim'
+on_ft = ['markdown']
+
+[[plugins]]
 repo = 'AndrewRadev/switch.vim'
 on_i = 1
 

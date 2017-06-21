@@ -232,6 +232,10 @@ let g:quickrun_config = {
   \     'runner': 'vimproc',
   \     'runner/vimproc/updatetime': 60,
   \   },
+  \   'markdown': {
+  \     'type': 'markdown/kramdown',
+  \     'outputter': 'browser',
+  \   },
   \ }
 
 "vimshell
