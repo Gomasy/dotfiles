@@ -33,7 +33,7 @@ if [[ -e /usr/bin/ruby ]]; then
   export PATH=`gem environment | grep 'USER INSTALLATION DIRECTORY:' | sed -e 's/  - USER INSTALLATION DIRECTORY: //g'`/bin:$PATH
   if [[ `which kramdown &> /dev/null; echo $?` -eq 1 ]]; then
     echo "[*] Installing kramdown..."
-    gem install kramdown --no-document --user-install
+    gem install kramdown
   fi
 fi
 
