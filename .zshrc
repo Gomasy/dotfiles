@@ -54,7 +54,7 @@ export TERM="xterm-256color"
 # For a full list of active aliases, run `alias`.
 alias emacs=$EDITOR
 alias vi=$EDITOR
-alias quit="tmux detach-client"
+alias quit="touch /tmp/tmux-1000/no_term_exit; exit"
 
 # Spelling correction for commands
 setopt correct
@@ -73,5 +73,9 @@ if [[ -e /usr/bin/tmux && ! -n $TMUX && ! $- == *l* ]]; then
   else
     tmux a
   fi
-  exit
+
+  if [[ ! -e /tmp/tmux-1000/no_term_exit ]]; then
+    exit
+  fi
+  rm /tmp/tmux-1000/no_term_exit
 fi
