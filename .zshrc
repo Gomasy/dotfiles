@@ -60,7 +60,7 @@ alias quit="touch /tmp/tmux-1000/no_term_exit; exit"
 setopt correct
 
 # Show motd
-[[ -e /usr/bin/archey3 && -n $TMUX && ! `echo 1000` -eq 0 ]] && archey3
+[[ -e /usr/bin/archey3 && -n $TMUX && ! `id -u` -eq 0 ]] && archey3
 
 # Run tmux
 if [[ -e /usr/bin/tmux && ! -n $TMUX && ! $- == *l* ]]; then
