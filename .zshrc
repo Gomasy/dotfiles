@@ -48,13 +48,16 @@ export EDITOR="vim"
 # Using 256-colors mode
 export TERM="xterm-256color"
 
+# Exit flag filename
+_TMUX="/tmp/tmux-1000/no_term_exit"
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias emacs=$EDITOR
 alias vi=$EDITOR
-alias quit="touch /tmp/tmux-1000/no_term_exit; exit"
+alias quit="touch $_TMUX; exit"
 
 # Spelling correction for commands
 setopt correct
@@ -64,8 +67,9 @@ setopt correct
 
 # Run tmux
 if [[ -e /usr/bin/tmux && ! -n $TMUX && ! $- == *l* ]]; then
-  [[ `tmux ls 2>&1` =~ "no.*$" ]] && (tmux new-session || tmux a)
-  [[ ! -e /tmp/tmux-1000/no_term_exit ]] && exit
+  [[ ! -e /tmp/tmux-1000/default ]] && tmux start-server
+  [[ `tmux ls 2>&1` =~ "no.*$" ]] && (tmux || tmux a)
+  [[ ! -e $_TMUX ]] && exit
 
-  rm /tmp/tmux-1000/no_term_exit
+  rm $_TMUX
 fi
