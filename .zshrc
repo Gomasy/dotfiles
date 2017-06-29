@@ -68,8 +68,6 @@ setopt correct
 # Run tmux
 if [[ -e /usr/bin/tmux && ! -n $TMUX && ! $- == *l* ]]; then
   [[ ! -e /tmp/tmux-1000/default ]] && tmux start-server
-  [[ `tmux ls 2>&1` =~ "no.*$" ]] && (tmux || tmux a)
-  [[ ! -e $_TMUX ]] && exit
-
-  rm $_TMUX
+  [[ `tmux ls 2>&1` =~ "no.*$" ]] && tmux || tmux a
+  [[ ! -e $_TMUX ]] && exit || rm $_TMUX
 fi
