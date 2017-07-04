@@ -48,6 +48,9 @@ export EDITOR="vim"
 # Using 256-colors mode
 export TERM="xterm-256color"
 
+# Set tty used by pinentry
+export GPG_TTY=$(tty)
+
 # Exit flag filename
 _TMUX="/tmp/tmux-1000/no_term_exit"
 
