@@ -16,16 +16,16 @@ TERMCFG := $(shell ls ${HOME}/.config 2> /dev/null)
 install:
 	ln -sf ${PWD}/.gitconfig ${HOME}/.gitconfig
 
-ifdef X
-	ln -sf ${PWD}/.xinitrc ${HOME}/.xinitrc
-	ln -sf ${PWD}/.xprofile ${HOME}/.xprofile
-
 ifdef GPG
 ifndef GPGCFG
 	mkdir -m 700 ${HOME}/.gnupg
 endif
 	ln -sf ${PWD}/gnupg/gpg-agent.conf ${HOME}/.gnupg/gpg-agent.conf
 endif
+
+ifdef X
+	ln -sf ${PWD}/.xinitrc ${HOME}/.xinitrc
+	ln -sf ${PWD}/.xprofile ${HOME}/.xprofile
 
 ifdef TERM
 ifndef TERMCFG
