@@ -40,7 +40,7 @@ ifdef ZSH
 endif
 
 ifdef VIM
-ifneq (CPU, 1)
+ifneq ($(CPU), 1)
 	ln -sf ${PWD}/.vimrc ${HOME}/.vimrc
 	ln -sf ${PWD}/.dein.toml ${HOME}/.dein.toml
 	ln -sf ${PWD}/.dein_lazy.toml ${HOME}/.dein_lazy.toml
