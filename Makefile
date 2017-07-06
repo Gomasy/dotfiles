@@ -1,5 +1,5 @@
 # Get CPU threads count
-CPU := $(shell grep processor /proc/cpuinfo | wc -l)
+CPU := $(shell grep 'model name' /proc/cpuinfo | wc -l)
 
 # Existince check
 X := $(shell which /usr/bin/X 2> /dev/null)
