@@ -66,7 +66,7 @@ alias quit="touch $_TMUX; exit"
 setopt correct
 
 # Show motd
-[[ -e /usr/bin/archey3 && -n $TMUX && ! `id -u` -eq 0 ]] && archey3
+[[ -e /usr/bin/screenfetch && -n $TMUX && ! `id -u` -eq 0 ]] && screenfetch
 
 # Run tmux
 if [[ -e /usr/bin/tmux && ! -n $TMUX && ! $- == *l* ]]; then
