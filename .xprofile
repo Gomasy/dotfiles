@@ -1,9 +1,9 @@
 #!/bin/sh
 
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
-
 export XMODIFIERS="@im=uim"
 export GTK_IM_MODULE="xim"
 export QT_IM_MODULE="xim"
+
 uim-xim &
 uim-toolbar-gtk3-systray &
