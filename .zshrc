@@ -31,6 +31,12 @@ if [[ -e /usr/bin/ruby ]]; then
 
   # gem settings
   export PATH=`gem environment | grep 'USER INSTALLATION DIRECTORY:' | sed -e 's/  - USER INSTALLATION DIRECTORY: //g'`/bin:$PATH
+
+  if [[ `which bundler &> /dev/null; echo $?` -eq 1 ]]; then
+    echo "[*] Installing bundler..."
+    gem install bundler
+  fi
+
   if [[ `which kramdown &> /dev/null; echo $?` -eq 1 ]]; then
     echo "[*] Installing kramdown..."
     gem install kramdown
