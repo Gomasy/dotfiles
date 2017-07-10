@@ -43,11 +43,6 @@ if [[ -e /usr/bin/ruby ]]; then
   fi
 fi
 
-# Powerline settings
-if [[ -e $HOME/.cache/dein ]]; then
-  export PATH=$HOME/.cache/dein/repos/github.com/powerline/powerline/scripts:$PATH
-fi
-
 # Set of use editor
 export EDITOR="vim"
 
@@ -72,7 +67,13 @@ alias quit="touch $_TMUX; exit"
 setopt correct
 
 # Show motd
-[[ -e /usr/bin/screenfetch && -n $TMUX && ! `id -u` -eq 0 ]] && screenfetch
+if [[ -n $TMUX && $- == *l* ]]; then
+  [[ -e /usr/bin/screenfetch ]] && screenfetch
+  if [[ ! -e /usr/bin/powerline ]]; then
+    echo "\nPowerline isn't installed yet."
+    echo "Please run 'yaourt -S powerline' and restart your terminal."
+  fi
+fi
 
 # Run tmux
 if [[ -e /usr/bin/tmux && ! -n $TMUX && ! $- == *l* ]]; then

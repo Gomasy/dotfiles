@@ -255,4 +255,4 @@ let g:indent_guides_exclude_filetypes = [ 'help', 'nerdtree' ]
 
 
 "powerline
-let &runtimepath = s:dein_dir .'/repos/github.com/powerline/powerline/powerline/bindings/vim' .','. &runtimepath
+let &runtimepath = '/usr/lib/python3.6/site-packages/powerline/bindings/vim' .','. &runtimepath
