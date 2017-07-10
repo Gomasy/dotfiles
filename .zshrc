@@ -52,16 +52,12 @@ export TERM="xterm-256color"
 # Set tty used by pinentry
 export GPG_TTY=$(tty)
 
-# Exit flag filename
-_TMUX="/tmp/tmux-1000/no_term_exit"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias emacs=$EDITOR
 alias vi=$EDITOR
-alias quit="touch $_TMUX; exit"
 
 # Spelling correction for commands
 setopt correct
@@ -78,6 +74,21 @@ fi
 # Run tmux
 if [[ -e /usr/bin/tmux && ! -n $TMUX && ! $- == *l* ]]; then
   [[ ! -e /tmp/tmux-1000/default ]] && tmux start-server
-  [[ `tmux ls 2>&1` =~ "no.*$" ]] && tmux || tmux a
-  [[ ! -e $_TMUX ]] && exit || rm $_TMUX
+  if [[ `tty` =~ ".+(tty0|pts\/0)$" && ! `tmux ls 2>&1` =~ "no.*$" ]]; then
+    if [[ `tmux ls | wc -l` -gt 1 ]]; then
+      tmux list-sessions
+      echo "\nPlease select session to attach."
+      echo -n "number> "
+      read num
+
+      tmux attach -t $num
+      unset num
+    else
+      tmux attach
+    fi
+  else
+    tmux new-session
+  fi
+
+  exit
 fi
