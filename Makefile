@@ -35,20 +35,6 @@ endif
 endif
 endif
 
-ifdef ZSH
-	ln -sf ${PWD}/.zshrc ${HOME}/.zshrc
-endif
-
-ifdef VIM
-ifneq ($(CPU), 1)
-	ln -sf ${PWD}/.vimrc ${HOME}/.vimrc
-	ln -sf ${PWD}/.dein.toml ${HOME}/.dein.toml
-	ln -sf ${PWD}/.dein_lazy.toml ${HOME}/.dein_lazy.toml
-else
-	ln -sf ${PWD}/.vimrc_simple ${HOME}/.vimrc
-endif
-endif
-
 ifdef TMUX
 	ln -sf ${PWD}/.tmux.conf ${HOME}/.tmux.conf
 endif
@@ -61,16 +47,37 @@ ifdef BVI
 	ln -sf ${PWD}/.bvirc ${HOME}/.bvirc
 endif
 
+ifdef VIM
+ifneq ($(CPU), 1)
+	ln -sf ${PWD}/.vimrc ${HOME}/.vimrc
+	ln -sf ${PWD}/.dein.toml ${HOME}/.dein.toml
+	ln -sf ${PWD}/.dein_lazy.toml ${HOME}/.dein_lazy.toml
+else
+	ln -sf ${PWD}/.vimrc_simple ${HOME}/.vimrc
+endif
+endif
+
+ifdef ZSH
+	ln -sf ${PWD}/.zshrc ${HOME}/.zshrc
+	git clone https://github.com/robbyrussell/oh-my-zsh.git ${HOME}/.oh-my-zsh
+endif
+
 clean:
+	rm -rf ${HOME}/.cache/dein
+	rm -rf ${HOME}/.oh-my-zsh
+	rm -rf ${HOME}/.gem
+	rm -rf ${HOME}/.rbenv
+	rm -f ${HOME}/.config/terminator
+	rm -f ${HOME}/.gnupg/gpg-agent.conf
 	rm -f ${HOME}/.gitconfig
 	rm -f ${HOME}/.xinitrc
 	rm -f ${HOME}/.xprofile
-	rm -f ${HOME}/.gnupg/gpg-agent.conf
-	rm -f ${HOME}/.config/terminator
+	rm -f ${HOME}/.tmux.conf
 	rm -f ${HOME}/.zshrc
+	rm -f ${HOME}/.zsh-update
+	rm -f ${HOME}/.zcompdump-*
 	rm -f ${HOME}/.vimrc
 	rm -f ${HOME}/.dein.toml
 	rm -f ${HOME}/.dein_lazy.toml
-	rm -f ${HOME}/.tmux.conf
-	rm -f ${HOME}/.gemrc
 	rm -f ${HOME}/.bvirc
+	rm -f ${HOME}/.gemrc
