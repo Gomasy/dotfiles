@@ -67,7 +67,7 @@ alias quit="touch $_TMUX; exit"
 setopt correct
 
 # Show motd
-if [[ -n $TMUX && $- == *l* ]]; then
+if [[ -n $TMUX && ! `id -u` -eq 0 ]]; then
   [[ -e /usr/bin/screenfetch ]] && screenfetch
   if [[ ! -e /usr/bin/powerline ]]; then
     echo "\nPowerline isn't installed yet."
