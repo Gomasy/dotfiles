@@ -74,7 +74,7 @@ fi
 # Run tmux
 if [[ -e /usr/bin/tmux && ! -n $TMUX && ! $- == *l* ]]; then
   [[ ! -e /tmp/tmux-1000/default ]] && tmux start-server
-  if [[ `tty` =~ ".+(tty0|pts\/0)$" && ! `tmux ls 2>&1` =~ "no.*$" ]]; then
+  if [[ `tty` =~ ".+(tty0|pts\/0)$" && ! `tmux ls 2>&1` =~ "no.+$" ]]; then
     if [[ `tmux ls | wc -l` -gt 1 ]]; then
       echo "List of sessions:\e[4m" && tmux list-sessions
       echo -ne "\n\e[m\e[1mPlease select session to attach.\nnumber> "
