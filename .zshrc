@@ -30,7 +30,7 @@ if [[ -e /usr/bin/ruby ]]; then
   eval "$(rbenv init -)"
 
   # gem settings
-  export PATH=`gem environment | grep 'USER INSTALLATION DIRECTORY:' | sed -e 's/  - USER INSTALLATION DIRECTORY: //g'`/bin:$PATH
+  export PATH=`ruby -e'print Gem.user_dir'`/bin:$PATH
 
   if [[ `which bundler &> /dev/null; echo $?` -eq 1 ]]; then
     echo "[*] Installing bundler..."
