@@ -89,6 +89,6 @@ if [[ -e /usr/bin/tmux && ! -n $TMUX && ! $- == *l* ]]; then
     tmux new-session
   fi
 
-  [[ ! `ps x | grep powerline-daemon | grep -v grep |  wc -l` -eq 0 ]] && killall powerline-daemon
+  [[ `tmux ls 2> /dev/null | wc -l` -eq 0 && ! `ps x | grep powerline-daemon | grep -v grep |  wc -l` -eq 0 ]] && killall powerline-daemon
   exit
 fi
