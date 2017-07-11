@@ -64,21 +64,21 @@ endif
 
 clean:
 	rm -rf ${HOME}/.cache/dein
-	rm -rf ${HOME}/.oh-my-zsh
 	rm -rf ${HOME}/.gem
+	rm -rf ${HOME}/.oh-my-zsh
 	rm -rf ${HOME}/.rbenv
 	rm -f ${HOME}/.config/powerline
 	rm -f ${HOME}/.config/terminator
 	rm -f ${HOME}/.gnupg/gpg-agent.conf
-	rm -f ${HOME}/.gitconfig
-	rm -f ${HOME}/.xinitrc
-	rm -f ${HOME}/.xprofile
-	rm -f ${HOME}/.tmux.conf
-	rm -f ${HOME}/.zshrc
-	rm -f ${HOME}/.zsh-update
-	rm -f ${HOME}/.zcompdump-*
-	rm -f ${HOME}/.vimrc
+	rm -f ${HOME}/.bvirc
 	rm -f ${HOME}/.dein.toml
 	rm -f ${HOME}/.dein_lazy.toml
-	rm -f ${HOME}/.bvirc
 	rm -f ${HOME}/.gemrc
+	rm -f ${HOME}/.gitconfig
+	rm -f ${HOME}/.tmux.conf
+	rm -f ${HOME}/.vimrc
+	rm -f ${HOME}/.xinitrc
+	rm -f ${HOME}/.xprofile
+	rm -f ${HOME}/.zcompdump-*
+	rm -f ${HOME}/.zshrc
+	rm -f ${HOME}/.zsh-update
