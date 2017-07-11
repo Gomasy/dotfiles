@@ -102,6 +102,7 @@ set matchtime=3
 
 "Indent settings-----------------------------
 set autoindent
+set expandtab
 set tabstop=2
 set shiftwidth=2
 
