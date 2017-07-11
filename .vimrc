@@ -124,12 +124,21 @@ nnoremap <C-w>oh :sp<space>
 nnoremap <C-w>ov :vsp<space>
 nnoremap <C-o> :o<space>
 
+function Show_state(name)
+  if eval('&' . a:name) || eval('&' . a:name) != ''
+    echomsg '*** Toggled ' .a:name. ' to true ***'
+  else
+    echomsg '*** Toggled ' .a:name. ' to false ***'
+  endif
+endfunction
+
 function Tab_switch()
   if &expandtab
     set noexpandtab
   else
     set expandtab
   endif
+  call Show_state('expandtab')
 endfunction
 nnoremap <silent><S-TAB> :call Tab_switch()<CR>
 
@@ -139,6 +148,7 @@ function Wrap_switch()
   else
     set wrap
   endif
+  call Show_state('wrap')
 endfunction
 nnoremap <silent><ESC>w :call Wrap_switch()<CR>
 
@@ -148,6 +158,7 @@ function Mouse_switch()
   else
     set mouse=a
   endif
+  call Show_state('mouse')
 endfunction
 nnoremap <silent><ESC>m :call Mouse_switch()<CR>
 
