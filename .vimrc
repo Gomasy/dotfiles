@@ -18,9 +18,9 @@ if !isdirectory(s:dein_repo_dir)
   call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
 endif
 
-let &runtimepath = s:dein_repo_dir .','. &runtimepath
-let s:toml = fnamemodify(expand('<sfile>'), ':h').'/.dein.toml'
-let s:lazy_toml = fnamemodify(expand('<sfile>'), ':h').'/.dein_lazy.toml'
+let &runtimepath = s:dein_repo_dir . ',' . &runtimepath
+let s:toml = fnamemodify(expand('<sfile>'), ':h') . '/.dein.toml'
+let s:lazy_toml = fnamemodify(expand('<sfile>'), ':h') . '/.dein_lazy.toml'
 
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
@@ -127,9 +127,9 @@ nnoremap <C-o> :o<space>
 function Show_state(name)
   echohl Title
   if eval('&' . a:name) || eval('&' . a:name) != ''
-    echomsg '*** Toggled ' .a:name. ' to true ***'
+    echomsg '*** Toggled ' . a:name . ' to true ***'
   else
-    echomsg '*** Toggled ' .a:name. ' to false ***'
+    echomsg '*** Toggled ' . a:name . ' to false ***'
   endif
   echohl None
 endfunction
