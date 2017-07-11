@@ -116,6 +116,9 @@ nnoremap <silent><ESC><ESC> :noh<CR>
 nnoremap <silent><C-n> :new<CR>
 nnoremap <silent><C-w>h :sp<CR>
 nnoremap <silent><C-w>v :vsp<CR>
+nnoremap <silent><S-n> :tabnew<CR>
+nnoremap <silent><S-Left> :tabprev<CR>
+nnoremap <silent><S-Right> :tabnext<CR>
 nnoremap <C-w>oh :sp<space>
 nnoremap <C-w>ov :vsp<space>
 nnoremap <C-o> :o<space>
