@@ -8,7 +8,7 @@
 			"theme": "custom"
 		},
 		"vim": {
-			"colorscheme": "solarized_custom",
+			"colorscheme": "default",
 			"theme": "default",
 			"local_themes": {
 				"__tabline__": "tabline",
