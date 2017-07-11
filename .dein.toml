@@ -34,6 +34,3 @@ repo = 'nathanaelkane/vim-indent-guides'
 
 [[plugins]]
 repo = 'tomasr/molokai'
-
-[[plugins]]
-repo = 'powerline/powerline'
