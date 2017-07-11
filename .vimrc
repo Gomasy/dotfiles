@@ -168,7 +168,7 @@ let NERDTreeShowHidden = 1
 
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | q | endif
-nnoremap <silent><C-f> :NERDTreeToggle<CR>
+nnoremap <silent><C-f> :NERDTreeTabsToggle<CR>
 
 if v:version >= 705
   function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
