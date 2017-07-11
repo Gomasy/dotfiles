@@ -12,6 +12,7 @@ GPG := $(shell which /usr/bin/gpg2 2> /dev/null)
 GPGCFG := $(shell ls ${HOME}/.gnupg 2> /dev/null)
 TERM := $(shell which /usr/bin/terminator 2> /dev/null)
 TERMCFG := $(shell ls ${HOME}/.config 2> /dev/null)
+PWLINE := $(shell which /usr/bin/powerline 2> /dev/null)
 
 install:
 	ln -sf ${PWD}/.gitconfig ${HOME}/.gitconfig
@@ -33,6 +34,10 @@ ifndef TERMCFG
 endif
 	ln -sf ${PWD}/terminator ${HOME}/.config/terminator
 endif
+endif
+
+ifdef PWLINE
+	ln -sf ${PWD}/powerline ${HOME}/.config/powerline
 endif
 
 ifdef TMUX
@@ -67,6 +72,7 @@ clean:
 	rm -rf ${HOME}/.oh-my-zsh
 	rm -rf ${HOME}/.gem
 	rm -rf ${HOME}/.rbenv
+	rm -f ${HOME}/.config/powerline
 	rm -f ${HOME}/.config/terminator
 	rm -f ${HOME}/.gnupg/gpg-agent.conf
 	rm -f ${HOME}/.gitconfig
