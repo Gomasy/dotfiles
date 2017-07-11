@@ -63,7 +63,7 @@ alias vi=$EDITOR
 setopt correct
 
 # Show motd
-if [[ -n $TMUX && ! `id -u` -eq 0 ]]; then
+if [[ -n $TMUX && `id -u` -ne 0 ]]; then
   [[ -e /usr/bin/screenfetch ]] && screenfetch
   if [[ ! -e /usr/bin/powerline ]]; then
     echo "\nPowerline isn't installed yet."
@@ -72,9 +72,9 @@ if [[ -n $TMUX && ! `id -u` -eq 0 ]]; then
 fi
 
 # Run tmux
-if [[ -e /usr/bin/tmux && ! -n $TMUX && ! $- == *l* ]]; then
+if [[ -e /usr/bin/tmux && ! -n $TMUX && $- != *l* ]]; then
   [[ ! -e /tmp/tmux-1000/default ]] && tmux start-server
-  if [[ `tty` =~ ".+(tty0|pts\/0)$" && ! `tmux ls 2>&1` =~ "no.+$" ]]; then
+  if [[ `tty` =~ ".+(tty0|pts\/0)$" && `tmux ls 2> /dev/null` != '' ]]; then
     if [[ `tmux ls | wc -l` -gt 1 ]]; then
       echo "List of sessions:\e[4m" && tmux list-sessions
       echo -n "\n\e[m\e[1mPlease select session to attach.\nnumber> "
@@ -89,6 +89,6 @@ if [[ -e /usr/bin/tmux && ! -n $TMUX && ! $- == *l* ]]; then
     tmux new-session
   fi
 
-  [[ `tmux ls 2> /dev/null | wc -l` -eq 0 && ! `ps x | grep powerline-daemon | grep -v grep |  wc -l` -eq 0 ]] && killall powerline-daemon
+  [[ `tmux ls 2> /dev/null` == '' && `ps x | grep powerline-daemon | grep -v grep |  wc -l` -ne 0 ]] && killall powerline-daemon
   exit
 fi
