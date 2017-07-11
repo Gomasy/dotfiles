@@ -125,11 +125,13 @@ nnoremap <C-w>ov :vsp<space>
 nnoremap <C-o> :o<space>
 
 function Show_state(name)
+  echohl Title
   if eval('&' . a:name) || eval('&' . a:name) != ''
     echomsg '*** Toggled ' .a:name. ' to true ***'
   else
     echomsg '*** Toggled ' .a:name. ' to false ***'
   endif
+  echohl None
 endfunction
 
 function Tab_switch()
