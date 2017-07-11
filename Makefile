@@ -9,10 +9,10 @@ TMUX := $(shell which /usr/bin/tmux 2> /dev/null)
 RUBY := $(shell which /usr/bin/ruby 2> /dev/null)
 BVI := $(shell which /usr/bin/bvi 2> /dev/null)
 GPG := $(shell which /usr/bin/gpg2 2> /dev/null)
-GPGCFG := $(shell ls ${HOME}/.gnupg 2> /dev/null)
 TERM := $(shell which /usr/bin/terminator 2> /dev/null)
-TERMCFG := $(shell ls ${HOME}/.config 2> /dev/null)
 PWLINE := $(shell which /usr/bin/powerline 2> /dev/null)
+CFG := $(shell ls ${HOME}/.config 2> /dev/null)
+GPGCFG := $(shell ls ${HOME}/.gnupg 2> /dev/null)
 
 install:
 	ln -sf ${PWD}/.gitconfig ${HOME}/.gitconfig
@@ -29,7 +29,7 @@ ifdef X
 	ln -sf ${PWD}/.xprofile ${HOME}/.xprofile
 
 ifdef TERM
-ifndef TERMCFG
+ifndef CFG
 	mkdir -m 700 ${HOME}/.config
 endif
 	ln -sf ${PWD}/terminator ${HOME}/.config/terminator
@@ -37,6 +37,9 @@ endif
 endif
 
 ifdef PWLINE
+ifndef TERM
+	mkdir -m 700 ${HOME}/.config
+endif
 	ln -sf ${PWD}/powerline ${HOME}/.config/powerline
 endif
 
