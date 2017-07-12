@@ -253,9 +253,9 @@ let g:quickrun_config = {
   \ }
 
 "vimshell
-nnoremap <silent>,is :VimShell<CR>
-nnoremap <silent>,ipy :VimShellInteractive python<CR>
-nnoremap <silent>,irb :VimShellInteractive irb<CR>
+nnoremap <silent><S-s> :VimShell<CR>
+nnoremap <silent><S-p> :VimShellInteractive python<CR>
+nnoremap <silent><S-r> :VimShellInteractive irb<CR>
 
 
 "switch.vim
