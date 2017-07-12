@@ -1,27 +1,27 @@
 {
-	"segments": {
-		"right": [
-			{
-				"function": "powerline.segments.common.wthr.weather",
-				"args": {
-					"temp_format": "\ud83c\udf21 {temp:.0f}°C",
-					"location_query": "Mashiko"
-				}
-			},
-			{
-				"function": "powerline.segments.common.net.network_load"
-			},
-			{
-				"function": "powerline.segments.common.time.date"
-			},
-			{
-				"function": "powerline.segments.common.time.date",
-				"name": "time",
-				"args": {
-					"format": "%H:%M",
-					"istime": true
-				}
-			}
-		]
-	}
+    "segments": {
+        "right": [
+            {
+                "function": "powerline.segments.common.wthr.weather",
+                "args": {
+                    "temp_format": "\ud83c\udf21 {temp:.0f}°C",
+                    "location_query": "Mashiko"
+                }
+            },
+            {
+                "function": "powerline.segments.common.net.network_load"
+            },
+            {
+                "function": "powerline.segments.common.time.date"
+            },
+            {
+                "function": "powerline.segments.common.time.date",
+                "name": "time",
+                "args": {
+                    "format": "%H:%M",
+                    "istime": true
+                }
+            }
+        ]
+    }
 }
