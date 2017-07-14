@@ -22,7 +22,7 @@ zshaddhistory() { [[ ${#1%%$'\n'} -ge 5 ]] }
 # Source configuration
 source $ZSH/oh-my-zsh.sh
 if [[ -e $PLUGIN/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-  $PLUGIN/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source $PLUGIN/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # Set of use editor
