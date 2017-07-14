@@ -1,9 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Path to zsh plugins folder.
-export PLUGIN=/usr/share/zsh/plugins
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -21,17 +18,13 @@ zshaddhistory() { [[ ${#1%%$'\n'} -ge 5 ]] }
 
 # Source configuration
 source $ZSH/oh-my-zsh.sh
-if [[ -e $PLUGIN/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-  source $PLUGIN/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ -e /usr/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+  source /usr/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-# Set of use editor
+# Set variables
 export EDITOR="vim"
-
-# Using 256-colors mode
 export TERM="xterm-256color"
-
-# Set tty used by pinentry
 export GPG_TTY=$(tty)
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -72,13 +65,7 @@ if [[ -e /usr/bin/ruby ]]; then
 fi
 
 # Show motd
-if [[ -n $TMUX && `id -u` -ne 0 ]]; then
-  [[ -e /usr/bin/screenfetch ]] && screenfetch
-  if [[ ! -e /usr/bin/powerline ]]; then
-    echo "\nPowerline isn't installed yet."
-    echo "Please run 'yaourt -S powerline' and restart your terminal."
-  fi
-fi
+[[ -e /usr/bin/screenfetch && -n $TMUX && `id -u` -ne 0 ]] && screenfetch
 
 # Run tmux
 if [[ -e /usr/bin/tmux && ! -n $TMUX && $- != *l* ]]; then
