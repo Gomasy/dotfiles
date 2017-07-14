@@ -1,6 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# Path to zsh plugins folder.
+export PLUGIN=/usr/share/zsh/plugins
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -13,8 +16,11 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=()
 
-# User configuration
+# Source configuration
 source $ZSH/oh-my-zsh.sh
+if [[ -e $PLUGIN/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+  $PLUGIN/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 # Set of use editor
 export EDITOR="vim"
