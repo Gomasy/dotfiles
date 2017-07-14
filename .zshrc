@@ -16,6 +16,9 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=()
 
+# Zsh hook functions
+zshaddhistory() { [[ ${#1%%$'\n'} -ge 5 ]] }
+
 # Source configuration
 source $ZSH/oh-my-zsh.sh
 if [[ -e $PLUGIN/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
