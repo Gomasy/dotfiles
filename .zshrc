@@ -16,6 +16,25 @@ plugins=()
 # User configuration
 source $ZSH/oh-my-zsh.sh
 
+# Set of use editor
+export EDITOR="vim"
+
+# Using 256-colors mode
+export TERM="xterm-256color"
+
+# Set tty used by pinentry
+export GPG_TTY=$(tty)
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+alias emacs=$EDITOR
+alias vi=$EDITOR
+
+# Spelling correction for commands
+setopt correct
+
 # Ruby settings
 if [[ -e /usr/bin/ruby ]]; then
   # rbenv settings
@@ -42,25 +61,6 @@ if [[ -e /usr/bin/ruby ]]; then
     gem install kramdown
   fi
 fi
-
-# Set of use editor
-export EDITOR="vim"
-
-# Using 256-colors mode
-export TERM="xterm-256color"
-
-# Set tty used by pinentry
-export GPG_TTY=$(tty)
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-alias emacs=$EDITOR
-alias vi=$EDITOR
-
-# Spelling correction for commands
-setopt correct
 
 # Show motd
 if [[ -n $TMUX && `id -u` -ne 0 ]]; then
