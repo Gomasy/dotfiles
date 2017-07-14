@@ -16,6 +16,9 @@ plugins=()
 # Zsh hook functions
 zshaddhistory() { [[ ${#1%%$'\n'} -ge 5 ]] }
 
+# Ignore C-s
+stty stop undef
+
 # Source configuration
 source $ZSH/oh-my-zsh.sh
 if [[ -e /usr/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
