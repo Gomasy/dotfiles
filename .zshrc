@@ -82,7 +82,6 @@ fi
 
 # Run tmux
 if [[ -e /usr/bin/tmux && ! -n $TMUX && $- != *l* ]]; then
-  [[ ! -e /tmp/tmux-1000/default ]] && tmux start-server
   if [[ `tty` =~ ".+(tty0|pts\/0)$" && `tmux ls 2> /dev/null` != '' ]]; then
     if [[ `tmux ls | wc -l` -gt 1 ]]; then
       echo "List of sessions:\e[4m" && tmux list-sessions
