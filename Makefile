@@ -59,7 +59,6 @@ endif
 
 ifdef ZSH
 	ln -sf ${PWD}/.zshrc ${HOME}/.zshrc
-	git clone https://github.com/tarjoilija/zgen.git ~/.zgen
 endif
 
 clean:

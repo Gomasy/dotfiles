@@ -1,4 +1,7 @@
 # Load zgen
+if [[ ! -e $HOME/.zgen ]]; then
+  git clone https://github.com/tarjoilija/zgen.git $HOME/.zgen
+fi
 source $HOME/.zgen/zgen.zsh
 
 # Install plugins
