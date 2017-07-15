@@ -4,7 +4,8 @@ source $HOME/.zgen/zgen.zsh
 # Install plugins
 if ! zgen saved; then
   zgen oh-my-zsh
-  zgen oh-my-zsh plugins/web-search
+  zgen oh-my-zsh plugins/sudo
+  zgen oh-my-zsh plugins/gpg-agent
   zgen oh-my-zsh themes/agnoster
 
   if [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting ]]; then
@@ -21,7 +22,6 @@ stty stop undef
 # Set variables
 export EDITOR="vim"
 export TERM="xterm-256color"
-export GPG_TTY=$(tty)
 
 # Set personal aliases
 alias emacs=$EDITOR
