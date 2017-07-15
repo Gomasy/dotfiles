@@ -41,7 +41,7 @@ alias vi=$EDITOR
 setopt correct
 
 # Ruby settings
-if [ `which ruby` ]; then
+if [[ `which ruby &> /dev/null; echo $?` -eq 0 ]]; then
   # rbenv settings
   if [[ ! -e $HOME/.rbenv ]]; then
     echo "[*] Installing rbenv..."
@@ -56,15 +56,22 @@ if [ `which ruby` ]; then
   # gem settings
   export PATH=`ruby -e'print Gem.user_dir'`/bin:$PATH
 
-  [ ! `which bundler` ] && (echo "[*] Installing bundler..." && gem install bundler)
-  [ ! `which kramdown` ] && (echo "[*] Installing kramdown..." && gem install kramdown)
+  if [[ `which bundler &> /dev/null; echo $?` -ne 0 ]]; then
+    echo "[*] Installing bundler..."
+    gem install bundler
+  fi
+
+  if [[ `which kramdown &> /dev/null; echo $?` -ne 0 ]]; then
+    echo "[*] Installing kramdown..."
+    gem install kramdown
+  fi
 fi
 
 # Show motd
-[[ -n `which screenfetch` && -n $TMUX && `id -u` -ne 0 ]] && screenfetch
+[[ -e /usr/bin/screenfetch && -n $TMUX && `id -u` -ne 0 ]] && screenfetch
 
 # Run tmux
-if [[ -n `which tmux` && ! -n $TMUX && $- != *l* ]]; then
+if [[ -e /usr/bin/tmux && ! -n $TMUX && $- != *l* ]]; then
   if [[ `tty` =~ ".+(tty0|pts\/0)$" && -n `tmux ls 2> /dev/null` ]]; then
     if [[ `tmux ls | wc -l` -gt 1 ]]; then
       echo "List of sessions:\e[4m" && tmux list-sessions
