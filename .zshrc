@@ -41,7 +41,7 @@ alias vi=$EDITOR
 setopt correct
 
 # Ruby settings
-if [[ -e /usr/bin/ruby ]]; then
+if [ `which ruby` ]; then
   # rbenv settings
   if [[ ! -e $HOME/.rbenv ]]; then
     echo "[*] Installing rbenv..."
@@ -56,23 +56,16 @@ if [[ -e /usr/bin/ruby ]]; then
   # gem settings
   export PATH=`ruby -e'print Gem.user_dir'`/bin:$PATH
 
-  if [[ `which bundler &> /dev/null; echo $?` -eq 1 ]]; then
-    echo "[*] Installing bundler..."
-    gem install bundler
-  fi
-
-  if [[ `which kramdown &> /dev/null; echo $?` -eq 1 ]]; then
-    echo "[*] Installing kramdown..."
-    gem install kramdown
-  fi
+  [ ! `which bundler` ] && (echo "[*] Installing bundler..." && gem install bundler)
+  [ ! `which kramdown` ] && (echo "[*] Installing kramdown..." && gem install kramdown)
 fi
 
 # Show motd
-[[ -e /usr/bin/screenfetch && -n $TMUX && `id -u` -ne 0 ]] && screenfetch
+[[ -n `which screenfetch` && -n $TMUX && `id -u` -ne 0 ]] && screenfetch
 
 # Run tmux
-if [[ -e /usr/bin/tmux && ! -n $TMUX && $- != *l* ]]; then
-  if [[ `tty` =~ ".+(tty0|pts\/0)$" && `tmux ls 2> /dev/null` != '' ]]; then
+if [[ -n `which tmux` && ! -n $TMUX && $- != *l* ]]; then
+  if [[ `tty` =~ ".+(tty0|pts\/0)$" && -n `tmux ls 2> /dev/null` ]]; then
     if [[ `tmux ls | wc -l` -gt 1 ]]; then
       echo "List of sessions:\e[4m" && tmux list-sessions
       echo -n "\n\e[m\e[1mPlease select session to attach.\nnumber> "
@@ -87,6 +80,6 @@ if [[ -e /usr/bin/tmux && ! -n $TMUX && $- != *l* ]]; then
     tmux new-session
   fi
 
-  [[ `tmux ls 2> /dev/null` == '' && `ps x | grep powerline-daemon | grep -v grep |  wc -l` -ne 0 ]] && killall powerline-daemon
+  [[ ! -n `tmux ls 2> /dev/null` && `ps x | grep powerline-daemon | grep -v grep |  wc -l` ]] && killall powerline-daemon
   exit
 fi
