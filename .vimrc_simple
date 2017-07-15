@@ -35,17 +35,29 @@ set showcmd
 set title
 set number
 set ruler
+set list
+set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮
 set scrolloff=5
 set laststatus=2
+set showtabline=2
 
 
 "Search settings--------------------------
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set nowrapscan
+set history=1000
+
+
+"Bracket settings-------------------------
 set showmatch
 set matchpairs=(:),{:},[:],<:>
 set matchtime=3
 
 
-"Indent settings-----------------------------
+"Indent settings--------------------------
 set autoindent
 set expandtab
 set tabstop=2
@@ -57,12 +69,35 @@ endif
 
 
 "Key binding settings---------------------
+nnoremap <silent>,su :w !sudo tee %<CR>
+nnoremap <silent><ESC><ESC> :noh<CR>
+nnoremap <silent><C-n> :new<CR>
+nnoremap <silent><C-w>h :sp<CR>
+nnoremap <silent><C-w>v :vsp<CR>
+nnoremap <silent><S-n> :tabnew<CR>
+nnoremap <silent><S-Left> :tabprev<CR>
+nnoremap <silent><S-Right> :tabnext<CR>
+nnoremap <C-w>oh :sp<space>
+nnoremap <C-w>ov :vsp<space>
+nnoremap <C-o> :o<space>
+
+function Show_state(name)
+  echohl Title
+  if eval('&' . a:name) || eval('&' . a:name) != ''
+    echomsg '*** Toggled ' . a:name . ' to true ***'
+  else
+    echomsg '*** Toggled ' . a:name . ' to false ***'
+  endif
+  echohl None
+endfunction
+
 function Tab_switch()
   if &expandtab
     set noexpandtab
   else
     set expandtab
   endif
+  call Show_state('expandtab')
 endfunction
 nnoremap <silent><S-TAB> :call Tab_switch()<CR>
 
@@ -72,6 +107,7 @@ function Wrap_switch()
   else
     set wrap
   endif
+  call Show_state('wrap')
 endfunction
 nnoremap <silent><ESC>w :call Wrap_switch()<CR>
 
@@ -81,5 +117,6 @@ function Mouse_switch()
   else
     set mouse=a
   endif
+  call Show_state('mouse')
 endfunction
 nnoremap <silent><ESC>m :call Mouse_switch()<CR>
