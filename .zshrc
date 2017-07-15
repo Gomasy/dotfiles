@@ -38,10 +38,10 @@ if which ruby &> /dev/null && [[ `id -u` -ne 0 ]]; then
   # rbenv settings
   if [[ ! -e $HOME/.rbenv ]]; then
     echo "[*] Installing rbenv..."
-    git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+    git clone https://github.com/rbenv/rbenv.git $HOME/.rbenv
 
     echo "[*] Installing ruby-build..."
-    git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+    git clone https://github.com/rbenv/ruby-build.git $HOME/.rbenv/plugins/ruby-build
   fi
 
   export PATH=$HOME/.rbenv/bin:$PATH
