@@ -41,7 +41,7 @@ alias vi=$EDITOR
 setopt correct
 
 # Ruby settings
-if [[ `which ruby &> /dev/null; echo $?` -eq 0 ]]; then
+if [[ -e /usr/bin/ruby ]]; then
   # rbenv settings
   if [[ ! -e $HOME/.rbenv ]]; then
     echo "[*] Installing rbenv..."
