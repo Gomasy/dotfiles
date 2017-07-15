@@ -55,7 +55,7 @@ fi
 [[ -e /usr/bin/screenfetch && -n $TMUX ]] && screenfetch
 
 # Run tmux
-if [[ -e /usr/bin/tmux && ! -n $TMUX && $- != *l* ]]; then
+if [[ -e /usr/bin/tmux && $- != *l* ]]; then
   if [[ `tty` =~ ".+(tty0|pts\/0)$" && -n `tmux ls 2> /dev/null` ]]; then
     if [[ `tmux ls | wc -l` -gt 1 ]]; then
       echo "List of sessions:\e[4m" && tmux list-sessions
@@ -71,6 +71,6 @@ if [[ -e /usr/bin/tmux && ! -n $TMUX && $- != *l* ]]; then
     tmux new-session
   fi
 
-  [[ ! -n `tmux ls 2> /dev/null` && `ps x | grep powerline-daemon | grep -v grep |  wc -l` ]] && killall powerline-daemon
+  [[ ! -n `tmux ls 2> /dev/null` && `ps x | grep powerline-daemon | grep -v grep |  wc -l` -ne 0 ]] && killall powerline-daemon
   exit
 fi
