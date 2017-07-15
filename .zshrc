@@ -1,17 +1,16 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+# Load zgen
+source $HOME/.zgen/zgen.zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+# Install plugins
+if ! zgen saved; then
+  zgen oh-my-zsh
+  zgen oh-my-zsh plugins/web-search
+  zgen oh-my-zsh themes/agnoster
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(web-search)
+  if [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting ]]; then
+    zgen load /usr/share/zsh/plugins/zsh-syntax-highlighting
+  fi
+fi
 
 # Zsh hook functions
 zshaddhistory() { [[ ${#1%%$'\n'} -ge 5 ]] }
@@ -19,21 +18,12 @@ zshaddhistory() { [[ ${#1%%$'\n'} -ge 5 ]] }
 # Ignore C-s
 stty stop undef
 
-# Source configuration
-source $ZSH/oh-my-zsh.sh
-if [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
 # Set variables
 export EDITOR="vim"
 export TERM="xterm-256color"
 export GPG_TTY=$(tty)
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
+# Set personal aliases
 alias emacs=$EDITOR
 alias vi=$EDITOR
 
@@ -41,34 +31,28 @@ alias vi=$EDITOR
 setopt correct
 
 # Ruby settings
-if [[ -e /usr/bin/ruby && `id -u` -ne 0 ]]; then
+if which ruby &> /dev/null && [[ `id -u` ]]; then
   # rbenv settings
   if [[ ! -e $HOME/.rbenv ]]; then
     echo "[*] Installing rbenv..."
     git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+
     echo "[*] Installing ruby-build..."
-    mkdir ~/.rbenv/plugins
     git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
   fi
+
   export PATH=$HOME/.rbenv/bin:$PATH
   eval "$(rbenv init -)"
 
   # gem settings
-  export PATH=`ruby -e'print Gem.user_dir'`/bin:$PATH
+  export PATH=$(ruby -e'print Gem.user_dir')/bin:$PATH
 
-  if [[ `which bundler &> /dev/null; echo $?` -ne 0 ]]; then
-    echo "[*] Installing bundler..."
-    gem install bundler
-  fi
-
-  if [[ `which kramdown &> /dev/null; echo $?` -ne 0 ]]; then
-    echo "[*] Installing kramdown..."
-    gem install kramdown
-  fi
+  ! which bundler &> /dev/null && (echo "[*] Installing bundler..." && gem install bundler)
+  ! which kramdown &> /dev/null && (echo "[*] Installing kramdown..." && gem install kramdown)
 fi
 
 # Show motd
-[[ -e /usr/bin/screenfetch && -n $TMUX && `id -u` -ne 0 ]] && screenfetch
+[[ -e /usr/bin/screenfetch && -n $TMUX ]] && screenfetch
 
 # Run tmux
 if [[ -e /usr/bin/tmux && ! -n $TMUX && $- != *l* ]]; then
