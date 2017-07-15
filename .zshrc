@@ -21,8 +21,8 @@ stty stop undef
 
 # Source configuration
 source $ZSH/oh-my-zsh.sh
-if [[ -e /usr/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-  source /usr/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # Set variables
