@@ -23,6 +23,9 @@ zshaddhistory() { [[ ${#1%%$'\n'} -ge 5 ]] }
 # Ignore C-s
 stty stop undef
 
+# Suggestion settings
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
+
 # Set variables
 export EDITOR="vim"
 export TERM="xterm-256color"
