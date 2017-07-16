@@ -11,9 +11,8 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/sudo
   zgen oh-my-zsh themes/agnoster
 
-  if [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting ]]; then
-    zgen load /usr/share/zsh/plugins/zsh-syntax-highlighting
-  fi
+  zgen load zsh-users/zsh-autosuggestions
+  zgen load zsh-users/zsh-syntax-highlighting
 
   zgen save
 fi
