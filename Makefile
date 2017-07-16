@@ -35,18 +35,6 @@ ifdef PWLINE
 	ln -sf ${PWD}/powerline ${HOME}/.config/powerline
 endif
 
-ifdef TMUX
-	ln -sf ${PWD}/.tmux.conf ${HOME}/.tmux.conf
-endif
-
-ifdef RUBY
-	ln -sf ${PWD}/.gemrc ${HOME}/.gemrc
-endif
-
-ifdef BVI
-	ln -sf ${PWD}/.bvirc ${HOME}/.bvirc
-endif
-
 ifdef VIM
 ifneq ($(CPU), 1)
 	ln -sf ${PWD}/.vimrc ${HOME}/.vimrc
@@ -59,6 +47,18 @@ endif
 
 ifdef ZSH
 	ln -sf ${PWD}/.zshrc ${HOME}/.zshrc
+endif
+
+ifdef TMUX
+	ln -sf ${PWD}/.tmux.conf ${HOME}/.tmux.conf
+endif
+
+ifdef RUBY
+	ln -sf ${PWD}/.gemrc ${HOME}/.gemrc
+endif
+
+ifdef BVI
+	ln -sf ${PWD}/.bvirc ${HOME}/.bvirc
 endif
 
 clean:
