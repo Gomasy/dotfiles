@@ -80,6 +80,6 @@ clean:
 	rm -f ${HOME}/.vimrc
 	rm -f ${HOME}/.xinitrc
 	rm -f ${HOME}/.xprofile
-	rm -f ${HOME}/.zcompdump-*
+	rm -f ${HOME}/.zcompdump*
 	rm -f ${HOME}/.zshrc
 	rm -f ${HOME}/.zsh-update
