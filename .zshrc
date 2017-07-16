@@ -26,6 +26,13 @@ stty stop undef
 # Suggestion settings
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
 
+# Set options
+setopt correct
+setopt hist_reduce_blanks
+setopt ignore_eof
+setopt print_eight_bit
+unsetopt auto_cd
+
 # Set variables
 export EDITOR="vim"
 export TERM="xterm-256color"
@@ -34,9 +41,6 @@ export GPG_TTY=$(tty)
 # Set personal aliases
 alias emacs=$EDITOR
 alias vi=$EDITOR
-
-# Spelling correction for commands
-setopt correct
 
 # Ruby settings
 if which ruby &> /dev/null && [[ `id -u` -ne 0 ]]; then
