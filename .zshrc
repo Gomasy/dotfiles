@@ -14,6 +14,8 @@ if ! zgen saved; then
   if [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting ]]; then
     zgen load /usr/share/zsh/plugins/zsh-syntax-highlighting
   fi
+
+  zgen save
 fi
 
 # Zsh hook functions
