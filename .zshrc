@@ -1,5 +1,6 @@
 # Load zgen
 if [[ ! -e $HOME/.zgen ]]; then
+  echo "\e[1m[*] Installing zgen...\e[m"
   git clone https://github.com/tarjoilija/zgen.git $HOME/.zgen
 fi
 source $HOME/.zgen/zgen.zsh
@@ -37,21 +38,27 @@ setopt correct
 if which ruby &> /dev/null && [[ `id -u` -ne 0 ]]; then
   # rbenv settings
   if [[ ! -e $HOME/.rbenv ]]; then
-    echo "[*] Installing rbenv..."
+    echo "\e[1m[*] Installing rbenv...\e[m"
     git clone https://github.com/rbenv/rbenv.git $HOME/.rbenv
 
-    echo "[*] Installing ruby-build..."
+    echo "\e[1m[*] Installing ruby-build...\e[m"
     git clone https://github.com/rbenv/ruby-build.git $HOME/.rbenv/plugins/ruby-build
   fi
 
+  export PATH=$(ruby -e'print Gem.user_dir')/bin:$PATH
   export PATH=$HOME/.rbenv/bin:$PATH
   eval "$(rbenv init -)"
 
   # gem settings
-  export PATH=$(ruby -e'print Gem.user_dir')/bin:$PATH
+  if ! which bundler &> /dev/null; then
+    echo "\e[1m[*] Installing bundler...\e[m"
+    gem install bundler
+  fi
 
-  ! which bundler &> /dev/null && (echo "[*] Installing bundler..." && gem install bundler)
-  ! which kramdown &> /dev/null && (echo "[*] Installing kramdown..." && gem install kramdown)
+  if ! which kramdown &> /dev/null; then
+    echo "\e[1m[*] Installing kramdown...\e[m"
+    gem install kramdown
+  fi
 fi
 
 # Show motd
