@@ -11,6 +11,7 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/sudo
   zgen oh-my-zsh themes/agnoster
 
+  zgen load zsh-users/zaw
   zgen load zsh-users/zsh-autosuggestions
   zgen load zsh-users/zsh-syntax-highlighting
 
@@ -26,10 +27,19 @@ stty stop undef
 # Suggestion settings
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
 
+# Key bindings
+bindkey "^G^F" zaw-git-files
+bindkey "^G^L" zaw-git-log
+bindkey "^G^S" zaw-git-status
+bindkey "^P" zaw-process
+bindkey "^R" zaw-history
+bindkey "^T" zaw-tmux
+
 # Set options
 setopt correct
 setopt hist_fcntl_lock
 setopt hist_find_no_dups
+setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
 setopt ignore_eof
 setopt list_packed
