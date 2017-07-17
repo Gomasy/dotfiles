@@ -24,9 +24,6 @@ zshaddhistory() { [[ ${#1%%$'\n'} -ge 5 ]] }
 # Ignore C-s
 stty stop undef
 
-# Suggestion settings
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
-
 # Key bindings
 bindkey "^G^F" zaw-git-files
 bindkey "^G^L" zaw-git-log
@@ -47,7 +44,11 @@ setopt list_rows_first
 setopt menu_complete
 unsetopt auto_cd
 
-# Set variables
+# Set shell variables
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
+DEFAULT_USER="gomasy"
+
+# Set environment variables
 export EDITOR="vim"
 export TERM="xterm-256color"
 export GPG_TTY=$(tty)
