@@ -13,6 +13,8 @@ TERM := $(shell which /usr/bin/terminator 2> /dev/null)
 PWLINE := $(shell which /usr/bin/powerline 2> /dev/null)
 
 install:
+	mkdir -p -m 700 ${HOME}/.ssh
+	ln -sf ${PWD}/.ssh/config ${HOME}/.ssh/config
 	ln -sf ${PWD}/.gitconfig ${HOME}/.gitconfig
 
 ifdef GPG
@@ -70,6 +72,7 @@ clean:
 	rm -rf ${HOME}/.zgen
 	rm -f ${HOME}/.config/powerline
 	rm -f ${HOME}/.config/terminator
+	rm -f ${HOME}/.ssh/config
 	rm -f ${HOME}/.gnupg/gpg-agent.conf
 	rm -f ${HOME}/.bvirc
 	rm -f ${HOME}/.dein.toml
