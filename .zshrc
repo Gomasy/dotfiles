@@ -35,7 +35,6 @@ setopt ignore_eof
 setopt list_packed
 setopt list_rows_first
 setopt menu_complete
-setopt print_eight_bit
 unsetopt auto_cd
 
 # Set variables
