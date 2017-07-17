@@ -27,13 +27,13 @@ ifdef X
 	ln -sf ${PWD}/.xprofile ${HOME}/.xprofile
 
 ifdef TERM
-	mkdir -p -m 700 ~/.config
+	mkdir -p -m 700 ${HOME}/.config
 	ln -sf ${PWD}/terminator ${HOME}/.config/terminator
 endif
 endif
 
 ifdef PWLINE
-	mkdir -p -m 700 ~/.config
+	mkdir -p -m 700 ${HOME}/.config
 	ln -sf ${PWD}/powerline ${HOME}/.config/powerline
 endif
 
