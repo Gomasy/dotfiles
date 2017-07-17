@@ -100,7 +100,7 @@ if [[ -e /usr/bin/tmux && $- != *l* ]]; then
       tmux ls | perl -pe 's/(^.*?):/\033[31;1m$1:\033[m/'
       echo -n "tmux: attach? (y or num)>> " && read num
 
-      [[ $num =~ ^[Yy]$ || ! -n $num ]] && tmux a && tmux a -t $num
+      [[ $num =~ ^[Yy]$ || ! -n $num ]] && tmux a || tmux a -t $num
       unset num
     else
       tmux a
