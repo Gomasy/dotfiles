@@ -20,6 +20,13 @@ fi
 
 # Zsh hook functions
 zshaddhistory() { [[ ${#1%%$'\n'} -ge 5 ]] }
+prompt_context() {
+  if [[ "$USER" != "gomasy" || -n "$SSH_CONNECTION" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m"
+  else
+    prompt_segment black default ""
+  fi
+}
 
 # Ignore C-s
 stty stop undef
@@ -46,7 +53,6 @@ unsetopt auto_cd
 
 # Set shell variables
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
-DEFAULT_USER="gomasy"
 
 # Set environment variables
 export EDITOR="vim"
