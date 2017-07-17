@@ -35,8 +35,8 @@ stty stop undef
 bindkey "^G^F" zaw-git-files
 bindkey "^G^L" zaw-git-log
 bindkey "^G^S" zaw-git-status
+bindkey "^H" zaw-history
 bindkey "^P" zaw-process
-bindkey "^R" zaw-history
 bindkey "^T" zaw-tmux
 
 # Set options
