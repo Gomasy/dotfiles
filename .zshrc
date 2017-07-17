@@ -89,16 +89,15 @@ fi
 
 # Run tmux
 if [[ -e /usr/bin/tmux && $- != *l* ]]; then
-  if [[ `tty` =~ ".+(tty0|pts\/0)$" && -n `tmux ls 2> /dev/null` ]]; then
+  if `tmux has 2> /dev/null` && [[ `tty` =~ ".+(tty0|pts\/0)$" ]]; then
     if [[ `tmux ls | wc -l` -gt 1 ]]; then
-      echo "List of sessions:\e[4m" && tmux list-sessions
-      echo -n "\n\e[m\e[1mPlease select session to attach.\nnumber> "
-      read num
+      tmux ls | perl -pe 's/(^.*?):/\033[31;1m$1:\033[m/'
+      echo -n "tmux: attach? (y or num)>> " && read num
 
-      tmux attach -t $num
+      [[ $num =~ ^[Yy]$ || ! -n $num ]] && tmux a && tmux a -t $num
       unset num
     else
-      tmux attach
+      tmux a
     fi
   else
     tmux new-session
