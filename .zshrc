@@ -28,8 +28,13 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
 
 # Set options
 setopt correct
+setopt hist_fcntl_lock
+setopt hist_find_no_dups
 setopt hist_reduce_blanks
 setopt ignore_eof
+setopt list_packed
+setopt list_rows_first
+setopt menu_complete
 setopt print_eight_bit
 unsetopt auto_cd
 
