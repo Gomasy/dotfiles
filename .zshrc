@@ -106,7 +106,7 @@ if [[ -e /usr/bin/tmux && $- != *l* ]]; then
       tmux a
     fi
   else
-    tmux new-session
+    tmux new
   fi
 
   ! `tmux has 2> /dev/null` && [[ `ps x | grep powerline-daemon | grep -v grep |  wc -l` -ne 0 ]] && killall powerline-daemon
