@@ -19,7 +19,7 @@ install:
 
 ifdef GPG
 	mkdir -p ${HOME}/.gnupg
-	ln -sf ${PWD}/gnupg/gpg-agent.conf ${HOME}/.gnupg/gpg-agent.conf
+	ln -sf ${PWD}/.gnupg/gpg-agent.conf ${HOME}/.gnupg/gpg-agent.conf
 endif
 
 ifdef X
