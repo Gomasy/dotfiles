@@ -54,7 +54,7 @@ set fileencoding=utf-8
 set fileencodings=utf-8,cp932,sjis,euc-jp
 set display=uhex
 set mouse=a
-set ttymouse=xterm2
+set ttymouse=sgr
 set t_ut=
 set visualbell t_vb=
 set noerrorbells
