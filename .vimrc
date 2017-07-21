@@ -46,7 +46,7 @@ endif
 "General settings-------------------------
 syntax on
 colorscheme molokai
-highlight Visual ctermbg=8
+highlight Visual ctermbg=239 guibg=#4c4c4c
 filetype plugin indent on
 
 set encoding=utf-8
