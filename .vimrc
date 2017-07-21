@@ -83,8 +83,8 @@ set ruler
 set list
 set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮
 set scrolloff=5
-set laststatus=2
 set showtabline=2
+set laststatus=2
 
 
 "Search settings--------------------------
