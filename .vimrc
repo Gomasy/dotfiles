@@ -57,7 +57,6 @@ set mouse=a
 set ttymouse=sgr
 set t_ut=
 set visualbell t_vb=
-set noerrorbells
 set wildignorecase
 set wildmenu
 set tildeop
@@ -65,7 +64,6 @@ set hidden
 set autoread
 set lazyredraw
 set noswapfile
-set nobackup
 set nowritebackup
 
 
