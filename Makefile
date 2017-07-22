@@ -28,13 +28,13 @@ ifdef X
 
 ifdef TERM
 	mkdir -p -m 700 ${HOME}/.config
-	ln -sf ${PWD}/terminator ${HOME}/.config/terminator
+	ln -sf ${PWD}/.config/terminator ${HOME}/.config/terminator
 endif
 endif
 
 ifdef PWLINE
 	mkdir -p -m 700 ${HOME}/.config
-	ln -sf ${PWD}/powerline ${HOME}/.config/powerline
+	ln -sf ${PWD}/.config/powerline ${HOME}/.config/powerline
 endif
 
 ifdef VIM
