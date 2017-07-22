@@ -56,7 +56,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
 
 # Set environment variables
 export EDITOR="vim"
-export TERM="xterm-256color"
 export GPG_TTY=$(tty)
 
 # Set personal aliases
