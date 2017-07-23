@@ -62,7 +62,6 @@ ifdef BVI
 endif
 
 clean:
-	rm -rf ${HOME}/.cache/dein
 	rm -rf ${HOME}/.cache/neo*
 	rm -rf ${HOME}/.gem
 	rm -rf ${HOME}/.local/share/vim*
