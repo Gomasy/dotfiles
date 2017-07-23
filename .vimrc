@@ -66,6 +66,10 @@ set lazyredraw
 set noswapfile
 set nowritebackup
 
+if has('clipboard')
+  set clipboard^=unnamedplus
+endif
+
 
 "UI settings------------------------------
 set splitbelow
