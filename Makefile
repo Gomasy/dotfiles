@@ -34,6 +34,7 @@ endif
 endif
 
 ifdef PWLINE
+	mkdir -p -m 700 ${HOME}/.config
 	ln -sf ${PWD}/.config/powerline ${HOME}/.config/powerline
 endif
 
