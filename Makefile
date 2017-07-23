@@ -77,6 +77,7 @@ clean:
 	rm -f ${HOME}/.gemrc
 	rm -f ${HOME}/.gitconfig
 	rm -f ${HOME}/.tmux.conf
+	rm -f ${HOME}/.vimrc
 	rm -f ${HOME}/.xinitrc
 	rm -f ${HOME}/.xprofile
 	rm -f ${HOME}/.zcompdump*
