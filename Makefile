@@ -67,11 +67,14 @@ clean:
 	rm -rf ${HOME}/.local/share/vim*
 	rm -rf ${HOME}/.rbenv
 	rm -rf ${HOME}/.zgen
+	rm -rf ${HOME}/.vim/dein/*
+	rm -rf ${HOME}/.vim/dein/.cache
+	rm -f ${HOME}/.vim
+	rm -f ${HOME}/.config/fontconfig
 	rm -f ${HOME}/.config/powerline
 	rm -f ${HOME}/.config/terminator
 	rm -f ${HOME}/.ssh/config
 	rm -f ${HOME}/.gnupg/gpg-agent.conf
-	rm -f ${HOME}/.vim
 	rm -f ${HOME}/.bvirc
 	rm -f ${HOME}/.gemrc
 	rm -f ${HOME}/.gitconfig
