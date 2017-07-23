@@ -39,9 +39,7 @@ endif
 
 ifdef VIM
 ifneq ($(CPU), 1)
-	ln -sf ${PWD}/.vimrc ${HOME}/.vimrc
-	ln -sf ${PWD}/.dein.toml ${HOME}/.dein.toml
-	ln -sf ${PWD}/.dein_lazy.toml ${HOME}/.dein_lazy.toml
+	ln -sf ${PWD}/.vim ${HOME}/.vim
 else
 	ln -sf ${PWD}/.vimrc_simple ${HOME}/.vimrc
 endif
@@ -74,13 +72,11 @@ clean:
 	rm -f ${HOME}/.config/terminator
 	rm -f ${HOME}/.ssh/config
 	rm -f ${HOME}/.gnupg/gpg-agent.conf
+	rm -f ${HOME}/.vim
 	rm -f ${HOME}/.bvirc
-	rm -f ${HOME}/.dein.toml
-	rm -f ${HOME}/.dein_lazy.toml
 	rm -f ${HOME}/.gemrc
 	rm -f ${HOME}/.gitconfig
 	rm -f ${HOME}/.tmux.conf
-	rm -f ${HOME}/.vimrc
 	rm -f ${HOME}/.xinitrc
 	rm -f ${HOME}/.xprofile
 	rm -f ${HOME}/.zcompdump*
