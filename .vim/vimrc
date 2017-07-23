@@ -268,6 +268,7 @@ let g:quickrun_config = {
   \   },
   \ }
 
+
 "vimshell
 nnoremap <silent><S-s> :VimShell<CR>
 nnoremap <silent><S-p> :VimShellInteractive python<CR>
