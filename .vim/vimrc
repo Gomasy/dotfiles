@@ -260,6 +260,7 @@ let g:quickrun_config = {
   \     'outputter/error/error': 'quickfix',
   \     'outputter/buffer/split': 'rightbelow 8sp',
   \     'outputter/buffer/close_on_empty' : 1,
+  \     'hook/time/enable': 1,
   \   },
   \   'markdown': {
   \     'type': 'markdown/kramdown',
