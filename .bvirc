@@ -1,2 +1,4 @@
+set columns=16
+set ignorecase
 set memmove
-set cm=16
+set nowrapscan
