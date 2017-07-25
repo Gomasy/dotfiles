@@ -279,6 +279,10 @@ nnoremap <silent><S-r> :VimShellInteractive irb<CR>
 nnoremap <silent>t :Switch<CR>
 
 
+"vim-trailing-whitespace
+highlight ExtraWhitespace ctermbg=red guibg=#b71c1c
+
+
 "vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
