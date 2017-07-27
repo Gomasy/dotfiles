@@ -14,6 +14,11 @@ PWLINE := $(shell which /usr/bin/powerline 2> /dev/null)
 VLC := $(shell which /usr/bin/vlc 2> /dev/null)
 
 install:
+	chmod 600 ${PWD}/.config
+	chmod 400 ${PWD}/.config/vlc/*
+	chmod 600 ${PWD}/.gnupg
+	chmod 600 ${PWD}/.ssh
+
 	mkdir -p -m 700 ${HOME}/.ssh
 	ln -sf ${PWD}/.ssh/config ${HOME}/.ssh/config
 	ln -sf ${PWD}/.gitconfig ${HOME}/.gitconfig
