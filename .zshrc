@@ -109,6 +109,6 @@ if [[ -e /usr/bin/tmux && $- != *l* ]]; then
     tmux new
   fi
 
-  ! `tmux has 2> /dev/null` && [[ `ps x | grep powerline-daemon | grep -v grep |  wc -l` -ne 0 ]] && killall powerline-daemon
+  ! `tmux has 2> /dev/null` && [[ `ps x | grep \[p\]owerline-daemon | wc -l` -ne 0 ]] && killall powerline-daemon
   [[ -e /tmp/tmux-1000/no_exit ]] && rm /tmp/tmux-1000/no_exit &> /dev/null || exit
 fi
