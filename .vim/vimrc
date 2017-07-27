@@ -158,6 +158,16 @@ function Wrap_switch()
 endfunction
 nnoremap <silent><ESC>w :call Wrap_switch()<CR>
 
+function Relative_switch()
+  if &relativenumber
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+  call Show_state('relativenumber')
+endfunction
+nnoremap <silent><ESC>r :call Relative_switch()<CR>
+
 function Mouse_switch()
   if &mouse == 'a'
     set mouse=
