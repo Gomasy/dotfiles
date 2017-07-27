@@ -84,6 +84,7 @@ clean:
 	rm -f ${HOME}/.config/fontconfig
 	rm -f ${HOME}/.config/powerline
 	rm -f ${HOME}/.config/terminator
+	rm -f ${HOME}/.config/vlc
 	rm -f ${HOME}/.ssh/config
 	rm -f ${HOME}/.gnupg/gpg-agent.conf
 	rm -f ${HOME}/.bvirc
