@@ -110,7 +110,7 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
-if (v:version == 704 && has('patch338')) || v:version >= 705
+if has('breakindent')
   set breakindent
 endif
 
@@ -168,7 +168,7 @@ function Mouse_switch()
 endfunction
 nnoremap <silent><ESC>m :call Mouse_switch()<CR>
 
-if (v:version == 704 && has('patch1799')) || v:version >= 705
+if has('termguicolors')
   set termguicolors
   nnoremap <silent><ESC>g :call TrueColor_switch()<CR>
 
