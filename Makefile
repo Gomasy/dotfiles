@@ -11,6 +11,7 @@ BVI := $(shell which /usr/bin/bvi 2> /dev/null)
 GPG := $(shell which /usr/bin/gpg2 2> /dev/null)
 TERM := $(shell which /usr/bin/terminator 2> /dev/null)
 PWLINE := $(shell which /usr/bin/powerline 2> /dev/null)
+VLC := $(shell which /usr/bin/vlc 2> /dev/null)
 
 install:
 	mkdir -p -m 700 ${HOME}/.ssh
@@ -31,6 +32,9 @@ ifdef X
 ifdef TERM
 	ln -sf ${PWD}/.config/terminator ${HOME}/.config/terminator
 endif
+
+ifdef VLC
+	ln -sf ${PWD}/.config/vlc ${HOME}/.config/vlc
 endif
 
 ifdef PWLINE
