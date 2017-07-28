@@ -31,14 +31,14 @@ endif
 ifdef X
 	ln -sf ${PWD}/.xinitrc ${HOME}/.xinitrc
 	ln -sf ${PWD}/.xprofile ${HOME}/.xprofile
-	mkdir -p -m 700 ${HOME}/.config
-	ln -sf ${PWD}/.config/fontconfig ${HOME}/.config/fontconfig
 
 ifdef TERM
+	mkdir -p -m 700 ${HOME}/.config
 	ln -sf ${PWD}/.config/terminator ${HOME}/.config/terminator
 endif
 
 ifdef VLC
+	mkdir -p -m 700 ${HOME}/.config
 	ln -sf ${PWD}/.config/vlc ${HOME}/.config/vlc
 endif
 endif
@@ -81,7 +81,6 @@ clean:
 	rm -rf ${HOME}/.vim/dein/*
 	rm -rf ${HOME}/.vim/dein/.cache
 	rm -f ${HOME}/.vim
-	rm -f ${HOME}/.config/fontconfig
 	rm -f ${HOME}/.config/powerline
 	rm -f ${HOME}/.config/terminator
 	rm -f ${HOME}/.config/vlc
