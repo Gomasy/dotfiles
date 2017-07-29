@@ -12,6 +12,9 @@ repo = 'Shougo/neosnippet-snippets'
 repo = 'Shougo/vimshell'
 
 [[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
