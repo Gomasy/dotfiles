@@ -119,18 +119,10 @@ endif
 function Toggle_state(name)
   echohl Title
   if eval('&' . a:name) || eval('&' . a:name) != ''
-    if a:name == 'mouse'
-      set mouse=
-    else
-      exec 'set no' . a:name
-    endif
+    if a:name == 'mouse' | set mouse= | else | exec 'set no' . a:name | endif
     echomsg '*** Toggled ' . a:name . ' to false ***'
   else
-    if a:name == 'mouse'
-      set mouse=a
-    else
-      exec 'set ' . a:name
-    endif
+    if a:name == 'mouse' | set mouse=a | else | exec 'set ' . a:name | endif
     echomsg '*** Toggled ' . a:name . ' to true ***'
   endif
   echohl None
