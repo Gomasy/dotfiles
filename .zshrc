@@ -11,6 +11,7 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/sudo
   zgen oh-my-zsh themes/agnoster
 
+  zgen load willghatch/zsh-cdr
   zgen load zsh-users/zaw
   zgen load zsh-users/zsh-autosuggestions
   zgen load zsh-users/zsh-syntax-highlighting
@@ -35,6 +36,7 @@ stty stop undef
 bindkey "^G^F" zaw-git-files
 bindkey "^G^L" zaw-git-log
 bindkey "^G^S" zaw-git-status
+bindkey "^F" zaw-cdr
 bindkey "^H" zaw-history
 bindkey "^P" zaw-process
 bindkey "^T" zaw-tmux
