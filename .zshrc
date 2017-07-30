@@ -53,8 +53,10 @@ setopt list_rows_first
 setopt menu_complete
 unsetopt auto_cd
 
-# Set shell variables
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
+# Set style options
+zstyle ":filter-select:highlight" matched fg=yellow,standout
+zstyle ":filter-select" extended-search yes
+zstyle ":filter-select" rotate-list yes
 
 # Set environment variables
 export EDITOR="vim"
@@ -64,6 +66,9 @@ export GPG_TTY=$(tty)
 alias quit="touch /tmp/tmux-1000/no_exit; exit"
 alias emacs=$EDITOR
 alias vi=$EDITOR
+
+# Set shell variables
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
 
 # Ruby settings
 if which ruby &> /dev/null && [[ `id -u` -ne 0 ]]; then
