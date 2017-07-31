@@ -50,6 +50,7 @@ filetype plugin indent on
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,cp932,sjis,euc-jp
+set nrformats=alpha,bin,hex
 set display=uhex
 set mouse=a
 set ttymouse=sgr
