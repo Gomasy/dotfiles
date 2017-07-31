@@ -156,7 +156,6 @@ nnoremap <silent><S-TAB> :call Toggle_state('expandtab')<CR>
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMouseMode = 2
 
-autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | q | endif
 nnoremap <silent><C-f> :NERDTreeTabsToggle<CR>
 
