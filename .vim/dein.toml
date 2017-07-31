@@ -36,4 +36,7 @@ repo = 'bronson/vim-trailing-whitespace'
 repo = 'nathanaelkane/vim-indent-guides'
 
 [[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+
+[[plugins]]
 repo = 'tomasr/molokai'
