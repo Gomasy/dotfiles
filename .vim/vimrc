@@ -139,7 +139,7 @@ nnoremap <C-w>oh :sp<space>
 nnoremap <C-w>ov :vsp<space>
 nnoremap <C-o> :o<space>
 
-if has('termguicolors')
+if has('termguicolors') && $COLORTERM =~# '^\(truecolor\|24bit\)$'
   set termguicolors
   nnoremap <silent><ESC>g :call Toggle_state('termguicolors')<CR>
 endif
