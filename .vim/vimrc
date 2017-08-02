@@ -233,6 +233,7 @@ let g:quickrun_config = {
   \   'markdown': {
   \     'type': 'markdown/kramdown',
   \     'outputter': 'browser',
+  \     'hook/time/enable': 0,
   \   },
   \ }
 
