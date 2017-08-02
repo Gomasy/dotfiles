@@ -2,6 +2,7 @@
 if !&compatible
   set nocompatible
 endif
+set runtimepath&
 
 "reset augroup
 augroup MyAutoCmd
@@ -66,6 +67,7 @@ set noswapfile
 set nowritebackup
 
 if has('clipboard')
+  set clipboard&
   set clipboard^=unnamedplus
 endif
 
@@ -115,7 +117,7 @@ endif
 
 
 "Key binding settings---------------------
-function Toggle_state(name)
+function! Toggle_state(name)
   echohl Title
   if eval('&' . a:name) || eval('&' . a:name) != ''
     if a:name == 'mouse' | set mouse= | else | exec 'set no' . a:name | endif
@@ -128,6 +130,7 @@ function Toggle_state(name)
 endfunction
 
 nnoremap <silent>,su :w !sudo tee %<CR>
+nnoremap <silent>,r :source ~/.vim/vimrc<CR>
 nnoremap <silent><ESC><ESC> :noh<CR>
 nnoremap <silent><C-n> :new<CR>
 nnoremap <silent><C-w>h :sp<CR>
