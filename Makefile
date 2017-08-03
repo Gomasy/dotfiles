@@ -75,7 +75,6 @@ endif
 clean:
 	rm -rf ${HOME}/.cache/neo*
 	rm -rf ${HOME}/.gem
-	rm -rf ${HOME}/.local/share/vim*
 	rm -rf ${HOME}/.rbenv
 	rm -rf ${HOME}/.zgen
 	rm -rf ${HOME}/.vim/dein/*
