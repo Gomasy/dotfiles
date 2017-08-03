@@ -244,7 +244,6 @@ let g:neocomplete#text_mode_filetypes = {
 
 "ctrlp.vim
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_use_caching = 0
 let g:ctrlp_custom_ignore = {
   \ 'dir': '.git',
   \ 'file': '\v\.(git)?keep$',
