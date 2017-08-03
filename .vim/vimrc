@@ -169,7 +169,7 @@ if has('termguicolors') && $COLORTERM =~# '^\(truecolor\|24bit\)$'
 endif
 
 nnoremap <silent><ESC>m :call Toggle_state('mouse')<CR>
-nnoremap <silent><ESC>r :call Toggle_state('relativenumber')<CR>
+nnoremap <silent><ESC>n :call Toggle_state('relativenumber')<CR>
 nnoremap <silent><ESC>w :call Toggle_state('wrap')<CR>
 nnoremap <silent><S-TAB> :call Toggle_state('expandtab')<CR>
 
