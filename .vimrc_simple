@@ -63,6 +63,7 @@ set matchtime=3
 set autoindent
 set expandtab
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 
 if has('breakindent')
@@ -71,7 +72,41 @@ endif
 
 
 "Key binding settings---------------------
-function Toggle_state(name)
+nnoremap <silent>,su :w !sudo tee %<CR>
+nnoremap <silent>,r :source ~/.vim/vimrc<CR>
+nnoremap <silent><ESC><ESC> :noh<CR>
+nnoremap <silent><C-n> :new<CR>
+nnoremap <silent><C-w>h :sp<CR>
+nnoremap <silent><C-w>v :vsp<CR>
+nnoremap <silent><S-n> :tabnew<CR>
+nnoremap <silent><S-TAB> :tabprev<CR>
+nnoremap <silent><TAB> :tabnext<CR>
+nnoremap <C-w>oh :sp<space>
+nnoremap <C-w>ov :vsp<space>
+nnoremap <C-o> :o<space>
+
+"Disable allow keys
+noremap <Left> <Nop>
+noremap <Down> <Nop>
+noremap <Up> <Nop>
+noremap <Right> <Nop>
+inoremap <Left> <Nop>
+inoremap <Down> <Nop>
+inoremap <Up> <Nop>
+inoremap <Right> <Nop>
+
+"Window settings
+nnoremap <Left> <C-w>h
+nnoremap <Down> <C-w>j
+nnoremap <Up> <C-w>k
+nnoremap <Right> <C-w>l
+nnoremap <S-Up> <C-w>+
+nnoremap <S-Down> <C-w>-
+nnoremap <S-Left> <C-w><
+nnoremap <S-Right> <C-w>>
+
+"Toggle options
+function! Toggle_state(name)
   echohl Title
   if eval('&' . a:name) || eval('&' . a:name) != ''
     if a:name == 'mouse' | set mouse= | else | exec 'set no' . a:name | endif
@@ -83,19 +118,7 @@ function Toggle_state(name)
   echohl None
 endfunction
 
-nnoremap <silent>,su :w !sudo tee %<CR>
-nnoremap <silent><ESC><ESC> :noh<CR>
-nnoremap <silent><C-n> :new<CR>
-nnoremap <silent><C-w>h :sp<CR>
-nnoremap <silent><C-w>v :vsp<CR>
-nnoremap <silent><S-n> :tabnew<CR>
-nnoremap <silent><S-Left> :tabprev<CR>
-nnoremap <silent><S-Right> :tabnext<CR>
-nnoremap <C-w>oh :sp<space>
-nnoremap <C-w>ov :vsp<space>
-nnoremap <C-o> :o<space>
-
 nnoremap <silent><ESC>m :call Toggle_state('mouse')<CR>
-nnoremap <silent><ESC>r :call Toggle_state('relativenumber')<CR>
+nnoremap <silent><ESC>n :call Toggle_state('relativenumber')<CR>
+nnoremap <silent><ESC>t :call Toggle_state('expandtab')<CR>
 nnoremap <silent><ESC>w :call Toggle_state('wrap')<CR>
-nnoremap <silent><S-TAB> :call Toggle_state('expandtab')<CR>
