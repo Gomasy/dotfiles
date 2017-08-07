@@ -76,6 +76,7 @@ alias vi=$EDITOR
 
 # Set shell variables
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
+REPORTTIME=3
 
 # Ruby settings
 if which ruby &> /dev/null && [[ `id -u` -ne 0 ]]; then
