@@ -51,6 +51,7 @@ setopt hist_fcntl_lock
 setopt hist_find_no_dups
 setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
+setopt hist_save_no_dups
 setopt ignore_eof
 setopt list_packed
 setopt list_rows_first
