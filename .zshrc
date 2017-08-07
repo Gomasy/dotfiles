@@ -55,6 +55,9 @@ setopt ignore_eof
 setopt list_packed
 setopt list_rows_first
 setopt menu_complete
+setopt no_beep
+setopt no_hist_beep
+setopt no_list_beep
 unsetopt auto_cd
 
 # Set style options
