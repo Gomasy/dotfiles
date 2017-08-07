@@ -46,6 +46,7 @@ bindkey "^T" zaw-tmux
 
 # Set options
 setopt correct
+setopt extended_glob
 setopt hist_fcntl_lock
 setopt hist_find_no_dups
 setopt hist_ignore_all_dups
