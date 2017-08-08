@@ -168,7 +168,10 @@ function! Toggle_state(name)
   echohl None
 endfunction
 
-nnoremap <silent><ESC>g :call Toggle_state('termguicolors')<CR>
+if has('termguicolors')
+  nnoremap <silent><ESC>g :call Toggle_state('termguicolors')<CR>
+endif
+
 nnoremap <silent><ESC>m :call Toggle_state('mouse')<CR>
 nnoremap <silent><ESC>n :call Toggle_state('relativenumber')<CR>
 nnoremap <silent><ESC>t :call Toggle_state('expandtab')<CR>
