@@ -72,6 +72,10 @@ if has('clipboard')
   set clipboard^=unnamedplus
 endif
 
+if has('termguicolors') && $COLORTERM =~# '^\(truecolor\|24bit\)$'
+  set termguicolors
+endif
+
 
 "UI settings------------------------------
 set splitbelow
@@ -164,11 +168,7 @@ function! Toggle_state(name)
   echohl None
 endfunction
 
-if has('termguicolors') && $COLORTERM =~# '^\(truecolor\|24bit\)$'
-  set termguicolors
-  nnoremap <silent><ESC>g :call Toggle_state('termguicolors')<CR>
-endif
-
+nnoremap <silent><ESC>g :call Toggle_state('termguicolors')<CR>
 nnoremap <silent><ESC>m :call Toggle_state('mouse')<CR>
 nnoremap <silent><ESC>n :call Toggle_state('relativenumber')<CR>
 nnoremap <silent><ESC>t :call Toggle_state('expandtab')<CR>
