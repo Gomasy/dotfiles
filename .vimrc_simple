@@ -63,7 +63,6 @@ set matchtime=3
 set autoindent
 set expandtab
 set tabstop=2
-set softtabstop=2
 set shiftwidth=2
 
 if has('breakindent')
@@ -110,10 +109,10 @@ function! Toggle_state(name)
   echohl Title
   if eval('&' . a:name) || eval('&' . a:name) != ''
     if a:name == 'mouse' | set mouse= | else | exec 'set no' . a:name | endif
-    echomsg '*** Toggled ' . a:name . ' to false ***'
+    echo '*** Toggled ' . a:name . ' to false ***'
   else
     if a:name == 'mouse' | set mouse=a | else | exec 'set ' . a:name | endif
-    echomsg '*** Toggled ' . a:name . ' to true ***'
+    echo '*** Toggled ' . a:name . ' to true ***'
   endif
   echohl None
 endfunction
