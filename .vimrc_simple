@@ -74,7 +74,7 @@ endif
 "Key binding settings---------------------
 let g:mapleader = ","
 
-"Common key settings
+"Common settings
 nnoremap <silent><Leader>su :w !sudo tee %<CR>
 nnoremap <silent><Leader>r :source ~/.vim/vimrc<CR>
 nnoremap <silent><ESC><ESC> :noh<CR>
@@ -88,7 +88,7 @@ nnoremap <C-w>oh :sp<Space>
 nnoremap <C-w>ov :vsp<Space>
 nnoremap <C-o> :o<Space>
 
-"Cursor key settings
+"Cursor settings
 nnoremap Y y$
 nnoremap j gj
 nnoremap k gk
