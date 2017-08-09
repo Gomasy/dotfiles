@@ -98,6 +98,9 @@ nnoremap <S-j> }
 nnoremap <S-k> {
 nnoremap <S-l> $
 
+"Exit from insert mode
+inoremap jj <ESC>
+
 "Disable allow keys
 noremap <Left> <Nop>
 noremap <Down> <Nop>
