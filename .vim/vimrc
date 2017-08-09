@@ -124,8 +124,11 @@ endif
 
 
 "Key binding settings---------------------
-nnoremap <silent>,su :w !sudo tee %<CR>
-nnoremap <silent>,r :source ~/.vim/vimrc<CR>
+let g:mapleader = ","
+
+"Common key settings
+nnoremap <silent><leader>su :w !sudo tee %<CR>
+nnoremap <silent><leader>r :source ~/.vim/vimrc<CR>
 nnoremap <silent><ESC><ESC> :noh<CR>
 nnoremap <silent><C-n> :new<CR>
 nnoremap <silent><C-w>h :sp<CR>
