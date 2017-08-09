@@ -24,9 +24,6 @@ repo = 'Xuyuanp/nerdtree-git-plugin'
 repo = 'thinca/vim-quickrun'
 
 [[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
 
 [[plugins]]
