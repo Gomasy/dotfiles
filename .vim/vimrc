@@ -183,13 +183,13 @@ function! Toggle_state(name)
 endfunction
 
 if has('termguicolors')
-  nnoremap <silent><ESC>g :call Toggle_state('termguicolors')<CR>
+  nnoremap <silent><Leader>g :call Toggle_state('termguicolors')<CR>
 endif
 
-nnoremap <silent><ESC>m :call Toggle_state('mouse')<CR>
-nnoremap <silent><ESC>n :call Toggle_state('relativenumber')<CR>
-nnoremap <silent><ESC>t :call Toggle_state('expandtab')<CR>
-nnoremap <silent><ESC>w :call Toggle_state('wrap')<CR>
+nnoremap <silent><Leader>m :call Toggle_state('mouse')<CR>
+nnoremap <silent><Leader>n :call Toggle_state('relativenumber')<CR>
+nnoremap <silent><Leader>t :call Toggle_state('expandtab')<CR>
+nnoremap <silent><Leader>w :call Toggle_state('wrap')<CR>
 
 
 "Plugin settings--------------------------
