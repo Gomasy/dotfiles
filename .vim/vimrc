@@ -139,7 +139,15 @@ nnoremap <silent><TAB> :tabn<CR>
 nnoremap <C-w>oh :sp<space>
 nnoremap <C-w>ov :vsp<space>
 nnoremap <C-o> :o<space>
+
+"Cursor key settings
 nnoremap Y y$
+nnoremap j gj
+nnoremap k gk
+nnoremap <S-h> ^
+nnoremap <S-j> }
+nnoremap <S-k> {
+nnoremap <S-l> $
 
 "Disable allow keys
 noremap <Left> <Nop>
