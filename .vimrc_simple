@@ -71,18 +71,30 @@ endif
 
 
 "Key binding settings---------------------
-nnoremap <silent>,su :w !sudo tee %<CR>
-nnoremap <silent>,r :source ~/.vim/vimrc<CR>
+let g:mapleader = ","
+
+"Common key settings
+nnoremap <silent><Leader>su :w !sudo tee %<CR>
+nnoremap <silent><Leader>r :source ~/.vim/vimrc<CR>
 nnoremap <silent><ESC><ESC> :noh<CR>
 nnoremap <silent><C-n> :new<CR>
 nnoremap <silent><C-w>h :sp<CR>
 nnoremap <silent><C-w>v :vsp<CR>
 nnoremap <silent><S-n> :tabnew<CR>
-nnoremap <silent><S-TAB> :tabprev<CR>
-nnoremap <silent><TAB> :tabnext<CR>
-nnoremap <C-w>oh :sp<space>
-nnoremap <C-w>ov :vsp<space>
-nnoremap <C-o> :o<space>
+nnoremap <silent><S-TAB> :tabp<CR>
+nnoremap <silent><TAB> :tabn<CR>
+nnoremap <C-w>oh :sp<Space>
+nnoremap <C-w>ov :vsp<Space>
+nnoremap <C-o> :o<Space>
+
+"Cursor key settings
+nnoremap Y y$
+nnoremap j gj
+nnoremap k gk
+nnoremap <S-h> ^
+nnoremap <S-j> }
+nnoremap <S-k> {
+nnoremap <S-l> $
 
 "Disable allow keys
 noremap <Left> <Nop>
@@ -117,7 +129,7 @@ function! Toggle_state(name)
   echohl None
 endfunction
 
-nnoremap <silent><ESC>m :call Toggle_state('mouse')<CR>
-nnoremap <silent><ESC>n :call Toggle_state('relativenumber')<CR>
-nnoremap <silent><ESC>t :call Toggle_state('expandtab')<CR>
-nnoremap <silent><ESC>w :call Toggle_state('wrap')<CR>
+nnoremap <silent><Leader>m :call Toggle_state('mouse')<CR>
+nnoremap <silent><Leader>n :call Toggle_state('relativenumber')<CR>
+nnoremap <silent><Leader>t :call Toggle_state('expandtab')<CR>
+nnoremap <silent><Leader>w :call Toggle_state('wrap')<CR>
