@@ -136,6 +136,7 @@ nnoremap <silent><TAB> :tabn<CR>
 nnoremap <C-w>oh :sp<space>
 nnoremap <C-w>ov :vsp<space>
 nnoremap <C-o> :o<space>
+nnoremap Y y$
 
 "Disable allow keys
 noremap <Left> <Nop>
