@@ -49,6 +49,7 @@ let g:rehash256 = 1
 
 syntax on
 colorscheme molokai
+highlight Visual ctermbg=239 guibg=#545050
 filetype plugin indent on
 
 set encoding=utf-8
