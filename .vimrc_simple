@@ -37,7 +37,6 @@ set nostartofline
 set showcmd
 set title
 set number
-set ruler
 set list
 set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮
 set scrolloff=5
