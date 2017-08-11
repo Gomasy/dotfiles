@@ -9,16 +9,37 @@ on_ft = ['snippet']
 depends = ['neosnippet-snippets']
 
 [[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+
+[[plugins]]
+repo = 'jistr/vim-nerdtree-tabs'
+on_cmd = ['NERDTreeTabsToggle']
+depends = ['nerdtree', 'nerdtree-git-plugin']
+
+[[plugins]]
 repo = 'tpope/vim-endwise'
 on_i = 1
 
 [[plugins]]
-repo = 'tyru/open-browser.vim'
-on_ft = ['markdown']
+repo = 'thinca/vim-quickrun'
+on_cmd = ['QuickRun']
 
 [[plugins]]
 repo = 'AndrewRadev/switch.vim'
-on_i = 1
+on_cmd = ['Switch']
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_ft = ['markdown']
 
 [[plugins]]
 repo = 'ujihisa/neco-look'
