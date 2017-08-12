@@ -4,8 +4,6 @@ scriptencoding utf-8
 
 
 "dein scripts-----------------------------
-
-"reset augroup
 augroup MyAutoCmd
   autocmd!
 augroup END
