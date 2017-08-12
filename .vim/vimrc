@@ -70,8 +70,7 @@ set noswapfile
 set nowritebackup
 
 if has('clipboard')
-  set clipboard&
-  set clipboard^=unnamedplus
+  set clipboard& clipboard^=unnamedplus
 endif
 
 if has('termguicolors') && $COLORTERM =~# '^\(truecolor\|24bit\)$'
