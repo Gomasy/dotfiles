@@ -86,9 +86,9 @@ nnoremap <C-w>ov :vsp<Space>
 nnoremap <C-o> :o<Space>
 
 "Cursor settings
-nnoremap Y y$
 nnoremap j gj
 nnoremap k gk
+nnoremap <S-y> y$
 nnoremap <S-h> ^
 nnoremap <S-j> }
 nnoremap <S-k> {
