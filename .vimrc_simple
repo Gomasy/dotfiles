@@ -60,8 +60,8 @@ set matchtime=3
 "Indent settings--------------------------
 set autoindent
 set expandtab
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 
 if has('breakindent')
   set breakindent
