@@ -1,14 +1,13 @@
-"Encoding settings------------------------
+"Initial settings-------------------------
 set encoding=utf-8
 scriptencoding utf-8
 
-
-"dein scripts-----------------------------
 augroup MyAutoCmd
   autocmd!
 augroup END
 
-"dein settings
+
+"dein scripts-----------------------------
 let s:vim_dir = expand('~/.vim')
 let s:dein_dir = s:vim_dir . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
