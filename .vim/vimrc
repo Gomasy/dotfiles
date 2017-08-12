@@ -197,7 +197,6 @@ nnoremap <silent><Leader>w :call Toggle_state('wrap')<CR>
 
 "nerdtree
 let g:NERDTreeShowHidden = 1
-let g:NERDTreeMouseMode = 2
 
 autocmd bufenter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | q | endif
 nnoremap <silent><C-f> :NERDTreeTabsToggle<CR>
