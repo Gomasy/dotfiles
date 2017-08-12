@@ -1,8 +1,9 @@
-"dein Scripts-----------------------------
-if !&compatible
-  set nocompatible
-endif
-set runtimepath&
+"Encoding settings------------------------
+set encoding=utf-8
+scriptencoding utf-8
+
+
+"dein scripts-----------------------------
 
 "reset augroup
 augroup MyAutoCmd
@@ -52,7 +53,6 @@ colorscheme molokai
 highlight Visual ctermbg=239 guibg=#545050
 filetype plugin indent on
 
-set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,cp932,sjis,euc-jp
 set nrformats=alpha,bin,hex
