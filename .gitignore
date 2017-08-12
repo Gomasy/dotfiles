@@ -1,2 +1,3 @@
 .vim/plugins/*
-!.gitkeep
+!dein.toml
+!dein_lazy.toml
