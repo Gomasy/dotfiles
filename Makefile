@@ -77,8 +77,7 @@ clean:
 	rm -rf ${HOME}/.gem
 	rm -rf ${HOME}/.rbenv
 	rm -rf ${HOME}/.zgen
-	rm -rf ${HOME}/.vim/dein/*
-	rm -rf ${HOME}/.vim/dein/.cache
+	rm -rf ${HOME}/.vim/plugins/*
 	rm -f ${HOME}/.vim
 	rm -f ${HOME}/.config/powerline
 	rm -f ${HOME}/.config/terminator
@@ -95,3 +94,4 @@ clean:
 	rm -f ${HOME}/.zcompdump*
 	rm -f ${HOME}/.zshrc
 	rm -f ${HOME}/.zsh-update
+	git checkout ${PWD}
