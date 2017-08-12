@@ -78,6 +78,7 @@ clean:
 	rm -rf ${HOME}/.rbenv
 	rm -rf ${HOME}/.zgen
 	rm -rf ${HOME}/.vim/plugins/*
+	rm -rf ${HOME}/.vim/plugins/.*
 	rm -f ${HOME}/.vim
 	rm -f ${HOME}/.config/powerline
 	rm -f ${HOME}/.config/terminator
