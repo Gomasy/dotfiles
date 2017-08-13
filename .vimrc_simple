@@ -67,6 +67,11 @@ if has('breakindent')
   set breakindent
 endif
 
+if &filetype == 'ruby' || &filetype == 'vim'
+  set tabstop=2
+  set shiftwidth=2
+endif
+
 
 "Key binding settings---------------------
 let g:mapleader = ","
