@@ -140,13 +140,13 @@ nnoremap <C-w>ov :vsp<Space>
 nnoremap <C-o> :o<Space>
 
 "Cursor settings
-nnoremap j gj
-nnoremap k gk
-nnoremap <S-y> y$
-nnoremap <S-h> ^
-nnoremap <S-j> }
-nnoremap <S-k> {
-nnoremap <S-l> $
+noremap j gj
+noremap k gk
+noremap <S-y> y$
+noremap <S-h> ^
+noremap <S-j> }
+noremap <S-k> {
+noremap <S-l> $
 
 "Exit from insert mode
 inoremap jj <ESC>
