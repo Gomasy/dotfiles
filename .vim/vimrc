@@ -109,7 +109,7 @@ set matchpairs=(:),{:},[:],<:>
 set matchtime=3
 
 
-"Indent settings-----------------------------
+"Indent settings--------------------------
 set autoindent
 set expandtab
 set tabstop=4
