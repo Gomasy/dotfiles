@@ -15,7 +15,7 @@ colorscheme desert
 
 set fileencoding=utf-8
 set fileencodings=utf-8,cp932,sjis,euc-jp
-set nrformats=alpha,bin,hex
+set nrformats-=octal
 set switchbuf=useopen,usetab,newtab
 set virtualedit=block
 set display=uhex
