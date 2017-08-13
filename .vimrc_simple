@@ -6,7 +6,6 @@ scriptencoding utf-8
 "General settings-------------------------
 syntax on
 colorscheme desert
-filetype plugin indent on
 
 set fileencoding=utf-8
 set fileencodings=utf-8,cp932,sjis,euc-jp
