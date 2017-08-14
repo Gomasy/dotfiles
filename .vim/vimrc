@@ -53,7 +53,6 @@ set fileencoding=utf-8
 set fileencodings=utf-8,cp932,sjis,euc-jp
 set switchbuf=useopen,usetab,newtab
 set helplang=ja,en
-set whichwrap=h,l
 set nrformats-=octal
 set virtualedit=block
 set display=uhex
