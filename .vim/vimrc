@@ -51,10 +51,11 @@ highlight Visual ctermbg=239 guibg=#545050
 
 set fileencoding=utf-8
 set fileencodings=utf-8,cp932,sjis,euc-jp
-set nrformats-=octal
 set switchbuf=useopen,usetab,newtab
-set virtualedit=block
 set helplang=ja,en
+set whichwrap=h,l
+set nrformats-=octal
+set virtualedit=block
 set display=uhex
 set mouse=a
 set ttymouse=sgr
