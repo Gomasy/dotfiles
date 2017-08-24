@@ -258,14 +258,6 @@ let g:neocomplete#text_mode_filetypes = {
   \ }
 
 
-"ctrlp.vim
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = {
-  \ 'dir': '.git',
-  \ 'file': '\v\.(git)?keep$',
-  \ }
-
-
 "vim-quickrun
 nnoremap <silent><C-r> :QuickRun<CR>
 let g:quickrun_config = {
@@ -284,6 +276,14 @@ let g:quickrun_config = {
   \     'outputter': 'browser',
   \     'hook/time/enable': 0,
   \   },
+  \ }
+
+
+"ctrlp.vim
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '.git',
+  \ 'file': '\v\.(git)?keep$',
   \ }
 
 
