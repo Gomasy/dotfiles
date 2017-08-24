@@ -6,7 +6,10 @@ repo = 'Shougo/vimproc.vim'
 build = 'make'
 
 [[plugins]]
-repo = 'tpope/vim-surround'
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'rhysd/vim-operator-surround'
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'

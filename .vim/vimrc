@@ -291,6 +291,12 @@ let g:ctrlp_custom_ignore = {
 nnoremap <silent>t :Switch<CR>
 
 
+"vim-operator-surround
+nmap ys <Plug>(operator-surround-append)
+nmap ds <Plug>(operator-surround-delete)
+nmap cs <Plug>(operator-surround-replace)
+
+
 "vim-trailing-whitespace
 highlight ExtraWhitespace ctermbg=red guibg=#b71c1c
 
