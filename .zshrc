@@ -80,6 +80,9 @@ alias vi=$EDITOR
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
 REPORTTIME=3
 
+# Load local .zshrc
+[[ -e $HOME/.zshrc.local ]] && source $HOME/.zshrc.local
+
 # Ruby settings
 if which ruby &> /dev/null && [[ `id -u` -ne 0 ]]; then
   # rbenv settings
