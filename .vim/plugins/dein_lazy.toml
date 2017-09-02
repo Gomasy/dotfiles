@@ -58,6 +58,17 @@ repo = 'tyru/open-browser.vim'
 on_ft = ['markdown']
 
 [[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'php', 'css', 'scss']
+hook_add = '''
+  let g:user_emmet_settings = {
+    \   'variables': {
+    \     'lang': 'ja',
+    \   },
+    \ }
+'''
+
+[[plugins]]
 repo = 'lilydjwg/colorizer'
 on_ft = ['css', 'scss']
 
