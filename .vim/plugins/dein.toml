@@ -6,19 +6,82 @@ repo = 'Shougo/vimproc.vim'
 build = 'make'
 
 [[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+hook_add = '''
+  let g:ctrlp_show_hidden = 1
+  let g:ctrlp_custom_ignore = {
+    \ 'dir': '.git',
+    \ 'file': '\v\.(git)?keep$',
+    \ }
+'''
+
+[[plugins]]
+repo = 'AndrewRadev/switch.vim'
+hook_add = 'nnoremap <silent>t :Switch<CR>'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+hook_add = '''
+  nnoremap <silent><C-r> :QuickRun<CR>
+  let g:quickrun_config = {
+    \   '_': {
+    \     'runner': 'vimproc',
+    \     'runner/vimproc/updatetime': 60,
+    \     'outputter': 'error',
+    \     'outputter/error/success': 'buffer',
+    \     'outputter/error/error': 'quickfix',
+    \     'outputter/buffer/split': 'rightbelow 8sp',
+    \     'outputter/buffer/close_on_empty' : 1,
+    \     'hook/time/enable': 1,
+    \   },
+    \   'markdown': {
+    \     'type': 'markdown/kramdown',
+    \     'outputter': 'browser',
+    \     'hook/time/enable': 0,
+    \   },
+    \ }
+'''
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+  nnoremap <silent><C-f> :NERDTreeTabsToggle<CR>
+  autocmd bufenter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | q | endif
+
+  let g:NERDTreeShowHidden = 1
+  if winwidth(0) < 128
+    let g:NERDTreeWinSize = 25
+  endif
+'''
+
+[[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+
+[[plugins]]
+repo = 'jistr/vim-nerdtree-tabs'
+
+[[plugins]]
 repo = 'kana/vim-operator-user'
 
 [[plugins]]
 repo = 'rhysd/vim-operator-surround'
+hook_add = '''
+  nmap ys <Plug>(operator-surround-append)
+  nmap ds <Plug>(operator-surround-delete)
+  nmap cs <Plug>(operator-surround-replace)
+'''
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
+hook_add = 'autocmd colorscheme * highlight ExtraWhitespace ctermbg=red guibg=#b71c1c'
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
-
-[[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
+hook_add = '''
+  let g:indent_guides_enable_on_vim_startup = 1
+  let g:indent_guides_start_level = 2
+  let g:indent_guides_exclude_filetypes = [ 'help', 'nerdtree' ]
+'''
 
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
