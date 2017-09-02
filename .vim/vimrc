@@ -45,6 +45,11 @@ endif
 "General settings-------------------------
 let g:molokai_original = 1
 let g:rehash256 = 1
+let s:powerline_dir = '/usr/lib/python*/site-packages/powerline/bindings/vim'
+
+if isdirectory(glob(s:powerline_dir))
+  exec 'set runtimepath^=' . fnamemodify(s:powerline_dir, ':p')
+endif
 
 syntax on
 colorscheme molokai
