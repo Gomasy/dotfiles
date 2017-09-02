@@ -16,10 +16,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'AndrewRadev/switch.vim'
-hook_add = 'nnoremap <silent>t :Switch<CR>'
-
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = '''
   nnoremap <silent><C-r> :QuickRun<CR>
@@ -41,6 +37,10 @@ hook_add = '''
     \   },
     \ }
 '''
+
+[[plugins]]
+repo = 'AndrewRadev/switch.vim'
+hook_add = 'nnoremap <silent>t :Switch<CR>'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
