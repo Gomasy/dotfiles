@@ -88,3 +88,5 @@ repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
 repo = 'tomasr/molokai'
+
+# vim: ft=vim
