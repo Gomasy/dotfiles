@@ -70,7 +70,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'lilydjwg/colorizer'
-on_ft = ['css', 'scss']
+on_ft = ['html', 'css', 'scss']
 
 [[plugins]]
 repo = 'ujihisa/neco-look'
