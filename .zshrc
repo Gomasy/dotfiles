@@ -118,10 +118,10 @@ if [[ -e /usr/bin/tmux && $- != *l* ]]; then
   if `tmux has 2> /dev/null` && [[ `tty` =~ ^.+pts\/0$ ]]; then
     if [[ `tmux ls | wc -l` -gt 1 ]]; then
       tmux ls | perl -pe's/(^.*?):/\033[31;1m$1:\033[m/'
-      echo -n "tmux: attach? (y or num)>> " && read num
+      echo -n "tmux: attach? (y or num)>> " && read input
 
-      [[ $num =~ ^[Yy]$ || ! -n $num ]] && tmux a || tmux a -t $num
-      unset num
+      [[ $input =~ ^[Yy]?$ || ! -n $input ]] && tmux a || tmux a -t $input
+      unset input
     else
       tmux a
     fi
@@ -129,5 +129,13 @@ if [[ -e /usr/bin/tmux && $- != *l* ]]; then
     tmux new
   fi
 
-  [[ -e /tmp/tmux-1000/no_exit ]] && rm /tmp/tmux-1000/no_exit &> /dev/null || exit
+  if [[ -e /tmp/tmux-1000/no_exit ]]; then
+    rm /tmp/tmux-1000/no_exit &> /dev/null
+
+    echo -n "Quit powerline-daemon? (Y/n)>> " && read input
+    [[ $input =~ ^[Yy]?$ ]] && killall powerline-daemon
+    unset input
+  else
+    exit
+  fi
 fi
