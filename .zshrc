@@ -133,7 +133,7 @@ if [[ -e /usr/bin/tmux && $- != *l* ]]; then
     rm /tmp/tmux-1000/no_exit &> /dev/null
 
     echo -n "Quit powerline-daemon? (Y/n)>> " && read input
-    [[ $input =~ ^[Nn]?$ ]] && killall powerline-daemon
+    [[ $input =~ ^[^Nn]?$ ]] && killall powerline-daemon
     unset input
   else
     exit
