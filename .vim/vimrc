@@ -79,10 +79,6 @@ if has('clipboard')
   set clipboard& clipboard^=unnamedplus
 endif
 
-if has('termguicolors') && $COLORTERM =~# '^\(truecolor\|24bit\)$'
-  set termguicolors
-endif
-
 "UI settings------------------------------
 set splitbelow
 set splitright
@@ -189,6 +185,7 @@ function! Toggle_state(name)
 endfunction
 
 if has('termguicolors')
+  set termguicolors
   nnoremap <silent><Leader>g :call Toggle_state('termguicolors')<CR>
 endif
 
