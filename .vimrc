@@ -141,5 +141,3 @@ nnoremap <silent><Leader>m :call Toggle_state('mouse')<CR>
 nnoremap <silent><Leader>n :call Toggle_state('relativenumber')<CR>
 nnoremap <silent><Leader>t :call Toggle_state('expandtab')<CR>
 nnoremap <silent><Leader>w :call Toggle_state('wrap')<CR>
-
-"vim: ft=vim:
