@@ -1,5 +1,5 @@
-"This is minimum configuration for vim.
-"If you want to use full version please see .vim/vimrc.
+"This is a minimum configuration for vim.
+"If you want to use full version, please see .vim/vimrc.
 
 "Encoding settings------------------------
 set encoding=utf-8
