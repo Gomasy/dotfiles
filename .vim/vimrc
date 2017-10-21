@@ -4,9 +4,6 @@ scriptencoding utf-8
 
 augroup MyAutoCmd
   autocmd!
-  autocmd filetype ruby setlocal tabstop=2 shiftwidth=2
-  autocmd filetype vim setlocal tabstop=2 shiftwidth=2
-  autocmd filetype yaml setlocal tabstop=2 shiftwidth=2
 augroup END
 
 
@@ -52,6 +49,8 @@ if isdirectory(glob(s:powerline_dir))
 endif
 
 syntax on
+filetype plugin indent on
+
 colorscheme molokai
 highlight Visual ctermbg=239 guibg=#545050
 

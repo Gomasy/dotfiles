@@ -1,17 +1,18 @@
+"This is minimum configuration for vim.
+"If you want to use full version please see .vim/vimrc.
+
 "Encoding settings------------------------
 set encoding=utf-8
 scriptencoding utf-8
 
 augroup MyAutoCmd
   autocmd!
-  autocmd filetype ruby setlocal tabstop=2 shiftwidth=2
-  autocmd filetype vim setlocal tabstop=2 shiftwidth=2
-  autocmd filetype yaml setlocal tabstop=2 shiftwidth=2
 augroup END
 
 
 "General settings-------------------------
 syntax on
+filetype plugin indent on
 colorscheme desert
 
 set fileencoding=utf-8
