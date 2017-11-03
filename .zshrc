@@ -1,9 +1,3 @@
-# Update dotfiles
-if [[ ! -n $TMUX ]]; then
-  echo "\e[1m[*] Updating dotfiles...\e[m"
-  git --git-dir=$(dirname `realpath $HOME/.zshrc`)/.git pull
-fi
-
 # Load zgen
 if [[ ! -e $HOME/.zgen ]]; then
   echo "\e[1m[*] Installing zgen...\e[m"
