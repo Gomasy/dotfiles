@@ -1,36 +1,36 @@
 # Load zgen
 if [[ ! -e $HOME/.zgen ]]; then
-  echo "\e[1m[*] Installing zgen...\e[m"
-  git clone https://github.com/tarjoilija/zgen.git $HOME/.zgen
+    echo "\e[1m[*] Installing zgen...\e[m"
+    git clone https://github.com/tarjoilija/zgen.git $HOME/.zgen
 fi
 source $HOME/.zgen/zgen.zsh
 
 # Install plugins
 if ! zgen saved; then
-  zgen oh-my-zsh
-  zgen oh-my-zsh plugins/sudo
-  zgen oh-my-zsh themes/agnoster
+    zgen oh-my-zsh
+    zgen oh-my-zsh plugins/sudo
+    zgen oh-my-zsh themes/agnoster
 
-  zgen load willghatch/zsh-cdr
-  zgen load zsh-users/zaw
-  zgen load zsh-users/zsh-autosuggestions
-  zgen load zsh-users/zsh-syntax-highlighting
+    zgen load willghatch/zsh-cdr
+    zgen load zsh-users/zaw
+    zgen load zsh-users/zsh-autosuggestions
+    zgen load zsh-users/zsh-syntax-highlighting
 
-  zgen save
+    zgen save
 fi
 
 # Zsh hook functions
 zshaddhistory() { [[ ${#1%%$'\n'} -ge 5 ]] }
 zshexit() {
-  sleep 0.1
-  ! `tmux has 2> /dev/null` && [[ `ps x | grep \[p\]owerline-daemon | wc -l` -ne 0 ]] && killall powerline-daemon
+    sleep 0.1
+    ! `tmux has 2> /dev/null` && [[ `ps x | grep \[p\]owerline-daemon | wc -l` -ne 0 ]] && killall powerline-daemon
 }
 prompt_context() {
-  if [[ $USER != "gomasy" || -n $SSH_CONNECTION ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m"
-  else
-    prompt_segment black default ""
-  fi
+    if [[ $USER != "gomasy" || -n $SSH_CONNECTION ]]; then
+        prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m"
+    else
+        prompt_segment black default ""
+    fi
 }
 
 # Ignore C-s
@@ -85,29 +85,29 @@ REPORTTIME=3
 
 # Ruby settings
 if which ruby &> /dev/null && [[ `id -u` -ne 0 ]]; then
-  # rbenv settings
-  if [[ ! -e $HOME/.rbenv ]]; then
-    echo "\e[1m[*] Installing rbenv...\e[m"
-    git clone https://github.com/rbenv/rbenv.git $HOME/.rbenv
+    # rbenv settings
+    if [[ ! -e $HOME/.rbenv ]]; then
+        echo "\e[1m[*] Installing rbenv...\e[m"
+        git clone https://github.com/rbenv/rbenv.git $HOME/.rbenv
 
-    echo "\e[1m[*] Installing ruby-build...\e[m"
-    git clone https://github.com/rbenv/ruby-build.git $HOME/.rbenv/plugins/ruby-build
-  fi
+        echo "\e[1m[*] Installing ruby-build...\e[m"
+        git clone https://github.com/rbenv/ruby-build.git $HOME/.rbenv/plugins/ruby-build
+    fi
 
-  export PATH=$(ruby -e'print Gem.user_dir')/bin:$PATH
-  export PATH=$HOME/.rbenv/bin:$PATH
-  eval "$(rbenv init -)"
+    export PATH=$(ruby -e'print Gem.user_dir')/bin:$PATH
+    export PATH=$HOME/.rbenv/bin:$PATH
+    eval "$(rbenv init -)"
 
-  # gem settings
-  if ! which bundler &> /dev/null; then
-    echo "\e[1m[*] Installing bundler...\e[m"
-    gem install bundler
-  fi
+    # gem settings
+    if ! which bundler &> /dev/null; then
+        echo "\e[1m[*] Installing bundler...\e[m"
+        gem install bundler
+    fi
 
-  if ! which kramdown &> /dev/null; then
-    echo "\e[1m[*] Installing kramdown...\e[m"
-    gem install kramdown
-  fi
+    if ! which kramdown &> /dev/null; then
+        echo "\e[1m[*] Installing kramdown...\e[m"
+        gem install kramdown
+    fi
 fi
 
 # Show motd
@@ -115,27 +115,27 @@ fi
 
 # Run tmux
 if [[ -e /usr/bin/tmux && $- != *l* ]]; then
-  if `tmux has 2> /dev/null` && [[ `tty` =~ ^.+pts\/0$ ]]; then
-    if [[ `tmux ls | wc -l` -gt 1 ]]; then
-      tmux ls | perl -pe's/(^.*?):/\033[31;1m$1:\033[m/'
-      echo -n "tmux: attach? (y or num)>> " && read input
+    if `tmux has 2> /dev/null` && [[ `tty` =~ ^.+pts\/0$ ]]; then
+        if [[ `tmux ls | wc -l` -gt 1 ]]; then
+            tmux ls | perl -pe's/(^.*?):/\033[31;1m$1:\033[m/'
+            echo -n "tmux: attach? (y or num)>> " && read input
 
-      [[ $input =~ ^[Yy]?$ || ! -n $input ]] && tmux a || tmux a -t $input
-      unset input
+            [[ $input =~ ^[Yy]?$ || ! -n $input ]] && tmux a || tmux a -t $input
+            unset input
+        else
+            tmux a
+        fi
     else
-      tmux a
+        tmux new
     fi
-  else
-    tmux new
-  fi
 
-  if [[ -e /tmp/tmux-1000/no_exit ]]; then
-    rm /tmp/tmux-1000/no_exit &> /dev/null
+    if [[ -e /tmp/tmux-1000/no_exit ]]; then
+        rm /tmp/tmux-1000/no_exit &> /dev/null
 
-    echo -n "Quit powerline-daemon? (Y/n)>> " && read input
-    [[ $input =~ ^[^Nn]?$ ]] && killall powerline-daemon
-    unset input
-  else
-    exit
-  fi
+        echo -n "Quit powerline-daemon? (Y/n)>> " && read input
+        [[ $input =~ ^[^Nn]?$ ]] && killall powerline-daemon
+        unset input
+    else
+        exit
+    fi
 fi
