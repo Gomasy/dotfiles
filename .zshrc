@@ -22,7 +22,6 @@ fi
 # Zsh hook functions
 zshaddhistory() { [[ ${#1%%$'\n'} -ge 5 ]] }
 zshexit() {
-    sleep 0.1
     ! `tmux has 2> /dev/null` && [[ `ps x | grep \[p\]owerline-daemon | wc -l` -ne 0 ]] && killall powerline-daemon
 }
 prompt_context() {
