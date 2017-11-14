@@ -64,28 +64,3 @@ endif
 ifdef BVI
 	ln -sf ${PWD}/.bvirc ${HOME}/.bvirc
 endif
-
-clean:
-	rm -rf ${HOME}/.cache/neo*
-	rm -rf ${HOME}/.gem
-	rm -rf ${HOME}/.rbenv
-	rm -rf ${HOME}/.zgen
-	rm -rf ${HOME}/.vim/plugins/.cache
-	rm -rf ${HOME}/.vim/plugins/*
-	rm -f ${HOME}/.vim
-	rm -f ${HOME}/.config/powerline
-	rm -f ${HOME}/.config/terminator
-	rm -f ${HOME}/.config/vlc
-	rm -f ${HOME}/.ssh/config
-	rm -f ${HOME}/.gnupg/gpg-agent.conf
-	rm -f ${HOME}/.bvirc
-	rm -f ${HOME}/.gemrc
-	rm -f ${HOME}/.gitconfig
-	rm -f ${HOME}/.tmux.conf
-	rm -f ${HOME}/.vimrc
-	rm -f ${HOME}/.xinitrc
-	rm -f ${HOME}/.xprofile
-	rm -f ${HOME}/.zcompdump*
-	rm -f ${HOME}/.zshrc
-	rm -f ${HOME}/.zsh-update
-	git checkout ${PWD}/.vim
