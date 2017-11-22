@@ -27,8 +27,6 @@ zshexit() {
 prompt_context() {
     if [[ $USER != "gomasy" || -n $SSH_CONNECTION ]]; then
         prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m"
-    else
-        prompt_segment black default ""
     fi
 }
 
