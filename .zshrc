@@ -60,7 +60,6 @@ setopt no_list_beep
 unsetopt auto_cd
 
 # Set style options
-zstyle ":filter-select:highlight" matched fg=yellow,standout
 zstyle ":filter-select" extended-search yes
 zstyle ":filter-select" rotate-list yes
 
