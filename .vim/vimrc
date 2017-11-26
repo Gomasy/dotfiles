@@ -100,7 +100,6 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
-set nowrapscan
 set history=1000
 
 
