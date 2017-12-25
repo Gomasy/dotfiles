@@ -1,5 +1,5 @@
 ﻿###
-###  vlc 2.2.6
+###  vlc 2.2.8
 ###
 
 ###
@@ -580,7 +580,7 @@ sout-x264-tune=film
 #avcodec-codec=
 
 # Hardware decoding (string)
-avcodec-hw=vaapi_drm
+avcodec-hw=vaapi_x11
 
 # Threads (integer)
 #avcodec-threads=0
@@ -3059,7 +3059,7 @@ freetype-font=Sans Serif
 #sout-avi-subject=
 
 # Encoder (string)
-#sout-avi-encoder=VLC Media Player - 2.2.6 Umbrella
+#sout-avi-encoder=VLC Media Player - 2.2.8 Weatherwax
 
 # Keywords (string)
 #sout-avi-keywords=
