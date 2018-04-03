@@ -6,6 +6,9 @@
         "tmux": {
             "colorscheme": "numix",
             "theme": "custom"
+        },
+        "vim": {
+            "colorscheme": "numix"
         }
     }
 }
