@@ -1,0 +1,20 @@
+{
+    "colors": {
+        "numix:base03": [ 8, "555753" ],
+        "numix:base02": [ 0, "31373a" ],
+        "numix:base01": [ 3, "d64937" ],
+        "numix:base00": [ 11, "1793d1" ],
+        "numix:base0": [ 12, "1793d1" ],
+        "numix:base1": [ 7, "d2d2d2" ],
+        "numix:base2": [ 7, "d2d2d2" ],
+        "numix:base3": [ 15, "ffffff" ],
+        "numix:yellow": [ 3, "d64937" ],
+        "numix:orange": [ 9, "ef2929" ],
+        "numix:red": [ 1, "cc0000" ],
+        "numix:magenta": [ 5, "10ea8a" ],
+        "numix:violet": [ 13, "ad7fa8" ],
+        "numix:blue": [ 4, "1793d1" ],
+        "numix:cyan": [ 6, "06989a" ],
+        "numix:green": [ 2, "4e9a06" ]
+    }
+}
