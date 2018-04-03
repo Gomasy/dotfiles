@@ -107,7 +107,7 @@ if which ruby &> /dev/null && [[ `id -u` -ne 0 ]]; then
 fi
 
 # Show motd
-[[ -e /usr/bin/screenfetch && -n $TMUX ]] && screenfetch
+[[ -e /usr/bin/screenfetch && -n $TMUX ]] && screenfetch -c 4,15
 
 # Run tmux
 if [[ -e /usr/bin/tmux && $- != *l* ]]; then
