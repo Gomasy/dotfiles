@@ -108,7 +108,7 @@ fi
 
 # Run tmux
 if [[ -e /usr/bin/tmux && $- != *l* ]]; then
-    if `tmux has 2> /dev/null` && [[ `tty` =~ ^.+pts\/0$ ]]; then
+    if `tmux has 2> /dev/null` && [[ `ls -l /dev/pts | grep gomasy | wc -l` -eq 1 ]]; then
         if [[ `tmux ls | wc -l` -gt 1 ]]; then
             tmux ls | perl -pe's/(^.*?):/\033[31;1m$1:\033[m/'
             echo -n "tmux: attach? (y or num)>> " && read input
