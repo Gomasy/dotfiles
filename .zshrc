@@ -8,7 +8,6 @@ source $HOME/.zgen/zgen.zsh
 # Install plugins
 if ! zgen saved; then
     zgen oh-my-zsh
-    zgen oh-my-zsh plugins/sudo
     zgen oh-my-zsh themes/agnoster
 
     zgen load willghatch/zsh-cdr
@@ -57,7 +56,6 @@ setopt menu_complete
 setopt no_beep
 setopt no_hist_beep
 setopt no_list_beep
-unsetopt auto_cd
 
 # Set style options
 zstyle ":filter-select" extended-search yes
@@ -73,7 +71,6 @@ alias emacs=$EDITOR
 alias vi=$EDITOR
 
 # Set shell variables
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
 REPORTTIME=3
 
 # Load local .zshrc
