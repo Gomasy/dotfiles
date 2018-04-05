@@ -103,10 +103,10 @@ if which ruby &> /dev/null && [[ `id -u` -ne 0 ]]; then
 fi
 
 # Show motd
-[[ -e /usr/bin/screenfetch && -n $TMUX ]] && screenfetch -c 4,15
+which screenfetch &> /dev/null && [[ -n $TMUX ]] && screenfetch -c 4,15
 
 # Run tmux
-if [[ -e /usr/bin/tmux && $- != *l* ]]; then
+if which tmux &> /dev/null && [[ $- != *l* ]]; then
     if `tmux has 2> /dev/null`; then
         active=$(tmux ls | grep -v attached | wc -l)
         if [[ $active -ne 0 ]]; then
