@@ -21,7 +21,7 @@ fi
 # Zsh hook functions
 zshaddhistory() { [[ ${#1%%$'\n'} -ge 5 ]] }
 zshexit() {
-    ! `tmux has 2> /dev/null` && [[ `ps x | grep \[p\]owerline-daemon | wc -l` -ne 0 ]] && killall powerline-daemon
+    ! tmux has 2> /dev/null && [[ `ps x | grep \[p\]owerline-daemon | wc -l` -ne 0 ]] && killall powerline-daemon
 }
 prompt_context() {
     if [[ $USER != "gomasy" || -n $SSH_CONNECTION ]]; then
@@ -107,7 +107,7 @@ which screenfetch &> /dev/null && [[ -n $TMUX ]] && screenfetch -c 4,15
 
 # Run tmux
 if which tmux &> /dev/null && [[ $- != *l* ]]; then
-    if `tmux has 2> /dev/null`; then
+    if tmux has 2> /dev/null; then
         active=$(tmux ls | grep -v attached | wc -l)
         if [[ $active -ne 0 ]]; then
             if [[ $active -gt 1 ]]; then
