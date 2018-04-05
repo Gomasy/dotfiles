@@ -125,4 +125,6 @@ if [[ -e /usr/bin/tmux && $- != *l* ]]; then
     else
         tmux new
     fi
+
+    exit
 fi
