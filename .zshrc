@@ -66,7 +66,6 @@ export EDITOR="vim"
 export GPG_TTY=$(tty)
 
 # Set personal aliases
-alias quit="touch /tmp/tmux-1000/no_exit; exit"
 alias emacs=$EDITOR
 alias vi=$EDITOR
 
@@ -125,15 +124,5 @@ if [[ -e /usr/bin/tmux && $- != *l* ]]; then
         fi
     else
         tmux new
-    fi
-
-    if [[ -e /tmp/tmux-1000/no_exit ]]; then
-        rm /tmp/tmux-1000/no_exit &> /dev/null
-
-        echo -n "Quit powerline-daemon? (Y/n)>> " && read input
-        [[ $input =~ ^[^Nn]?$ ]] && killall powerline-daemon
-        unset input
-    else
-        exit
     fi
 fi
