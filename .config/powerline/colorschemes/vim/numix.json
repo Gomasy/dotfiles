@@ -1,27 +1,24 @@
 {
-    "name": "Numix dark for vim",
+    "name": "Numix for vim",
     "groups": {
-        "information:additional":   { "fg": "numix:base2", "bg": "numix:base01", "attrs": [] },
-        "information:unimportant":  { "fg": "numix:base3", "bg": "numix:base01", "attrs": [] },
-        "background":               { "fg": "numix:base3", "bg": "numix:base02", "attrs": [] },
-        "background:divider":       { "fg": "numix:base00", "bg": "numix:base02", "attrs": [] },
-        "mode":                     { "fg": "numix:base02", "bg": "numix:magenta", "attrs": ["bold"] },
+        "mode":                     { "fg": "numix:base3", "bg": "numix:green", "attrs": ["bold"] },
         "visual_range":             { "fg": "numix:green", "bg": "numix:base3", "attrs": ["bold"] },
-        "modified_indicator":       { "fg": "numix:base3", "bg": "numix:base01", "attrs": ["bold"] },
+        "modified_indicator":       { "fg": "numix:base3", "bg": "numix:base00", "attrs": ["bold"] },
         "paste_indicator":          { "fg": "numix:base3", "bg": "numix:orange", "attrs": ["bold"] },
-        "readonly_indicator":       { "fg": "numix:base3", "bg": "numix:base01", "attrs": [] },
-        "branch_dirty":             { "fg": "numix:base3", "bg": "numix:base01", "attrs": [] },
-        "branch:divider":           { "fg": "numix:base1", "bg": "numix:base01", "attrs": [] },
+        "readonly_indicator":       { "fg": "numix:base3", "bg": "numix:base00", "attrs": [] },
+        "branch":                   { "fg": "numix:base3", "bg": "numix:cyan", "attrs": [] },
+        "branch:divider":           { "fg": "numix:base1", "bg": "numix:base00", "attrs": [] },
         "stash:divider":            "branch:divider",
-        "file_name":                { "fg": "numix:base3", "bg": "numix:base01", "attrs": ["bold"] },
+        "file_directory":           { "fg": "numix:base3", "bg": "numix:base00", "attrs": [] },
+        "file_name":                { "fg": "numix:base3", "bg": "numix:base00", "attrs": ["bold"] },
         "window_title":             { "fg": "numix:base3", "bg": "numix:base01", "attrs": [] },
-        "file_name_no_file":        { "fg": "numix:base3", "bg": "numix:base01", "attrs": ["bold"] },
+        "file_name_no_file":        "file_name",
         "file_format":              { "fg": "numix:base1", "bg": "numix:base02", "attrs": [] },
-        "file_vcs_status":          { "fg": "numix:base3", "bg": "numix:base01", "attrs": [] },
-        "file_vcs_status_M":        { "fg": "numix:base3", "bg": "numix:base01", "attrs": [] },
-        "file_vcs_status_A":        { "fg": "numix:base3", "bg": "numix:base01", "attrs": [] },
+        "file_vcs_status":          { "fg": "numix:base3", "bg": "numix:base00", "attrs": [] },
+        "file_vcs_status_M":        "file_vcs_status",
+        "file_vcs_status_A":        "file_vcs_status",
         "line_percent":             { "fg": "numix:base3", "bg": "numix:base00", "attrs": [] },
-        "line_percent_gradient":    { "fg": "white_red", "bg": "numix:base00", "attrs": [] },
+        "line_percent_gradient":    { "fg": "white_red", "bg": "numix:base00", "attrs": ["bold"] },
         "position":                 { "fg": "numix:base3", "bg": "numix:base00", "attrs": [] },
         "position_gradient":        { "fg": "green_yellow_orange_red", "bg": "numix:base00", "attrs": [] },
         "line_current":             { "fg": "numix:base03", "bg": "numix:base2", "attrs": ["bold"] },
@@ -75,9 +72,7 @@
         },
         "ic": {
             "groups": {
-                "background":             { "fg": "numix:base3", "bg": "numix:base01", "attrs": [] },
-                "background:divider":     { "fg": "numix:base2", "bg": "numix:base01", "attrs": [] },
-                "mode":                   { "fg": "numix:base3", "bg": "numix:blue", "attrs": ["bold"] }
+                "mode":                   { "fg": "numix:base3", "bg": "numix:yellow", "attrs": ["bold"] }
             }
         },
         "ix": {
