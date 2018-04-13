@@ -77,32 +77,29 @@ REPORTTIME=3
 
 # Ruby settings
 if which ruby &> /dev/null && [[ `id -u` -ne 0 ]]; then
-    # install rbenv before init
-    if [[ ! -e $HOME/.rbenv ]]; then
-        echo "\e[1m[*] Installing rbenv...\e[m"
-        git clone https://github.com/rbenv/rbenv.git $HOME/.rbenv
-
-        echo "\e[1m[*] Installing ruby-build...\e[m"
-        git clone https://github.com/rbenv/ruby-build.git $HOME/.rbenv/plugins/ruby-build
-    fi
-
-    # init
     if ! which rbenv &> /dev/null; then
+        if [[ ! -e $HOME/.rbenv ]]; then
+            echo "\e[1m[*] Installing rbenv...\e[m"
+            git clone https://github.com/rbenv/rbenv.git $HOME/.rbenv
+
+            echo "\e[1m[*] Installing ruby-build...\e[m"
+            git clone https://github.com/rbenv/ruby-build.git $HOME/.rbenv/plugins/ruby-build
+        fi
+
         export PATH=$(ruby -e'print Gem.user_dir')/bin:$PATH
         export PATH=$HOME/.rbenv/bin:$PATH
+
+        if ! which bundler &> /dev/null; then
+            echo "\e[1m[*] Installing bundler...\e[m"
+            gem install bundler
+        fi
+
+        if ! which kramdown &> /dev/null; then
+            echo "\e[1m[*] Installing kramdown...\e[m"
+            gem install kramdown
+        fi
     else
         eval "$(rbenv init -)"
-    fi
-
-    # gem settings
-    if ! which bundler &> /dev/null; then
-        echo "\e[1m[*] Installing bundler...\e[m"
-        gem install bundler
-    fi
-
-    if ! which kramdown &> /dev/null; then
-        echo "\e[1m[*] Installing kramdown...\e[m"
-        gem install kramdown
     fi
 fi
 
