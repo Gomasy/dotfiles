@@ -77,7 +77,7 @@ REPORTTIME=3
 
 # Ruby settings
 if which ruby &> /dev/null && [[ `id -u` -ne 0 ]]; then
-    # rbenv settings
+    # install rbenv before init
     if [[ ! -e $HOME/.rbenv ]]; then
         echo "\e[1m[*] Installing rbenv...\e[m"
         git clone https://github.com/rbenv/rbenv.git $HOME/.rbenv
@@ -86,9 +86,12 @@ if which ruby &> /dev/null && [[ `id -u` -ne 0 ]]; then
         git clone https://github.com/rbenv/ruby-build.git $HOME/.rbenv/plugins/ruby-build
     fi
 
-    export PATH=$(ruby -e'print Gem.user_dir')/bin:$PATH
-    export PATH=$HOME/.rbenv/bin:$PATH
-    eval "$(rbenv init -)"
+    # init
+    if ! which rbenv &> /dev/null; then
+        export PATH=$(ruby -e'print Gem.user_dir')/bin:$PATH
+        export PATH=$HOME/.rbenv/bin:$PATH
+        eval "$(rbenv init -)"
+    fi
 
     # gem settings
     if ! which bundler &> /dev/null; then
