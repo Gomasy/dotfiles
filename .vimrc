@@ -19,11 +19,10 @@ set fileencoding=utf-8
 set fileencodings=utf-8,cp932,sjis,euc-jp
 set nrformats-=octal
 set switchbuf=useopen,usetab,newtab
+set backspace=indent,eol,start
 set virtualedit=block
-set display=uhex
 set mouse=a
 set ttymouse=sgr
-set t_ut=
 set visualbell t_vb=
 set wildignorecase
 set wildmenu
@@ -42,6 +41,7 @@ set nostartofline
 set showcmd
 set title
 set number
+set ruler
 set list
 set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮
 set scrolloff=5
