@@ -90,6 +90,7 @@ if which ruby &> /dev/null && [[ `id -u` -ne 0 ]]; then
     if ! which rbenv &> /dev/null; then
         export PATH=$(ruby -e'print Gem.user_dir')/bin:$PATH
         export PATH=$HOME/.rbenv/bin:$PATH
+    else
         eval "$(rbenv init -)"
     fi
 
