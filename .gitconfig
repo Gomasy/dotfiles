@@ -2,8 +2,6 @@
 	name = Gomasy
 	email = nyan@gomasy.jp
 	signingkey = 02BE7F39D978AC7E
-[gpg]
-	program = gpg2
 [commit]
 	gpgsign = true
 [core]
