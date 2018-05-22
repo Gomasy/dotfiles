@@ -49,7 +49,6 @@ hook_add = 'nnoremap <silent>t :Switch<CR>'
 repo = 'w0rp/ale'
 hook_add = '''
 let g:ale_open_list = 1
-let g:ale_php_phpcs_standard = 'PSR1, PSR2'
 '''
 
 [[plugins]]
