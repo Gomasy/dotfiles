@@ -9,7 +9,8 @@ augroup END
 
 "dein scripts-----------------------------
 let s:dein_dir = expand('~/.vim') . '/plugins'
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+let s:repo_dir = s:dein_dir . '/repos/github.com'
+let s:dein_repo_dir = s:repo_dir . '/Shougo/dein.vim'
 
 if !isdirectory(s:dein_repo_dir)
   call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
@@ -39,14 +40,26 @@ if dein#check_install()
 endif
 
 
+"Powerline scripts------------------------
+let s:pl_global_dir = '/usr/lib/python*/site-packages/powerline'
+let s:pl_local_dir = s:repo_dir . '/powerline'
+let s:pl_bindings_dir = '/bindings/vim'
+
+if !isdirectory(glob(s:pl_global_dir))
+  if !isdirectory(s:pl_local_dir)
+    call system('git clone https://github.com/powerline/powerline ' . shellescape(s:pl_local_dir))
+  endif
+
+  let s:powerline_dir = s:pl_local_dir . '/powerline' . s:pl_bindings_dir
+else
+  let s:powerline_dir = s:pl_global_dir . s:pl_bindings_dir
+endif
+exec 'set runtimepath^=' . fnamemodify(s:powerline_dir, ':p')
+
+
 "General settings-------------------------
 let g:molokai_original = 1
 let g:rehash256 = 1
-let s:powerline_dir = '/usr/lib/python*/site-packages/powerline/bindings/vim'
-
-if isdirectory(glob(s:powerline_dir))
-  exec 'set runtimepath^=' . fnamemodify(s:powerline_dir, ':p')
-endif
 
 syntax on
 filetype plugin indent on
