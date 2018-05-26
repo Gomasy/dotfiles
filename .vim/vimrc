@@ -183,13 +183,22 @@ nnoremap <S-Left> <C-w><
 nnoremap <S-Right> <C-w>>
 
 "Toggle options
-function! Toggle_state(name)
+function! Toggle_state(name, ...)
   echohl Title
+  let a:value = get(a:, 1, '')
   if eval('&' . a:name) || eval('&' . a:name) != ''
-    if a:name == 'mouse' | set mouse= | else | exec 'set no' . a:name | endif
+    if a:value != ''
+      exec 'set ' . a:name . '='
+    else
+      exec 'set no' . a:name
+    endif
     echo '*** Toggled ' . a:name . ' to false ***'
   else
-    if a:name == 'mouse' | set mouse=a | else | exec 'set ' . a:name | endif
+    if a:value != ''
+      exec 'set ' . a:name . '=' . a:value
+    else
+      exec 'set ' . a:name
+    endif
     echo '*** Toggled ' . a:name . ' to true ***'
   endif
   echohl None
@@ -200,7 +209,7 @@ if has('termguicolors')
   nnoremap <silent><Leader>g :call Toggle_state('termguicolors')<CR>
 endif
 
-nnoremap <silent><Leader>m :call Toggle_state('mouse')<CR>
+nnoremap <silent><Leader>m :call Toggle_state('mouse', 'a')<CR>
 nnoremap <silent><Leader>n :call Toggle_state('relativenumber')<CR>
 nnoremap <silent><Leader>t :call Toggle_state('expandtab')<CR>
 nnoremap <silent><Leader>w :call Toggle_state('wrap')<CR>
