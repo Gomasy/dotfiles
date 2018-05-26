@@ -68,6 +68,7 @@ export GPG_TTY=$(tty)
 # Set personal aliases
 alias emacs=$EDITOR
 alias vi=$EDITOR
+alias yarn="yarn --emoji"
 
 # Set shell variables
 REPORTTIME=3
