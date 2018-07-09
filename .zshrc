@@ -18,7 +18,7 @@ if ! zgen saved; then
     zgen save
 fi
 
-# Zsh hook functions
+# Zsh functions
 zshaddhistory() { [[ ${#1%%$'\n'} -ge 5 ]] }
 zshexit() {
     ! tmux has 2> /dev/null && [[ `ps x | grep \[p\]owerline-daemon | wc -l` -ne 0 ]] && killall powerline-daemon
@@ -27,6 +27,9 @@ prompt_context() {
     if [[ $USER != "gomasy" || -n $SSH_CONNECTION ]]; then
         prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m"
     fi
+}
+yay() {
+    /usr/bin/yay $@ && rm -r ~/.{cache,config}/yay
 }
 
 # Ignore C-s
