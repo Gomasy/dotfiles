@@ -29,7 +29,7 @@ prompt_context() {
     fi
 }
 yay() {
-    /usr/bin/yay $@ && rm -r ~/.{cache,config}/yay
+    /usr/bin/yay $@ && rm -rf ~/.{cache,config}/yay
 }
 
 # Ignore C-s
