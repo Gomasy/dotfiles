@@ -6,7 +6,6 @@ RUBY := $(shell which ruby 2> /dev/null)
 TERM := $(shell which terminator 2> /dev/null)
 TMUX := $(shell which tmux 2> /dev/null)
 VIM := $(shell which vim 2> /dev/null)
-VLC := $(shell which vlc 2> /dev/null)
 X := $(shell which X 2> /dev/null)
 YARN := $(shell which yarn 2> /dev/null)
 ZSH := $(shell which zsh 2> /dev/null)
@@ -54,11 +53,6 @@ ifdef X
 ifdef TERM
 	mkdir -p -m 700 ${HOME}/.config
 	ln -sf ${PWD}/.config/terminator ${HOME}/.config/terminator
-endif
-
-ifdef VLC
-	mkdir -p -m 700 ${HOME}/.config
-	ln -sf ${PWD}/.config/vlc ${HOME}/.config/vlc
 endif
 endif
 
