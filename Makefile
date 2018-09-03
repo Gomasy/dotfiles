@@ -12,7 +12,6 @@ ZSH := $(shell which zsh 2> /dev/null)
 
 install:
 	chmod 700 ${PWD}/.config
-	chmod 400 ${PWD}/.config/vlc/*
 	chmod 700 ${PWD}/.gnupg
 	chmod 700 ${PWD}/.ssh
 
