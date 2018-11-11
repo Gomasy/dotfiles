@@ -54,6 +54,10 @@ repo = 'tpope/vim-endwise'
 on_i = 1
 
 [[plugins]]
+repo = 'posva/vim-vue'
+on_ft = ['vue']
+
+[[plugins]]
 repo = 'tyru/open-browser.vim'
 on_ft = ['markdown']
 
