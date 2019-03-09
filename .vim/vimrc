@@ -183,23 +183,13 @@ nnoremap <S-Left> <C-w><
 nnoremap <S-Right> <C-w>>
 
 "Toggle options
-function! Toggle_state(name, ...)
+function! Toggle_state(name)
   echohl Title
-  let a:value = get(a:, 1, '')
-  if eval('&' . a:name) || eval('&' . a:name) != ''
-    if a:value != ''
-      exec 'set ' . a:name . '='
-    else
-      exec 'set no' . a:name
-    endif
-    echo '*** Toggled ' . a:name . ' to false ***'
-  else
-    if a:value != ''
-      exec 'set ' . a:name . '=' . a:value
-    else
-      exec 'set ' . a:name
-    endif
+  exec 'set ' . a:name . '!'
+  if eval('&' . a:name)
     echo '*** Toggled ' . a:name . ' to true ***'
+  else
+    echo '*** Toggled ' . a:name . ' to false ***'
   endif
   echohl None
 endfunction
