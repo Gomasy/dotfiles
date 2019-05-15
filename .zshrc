@@ -78,31 +78,46 @@ REPORTTIME=3
 # Load local .zshrc
 [[ -e $HOME/.zshrc.local ]] && source $HOME/.zshrc.local
 
-# Ruby settings
-if which ruby &> /dev/null && [[ `id -u` -ne 0 ]]; then
-    if ! which rbenv &> /dev/null; then
-        if [[ ! -e $HOME/.rbenv ]]; then
-            echo "\e[1m[*] Installing rbenv...\e[m"
-            git clone https://github.com/rbenv/rbenv.git $HOME/.rbenv
+if [[ `id -u` -ne 0 ]]; then
+    # Ruby settings
+    if which ruby &> /dev/null; then
+        if ! which rbenv &> /dev/null; then
+            if [[ ! -e $HOME/.rbenv ]]; then
+                echo "\e[1m[*] Installing rbenv...\e[m"
+                git clone https://github.com/rbenv/rbenv.git $HOME/.rbenv
 
-            echo "\e[1m[*] Installing ruby-build...\e[m"
-            git clone https://github.com/rbenv/ruby-build.git $HOME/.rbenv/plugins/ruby-build
+                echo "\e[1m[*] Installing ruby-build...\e[m"
+                git clone https://github.com/rbenv/ruby-build.git $HOME/.rbenv/plugins/ruby-build
+            fi
+
+            export PATH=$(ruby -e'print Gem.user_dir')/bin:$PATH
+            export PATH=$HOME/.rbenv/bin:$PATH
+
+            if ! which bundler &> /dev/null; then
+                echo "\e[1m[*] Installing bundler...\e[m"
+                gem install bundler
+            fi
+
+            if ! which kramdown &> /dev/null; then
+                echo "\e[1m[*] Installing kramdown...\e[m"
+                gem install kramdown
+            fi
+        else
+            eval "$(rbenv init -)"
         fi
+    fi
 
-        export PATH=$(ruby -e'print Gem.user_dir')/bin:$PATH
-        export PATH=$HOME/.rbenv/bin:$PATH
+    # Node settings
+    if which node &> /dev/null; then
+        if ! which nvm &> /dev/null; then
+            if [[ ! -e $HOME/.nvm ]]; then
+                echo "\e[1m[*] Installing nvm...\e[m"
+                git clone https://github.com/nvm-sh/nvm.git $HOME/.nvm
+            fi
 
-        if ! which bundler &> /dev/null; then
-            echo "\e[1m[*] Installing bundler...\e[m"
-            gem install bundler
+            . $HOME/.nvm/nvm.sh
+            . $HOME/.nvm/bash_completion
         fi
-
-        if ! which kramdown &> /dev/null; then
-            echo "\e[1m[*] Installing kramdown...\e[m"
-            gem install kramdown
-        fi
-    else
-        eval "$(rbenv init -)"
     fi
 fi
 
