@@ -114,6 +114,10 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'digitaltoad/vim-pug'
+on_ft = ['pug']
+
+[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
 
