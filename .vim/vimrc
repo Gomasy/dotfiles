@@ -58,14 +58,8 @@ exec 'set runtimepath^=' . fnamemodify(s:powerline_dir, ':p')
 
 
 "General settings-------------------------
-let g:molokai_original = 1
-let g:rehash256 = 1
-
 syntax on
 filetype plugin indent on
-
-colorscheme molokai
-highlight Visual ctermbg=239 guibg=#545050
 
 set fileencoding=utf-8
 set fileencodings=utf-8,cp932,sjis,euc-jp

@@ -114,7 +114,8 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'vim-jp/vimdoc-ja'
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
@@ -132,4 +133,5 @@ on_ft = ['css', 'html', 'scss']
 repo = 'ujihisa/neco-look'
 on_event = 'InsertEnter'
 
-# vim: ft=vim:
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'

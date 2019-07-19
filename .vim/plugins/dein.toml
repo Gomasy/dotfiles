@@ -3,6 +3,9 @@ repo = 'Shougo/vimproc.vim'
 build = 'make'
 
 [[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
 repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
@@ -29,6 +32,10 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['Shougo/context_filetype.vim']
+
+[[plugins]]
 repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
@@ -43,5 +50,10 @@ hook_add = '''
 
 [[plugins]]
 repo = 'tomasr/molokai'
+hook_add = '''
+  let g:molokai_original = 1
+  let g:rehash256 = 1
 
-# vim: ft=vim:
+  highlight Visual ctermbg=239 guibg=#545050
+  autocmd VimEnter * nested colorscheme molokai
+'''
