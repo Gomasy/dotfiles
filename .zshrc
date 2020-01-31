@@ -81,6 +81,9 @@ REPORTTIME=3
 if [[ `id -u` -ne 0 ]]; then
     # Ruby settings
     if which ruby &> /dev/null; then
+        export PATH=$HOME/.rbenv/bin:$PATH
+        export PATH=$(ruby -e'print Gem.user_dir')/bin:$PATH
+
         if ! which rbenv &> /dev/null; then
             if [[ ! -e $HOME/.rbenv ]]; then
                 echo "\e[1m[*] Installing rbenv...\e[m"
@@ -89,9 +92,6 @@ if [[ `id -u` -ne 0 ]]; then
                 echo "\e[1m[*] Installing ruby-build...\e[m"
                 git clone https://github.com/rbenv/ruby-build.git $HOME/.rbenv/plugins/ruby-build
             fi
-
-            export PATH=$(ruby -e'print Gem.user_dir')/bin:$PATH
-            export PATH=$HOME/.rbenv/bin:$PATH
 
             if ! which bundler &> /dev/null; then
                 echo "\e[1m[*] Installing bundler...\e[m"
@@ -109,6 +109,8 @@ if [[ `id -u` -ne 0 ]]; then
 
     # PHP settings
     if which php &> /dev/null; then
+        export PATH=$HOME/.phpenv/bin:$PATH
+
         if ! which phpenv &> /dev/null; then
             if [[ ! -e $HOME/.phpenv ]]; then
                 echo "\e[1m[*] Installing phpenv...\e[m"
@@ -117,8 +119,6 @@ if [[ `id -u` -ne 0 ]]; then
                 echo "\e[1m[*] Installing php-build...\e[m"
                 git clone https://github.com/php-build/php-build.git $HOME/.phpenv/plugins/php-build
             fi
-
-            export PATH=$HOME/.phpenv/bin:$PATH
         else
             eval "$(phpenv init -)"
         fi
