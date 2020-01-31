@@ -107,6 +107,23 @@ if [[ `id -u` -ne 0 ]]; then
         fi
     fi
 
+    # PHP settings
+    if which php &> /dev/null; then
+        if ! which phpenv &> /dev/null; then
+            if [[ ! -e $HOME/.phpenv ]]; then
+                echo "\e[1m[*] Installing phpenv...\e[m"
+                git clone https://github.com/phpenv/phpenv.git $HOME/.phpenv
+
+                echo "\e[1m[*] Installing php-build...\e[m"
+                git clone https://github.com/php-build/php-build.git $HOME/.phpenv/plugins/php-build
+            fi
+
+            export PATH=$HOME/.phpenv/bin:$PATH
+        else
+            eval "$(phpenv init -)"
+        fi
+    fi
+
     # Node settings
     if which node &> /dev/null; then
         if ! which nvm &> /dev/null; then
