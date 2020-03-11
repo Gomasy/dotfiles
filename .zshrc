@@ -92,18 +92,23 @@ if [[ `id -u` -ne 0 ]]; then
                 echo "\e[1m[*] Installing ruby-build...\e[m"
                 git clone https://github.com/rbenv/ruby-build.git $HOME/.rbenv/plugins/ruby-build
             fi
-
-            if ! which bundler &> /dev/null; then
-                echo "\e[1m[*] Installing bundler...\e[m"
-                gem install bundler
-            fi
-
-            if ! which kramdown &> /dev/null; then
-                echo "\e[1m[*] Installing kramdown...\e[m"
-                gem install kramdown
-            fi
         else
             eval "$(rbenv init -)"
+        fi
+
+        if ! which bundler &> /dev/null; then
+            echo "\e[1m[*] Installing bundler...\e[m"
+            gem install bundler
+        fi
+
+        if ! which kramdown &> /dev/null; then
+            echo "\e[1m[*] Installing kramdown...\e[m"
+            gem install kramdown
+        fi
+
+        if ! which solargraph &> /dev/null; then
+            echo "\e[1m[*] Installing solargraph...\e[m"
+            gem install solargraph
         fi
     fi
 

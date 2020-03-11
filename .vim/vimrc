@@ -153,8 +153,10 @@ noremap <S-j> }
 noremap <S-k> {
 noremap <S-l> $
 
-"Exit from insert mode
-inoremap jj <ESC>
+"Disable confusing keys
+nnoremap ZZ <Nop>
+nnoremap ZQ <Nop>
+nnoremap Q <Nop>
 
 "Disable allow keys
 noremap <Left> <Nop>

@@ -2,54 +2,6 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'Shougo/neocomplete.vim'
-on_event = 'InsertEnter'
-hook_add = '''
-  let g:neocomplete#enable_at_startup = 1
-  let g:neocomplete#enable_auto_delimiter = 1
-  let g:neocomplete#enable_smart_case = 1
-  let g:neocomplete#min_keyword_length = 3
-
-  if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-  endif
-
-  let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-  let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-  let g:neocomplete#force_omni_input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-  let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-
-  if !exists('g:neocomplete#text_mode_filetypes')
-    let g:neocomplete#text_mode_filetypes = {}
-  endif
-
-  let g:neocomplete#text_mode_filetypes = {
-    \ 'gitrebase': 1,
-    \ 'gitcommit': 1,
-    \ 'markdown': 1,
-    \ 'hybrid' : 1,
-    \ 'text': 1,
-    \ 'help': 1,
-    \ }
-'''
-
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-on_event = 'InsertEnter'
-on_ft = ['snippet']
-depends = ['neosnippet-snippets']
-hook_add = '''
-  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-  imap <silent><C-k> <ESC>:let g:neosnippet_expanding_or_jumpping = 1<CR>a<Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-  smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-'''
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
 repo = 'w0rp/ale'
 on_ft = ['c', 'cpp', 'css', 'javascript', 'json', 'php', 'ruby', 'scss']
 hook_add = '''
@@ -60,6 +12,27 @@ let g:ale_keep_list_window_open = 1
 let g:ale_list_window_size = 5
 let g:ale_sign_column_always = 1
 let g:ale_php_phpcs_standard = 'PSR1,PSR2'
+'''
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+on_event = 'InsertEnter'
+merged = '0'
+rev = 'release'
+hook_add = '''
+  let g:coc_global_extensions = [
+      \   'coc-snippets',
+      \   'coc-css',
+      \   'coc-json',
+      \   'coc-phpls',
+      \   'coc-solargraph',
+      \   'coc-tsserver',
+      \   'coc-vetur',
+      \ ]
+
+  inoremap <silent><expr><Tab> pumvisible() ? '<C-n>' : '<Tab>'
+  inoremap <silent><expr>j pumvisible() ? '<C-n>' : 'j'
+  inoremap <silent><expr>k pumvisible() ? '<C-p>' : 'k'
 '''
 
 [[plugins]]
