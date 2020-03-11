@@ -106,7 +106,7 @@ if [[ `id -u` -ne 0 ]]; then
             gem install kramdown
         fi
 
-        if ! which solargraph &> /dev/null; then
+        if ! which solargraph &> /dev/null && which node &> /dev/null; then
             echo "\e[1m[*] Installing solargraph...\e[m"
             gem install solargraph
         fi
