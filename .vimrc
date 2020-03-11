@@ -24,7 +24,6 @@ set virtualedit=block
 set mouse=a
 set ttymouse=sgr
 set visualbell t_vb=
-set viminfo=
 set wildignorecase
 set wildmenu
 set tildeop
