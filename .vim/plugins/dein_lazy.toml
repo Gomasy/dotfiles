@@ -17,7 +17,6 @@ let g:ale_php_phpcs_standard = 'PSR1,PSR2'
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 on_event = 'InsertEnter'
-merged = '0'
 rev = 'release'
 if = 'v:version >= 800 && executable("node")'
 hook_add = '''
