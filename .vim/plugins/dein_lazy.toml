@@ -22,18 +22,16 @@ rev = 'release'
 if = 'v:version >= 800 && executable("node")'
 hook_add = '''
   let g:coc_global_extensions = [
-      \   'coc-snippets',
-      \   'coc-css',
-      \   'coc-json',
-      \   'coc-phpls',
-      \   'coc-solargraph',
-      \   'coc-tsserver',
-      \   'coc-vetur',
-      \ ]
+    \   'coc-snippets',
+    \   'coc-css',
+    \   'coc-json',
+    \   'coc-phpls',
+    \   'coc-solargraph',
+    \   'coc-tsserver',
+    \   'coc-vetur',
+    \ ]
 
   inoremap <silent><expr><Tab> pumvisible() ? '<C-n>' : '<Tab>'
-  inoremap <silent><expr>j pumvisible() ? '<C-n>' : 'j'
-  inoremap <silent><expr>k pumvisible() ? '<C-p>' : 'k'
 '''
 
 [[plugins]]
