@@ -2,6 +2,14 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'Shougo/deol.nvim'
+hook_add = '''
+  nnoremap <silent>df :Deol -split=floating<CR>
+  nnoremap <silent>dv :Deol -split=vertical<CR>
+  nnoremap <silent>dh :Deol -split=horizontal<CR>
+'''
+
+[[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
