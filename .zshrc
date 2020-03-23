@@ -65,12 +65,18 @@ zstyle ":filter-select" extended-search yes
 zstyle ":filter-select" rotate-list yes
 
 # Set environment variables
-export EDITOR="vim"
+export EDITOR="nvim"
 export GPG_TTY=$(tty)
 
 # Set personal aliases
-alias emacs=$EDITOR
-alias vi=$EDITOR
+if which $EDITOR &> /dev/null; then
+    alias emacs=$EDITOR
+    alias vi=$EDITOR
+
+    if ! which vim &> /dev/null; then
+        alias vim=$EDITOR
+    fi
+fi
 
 # Set shell variables
 REPORTTIME=3

@@ -37,9 +37,6 @@ repo = 'osyo-manga/vim-precious'
 depends = ['Shougo/context_filetype.vim']
 
 [[plugins]]
-repo = 'tomtom/tcomment_vim'
-
-[[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 hook_add = '''
   let g:ctrlp_show_hidden = 1
@@ -50,6 +47,9 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
 repo = 'tomasr/molokai'
 hook_add = '''
   let g:molokai_original = 1
@@ -58,3 +58,42 @@ hook_add = '''
   highlight Visual ctermbg=239 guibg=#545050
   autocmd VimEnter * nested colorscheme molokai
 '''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+if = 'has("nvim")'
+hook_add = '''
+  let g:airline_powerline_fonts = 1
+  let g:airline#extensions#tabline#enabled = 1
+
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+
+  "unicode symbols
+  let g:airline_left_sep = '»'
+  let g:airline_left_sep = '▶'
+  let g:airline_right_sep = '«'
+  let g:airline_right_sep = '◀'
+  let g:airline_symbols.linenr = '␊'
+  let g:airline_symbols.linenr = '␤'
+  let g:airline_symbols.linenr = '¶'
+  let g:airline_symbols.branch = '⎇'
+  let g:airline_symbols.paste = 'ρ'
+  let g:airline_symbols.paste = 'Þ'
+  let g:airline_symbols.paste = '∥'
+  let g:airline_symbols.whitespace = 'Ξ'
+
+  "airline symbols
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.readonly = ''
+  let g:airline_symbols.linenr = ''
+'''
+
+[[plugins]]
+if = 'has("nvim")'
+repo = 'vim-airline/vim-airline-themes'

@@ -5,6 +5,7 @@ PWLINE := $(shell which powerline 2> /dev/null)
 RUBY := $(shell which ruby 2> /dev/null)
 TERM := $(shell which terminator 2> /dev/null)
 TMUX := $(shell which tmux 2> /dev/null)
+NEOVIM := $(shell which nvim 2> /dev/null)
 VIM := $(shell which vim 2> /dev/null)
 X := $(shell which X 2> /dev/null)
 YARN := $(shell which yarn 2> /dev/null)
@@ -42,7 +43,16 @@ ifdef TMUX
 endif
 
 ifdef VIM
+ifdef NEOVIM
+	ln -sf ${PWD}/.vim ${HOME}/.config/nvim
+else
 	ln -sf ${PWD}/.vim ${HOME}/.vim
+	ln -sf ${PWD}/.vim/init.vim ${HOME}/.vimrc
+endif
+else
+ifdef NEOVIM
+	ln -sf ${PWD}/.vim ${HOME}/.config/nvim
+endif
 endif
 
 ifdef X
