@@ -46,18 +46,20 @@ set showmatch
 set matchpairs=(:),{:},[:],<:>
 set matchtime=3
 set autoindent
+set breakindent
 set expandtab
 set tabstop=4
 set shiftwidth=4
 
-if has('ttymouse')
-  set ttymouse=sgr
+if has('nvim')
+  set winblend=30
+  set pumblend=30
 endif
 
-if has('clipboard')
+if has('nvim') || has('clipboard')
   set clipboard& clipboard^=unnamedplus
 endif
 
-if has('breakindent')
-  set breakindent
+if !has('nvim') && !has('gui')
+  set ttymouse=sgr
 endif

@@ -13,14 +13,18 @@ repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
-hook_add = 'autocmd colorscheme * highlight ExtraWhitespace ctermbg=red guibg=#b71c1c'
+hook_add = '''
+  let g:extra_whitespace_ignored_filetypes = ['help', 'nerdtree']
+
+  autocmd colorscheme * highlight ExtraWhitespace ctermbg=red guibg=#b71c1c
+'''
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 hook_add = '''
   let g:indent_guides_enable_on_vim_startup = 1
   let g:indent_guides_start_level = 2
-  let g:indent_guides_exclude_filetypes = [ 'help', 'nerdtree' ]
+  let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 '''
 
 [[plugins]]

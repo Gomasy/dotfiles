@@ -1,8 +1,8 @@
 function! vimrc#plugin_dir()
   if !has('nvim')
-    return expand('~/.vim') . '/plugins'
+    return expand('~/.vim/plugins')
   else
-    return expand('~/.config/nvim') . '/plugins'
+    return expand('~/.config/nvim/plugins')
   endif
 endfunction
 
@@ -17,14 +17,13 @@ function! vimrc#load_dein()
   if dein#load_state(g:dein_dir)
     call dein#begin(g:dein_dir)
 
-    call dein#load_toml(g:dein_dir . '/dein.toml', { 'lazy': 0 })
+    call dein#load_toml(g:dein_dir . '/dein.toml')
+    if dein#check_install()
+      call dein#install()
+    endif
 
     call dein#end()
     call dein#save_state()
-  endif
-
-  if dein#check_install()
-    call dein#install()
   endif
 endfunction
 

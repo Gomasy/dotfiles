@@ -1,4 +1,4 @@
-if !has('nvim')
+function! powerline#init()
   let s:pl_global_dir = '/usr/lib/python*/site-packages/powerline'
   let s:pl_local_dir = g:repo_dir . '/powerline'
   let s:pl_bindings_dir = '/bindings/vim'
@@ -13,4 +13,8 @@ if !has('nvim')
     let s:powerline_dir = s:pl_global_dir . s:pl_bindings_dir
   endif
   exec 'set runtimepath^=' . fnamemodify(s:powerline_dir, ':p')
+endfunction
+
+if !has('nvim')
+  call powerline#init()
 endif
