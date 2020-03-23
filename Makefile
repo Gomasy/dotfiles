@@ -44,14 +44,14 @@ endif
 
 ifdef VIM
 ifdef NEOVIM
-	ln -sf ${PWD}/.vim ${HOME}/.config/nvim
+	ln -sf ${PWD}/.config/nvim ${HOME}/.config/nvim
 else
-	ln -sf ${PWD}/.vim ${HOME}/.vim
-	ln -sf ${PWD}/.vim/init.vim ${HOME}/.vimrc
+	ln -sf ${PWD}/.config/nvim ${HOME}/.vim
+	ln -sf ${PWD}/.config/nvim/init.vim ${HOME}/.vimrc
 endif
 else
 ifdef NEOVIM
-	ln -sf ${PWD}/.vim ${HOME}/.config/nvim
+	ln -sf ${PWD}/.config/nvim ${HOME}/.config/nvim
 endif
 endif
 
