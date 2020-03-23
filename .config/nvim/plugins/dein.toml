@@ -1,24 +1,15 @@
 [[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
-if = 'executable("make")'
+repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['Shougo/context_filetype.vim']
+
+[[plugins]]
 repo = 'editorconfig/editorconfig-vim'
-
-[[plugins]]
-repo = 'kana/vim-operator-user'
-
-[[plugins]]
-repo = 'rhysd/vim-operator-surround'
-hook_add = '''
-  nmap ys <Plug>(operator-surround-append)
-  nmap ds <Plug>(operator-surround-delete)
-  nmap cs <Plug>(operator-surround-replace)
-'''
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
@@ -30,33 +21,6 @@ hook_add = '''
   let g:indent_guides_enable_on_vim_startup = 1
   let g:indent_guides_start_level = 2
   let g:indent_guides_exclude_filetypes = [ 'help', 'nerdtree' ]
-'''
-
-[[plugins]]
-repo = 'osyo-manga/vim-precious'
-depends = ['Shougo/context_filetype.vim']
-
-[[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
-hook_add = '''
-  let g:ctrlp_show_hidden = 1
-  let g:ctrlp_custom_ignore = {
-    \ 'dir': '.git',
-    \ 'file': '\v\.(git)?keep$',
-    \ }
-'''
-
-[[plugins]]
-repo = 'tomtom/tcomment_vim'
-
-[[plugins]]
-repo = 'tomasr/molokai'
-hook_add = '''
-  let g:molokai_original = 1
-  let g:rehash256 = 1
-
-  highlight Visual ctermbg=239 guibg=#545050
-  autocmd VimEnter * nested colorscheme molokai
 '''
 
 [[plugins]]
@@ -97,3 +61,112 @@ hook_add = '''
 [[plugins]]
 if = 'has("nvim")'
 repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+  nnoremap <silent><C-f> :NERDTreeTabsToggle<CR>
+  autocmd bufenter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | q | endif
+
+  let g:NERDTreeShowHidden = 1
+  if winwidth(0) < 128
+    let g:NERDTreeWinSize = 25
+  endif
+'''
+
+[[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+
+[[plugins]]
+repo = 'jistr/vim-nerdtree-tabs'
+
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+hook_add = '''
+  let g:ctrlp_show_hidden = 1
+  let g:ctrlp_custom_ignore = {
+    \ 'dir': '.git',
+    \ 'file': '\v\.(git)?keep$',
+    \ }
+'''
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+on_event = 'InsertEnter'
+rev = 'release'
+if = 'v:version >= 800 && executable("node")'
+hook_add = '''
+  let g:coc_global_extensions = [
+    \   'coc-snippets',
+    \   'coc-css',
+    \   'coc-json',
+    \   'coc-phpls',
+    \   'coc-solargraph',
+    \   'coc-tsserver',
+    \   'coc-vetur',
+    \ ]
+
+  inoremap <silent><expr><Tab> pumvisible() ? '<C-n>' : '<Tab>'
+'''
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'rhysd/vim-operator-surround'
+hook_add = '''
+  nmap ys <Plug>(operator-surround-append)
+  nmap ds <Plug>(operator-surround-delete)
+  nmap cs <Plug>(operator-surround-replace)
+'''
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_event = 'InsertEnter'
+
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = ['vue']
+hook_add = '''
+  autocmd FileType vue syntax sync fromstart
+'''
+
+[[plugins]]
+repo = 'digitaltoad/vim-pug'
+on_ft = ['pug']
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_ft = ['markdown']
+
+[[plugins]]
+repo = 'AndrewRadev/switch.vim'
+hook_add = 'nnoremap <silent>t :Switch<CR>'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+if = '!has("nvim")'
+hook_add = '''
+  set helplang=ja,en
+'''
+
+[[plugins]]
+repo = 'lilydjwg/colorizer'
+on_ft = ['css', 'html', 'scss']
+
+[[plugins]]
+repo = 'tomasr/molokai'
+hook_add = '''
+  let g:molokai_original = 1
+  let g:rehash256 = 1
+
+  highlight Visual ctermbg=239 guibg=#545050
+  autocmd VimEnter * nested colorscheme molokai
+'''
