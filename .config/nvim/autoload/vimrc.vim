@@ -32,6 +32,7 @@ function! vimrc#init()
   let g:repo_dir = g:dein_dir . '/repos/github.com'
   let g:dein_repo_dir = g:repo_dir . '/Shougo/dein.vim'
   let g:dein#types#git#clone_depth = 1
+  let g:mapleader = ","
 
   call vimrc#setup_dein()
   call vimrc#load_dein()

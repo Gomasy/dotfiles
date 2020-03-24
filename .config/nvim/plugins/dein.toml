@@ -93,6 +93,11 @@ repo = 'Xuyuanp/nerdtree-git-plugin'
 repo = 'jistr/vim-nerdtree-tabs'
 
 [[plugins]]
+repo = 'lambdalisue/suda.vim'
+if = 'has("nvim")'
+hook_add = 'nnoremap <silent><Leader>su :w suda://%<CR>'
+
+[[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 hook_add = '''
   let g:ctrlp_show_hidden = 1

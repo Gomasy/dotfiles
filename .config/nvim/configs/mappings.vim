@@ -1,5 +1,3 @@
-let g:mapleader = ","
-
 function! mappings#toggle(name)
   echohl Title
   exec 'set ' . a:name . '!'
@@ -12,7 +10,6 @@ function! mappings#toggle(name)
 endfunction
 
 "Common settings
-nnoremap <silent><Leader>su :w !sudo tee %<CR>
 nnoremap <silent><Leader>r :call vimrc#reload()<CR>
 nnoremap <silent><ESC><ESC> :noh<CR>
 nnoremap <silent><C-n> :new<CR>
@@ -24,6 +21,10 @@ nnoremap <silent><TAB> :tabn<CR>
 nnoremap <C-w>oh :sp<Space>
 nnoremap <C-w>ov :vsp<Space>
 nnoremap <C-o> :o<Space>
+
+if !has('nvim')
+  nnoremap <silent><Leader>su :w !sudo tee %<CR>
+endif
 
 "Cursor settings
 noremap j gj
@@ -60,11 +61,7 @@ nnoremap <S-Left> <C-w><
 nnoremap <S-Right> <C-w>>
 
 "Toggle options
-if has('termguicolors')
-  set termguicolors
-  nnoremap <silent><Leader>g :call mappings#toggle('termguicolors')<CR>
-endif
-
+nnoremap <silent><Leader>g :call mappings#toggle('termguicolors')<CR>
 nnoremap <silent><Leader>n :call mappings#toggle('relativenumber')<CR>
 nnoremap <silent><Leader>t :call mappings#toggle('expandtab')<CR>
 nnoremap <silent><Leader>w :call mappings#toggle('wrap')<CR>

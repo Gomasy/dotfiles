@@ -21,6 +21,7 @@ set hidden
 set autoread
 set lazyredraw
 set ttyfast
+set termguicolors
 set noswapfile
 set nowritebackup
 set splitbelow
