@@ -1,5 +1,16 @@
 let g:mapleader = ","
 
+function! mappings#toggle(name)
+  echohl Title
+  exec 'set ' . a:name . '!'
+  if eval('&' . a:name)
+    echo '*** Toggled ' . a:name . ' to true ***'
+  else
+    echo '*** Toggled ' . a:name . ' to false ***'
+  endif
+  echohl None
+endfunction
+
 "Common settings
 nnoremap <silent><Leader>su :w !sudo tee %<CR>
 nnoremap <silent><Leader>r :call vimrc#reload()<CR>
@@ -49,22 +60,11 @@ nnoremap <S-Left> <C-w><
 nnoremap <S-Right> <C-w>>
 
 "Toggle options
-function! Toggle_state(name)
-  echohl Title
-  exec 'set ' . a:name . '!'
-  if eval('&' . a:name)
-    echo '*** Toggled ' . a:name . ' to true ***'
-  else
-    echo '*** Toggled ' . a:name . ' to false ***'
-  endif
-  echohl None
-endfunction
-
 if has('termguicolors')
   set termguicolors
-  nnoremap <silent><Leader>g :call Toggle_state('termguicolors')<CR>
+  nnoremap <silent><Leader>g :call mappings#toggle('termguicolors')<CR>
 endif
 
-nnoremap <silent><Leader>n :call Toggle_state('relativenumber')<CR>
-nnoremap <silent><Leader>t :call Toggle_state('expandtab')<CR>
-nnoremap <silent><Leader>w :call Toggle_state('wrap')<CR>
+nnoremap <silent><Leader>n :call mappings#toggle('relativenumber')<CR>
+nnoremap <silent><Leader>t :call mappings#toggle('expandtab')<CR>
+nnoremap <silent><Leader>w :call mappings#toggle('wrap')<CR>
