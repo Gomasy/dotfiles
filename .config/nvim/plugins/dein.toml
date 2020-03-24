@@ -106,7 +106,7 @@ hook_add = '''
 repo = 'neoclide/coc.nvim'
 on_event = 'InsertEnter'
 rev = 'release'
-if = 'v:version >= 800 && executable("node")'
+if = 'executable("node")'
 hook_add = '''
   let g:coc_global_extensions = [
     \   'coc-snippets',
