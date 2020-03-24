@@ -56,8 +56,10 @@ if has('nvim')
   set pumblend=30
 endif
 
-if has('nvim') || has('clipboard')
+if has('nvim') || has('unnamedplus')
   set clipboard& clipboard^=unnamedplus
+elseif has('clipboard')
+  set clipboard& clipboard^=unnamed
 endif
 
 if !has('nvim') && !has('gui')
