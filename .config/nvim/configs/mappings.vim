@@ -2,7 +2,7 @@ let g:mapleader = ","
 
 "Common settings
 nnoremap <silent><Leader>su :w !sudo tee %<CR>
-nnoremap <silent><Leader>r :source ~/.vim/vimrc<CR>
+nnoremap <silent><Leader>r :call vimrc#reload()<CR>
 nnoremap <silent><ESC><ESC> :noh<CR>
 nnoremap <silent><C-n> :new<CR>
 nnoremap <silent><C-w>h :sp<CR>

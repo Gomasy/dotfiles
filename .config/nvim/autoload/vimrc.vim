@@ -38,3 +38,11 @@ function! vimrc#init()
 
   runtime! configs/*.vim
 endfunction
+
+function! vimrc#reload()
+  if has('nvim')
+    exec ':source ~/.config/nvim/init.vim'
+  else
+    exec ':source ~/.vimrc'
+  endif
+endfunction
