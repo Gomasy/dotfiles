@@ -142,9 +142,7 @@ on_event = 'InsertEnter'
 [[plugins]]
 repo = 'posva/vim-vue'
 on_ft = ['vue']
-hook_add = '''
-  autocmd FileType vue syntax sync fromstart
-'''
+hook_add = 'autocmd FileType vue syntax sync fromstart'
 
 [[plugins]]
 repo = 'digitaltoad/vim-pug'
@@ -165,9 +163,7 @@ hook_add = 'nnoremap <silent>t :Switch<CR>'
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 if = '!has("nvim")'
-hook_add = '''
-  set helplang=ja,en
-'''
+hook_add = 'set helplang=ja,en'
 
 [[plugins]]
 repo = 'lilydjwg/colorizer'
