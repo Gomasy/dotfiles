@@ -20,6 +20,7 @@ set tildeop
 set hidden
 set autoread
 set lazyredraw
+set ttyfast
 set noswapfile
 set nowritebackup
 set splitbelow
