@@ -1,22 +1,27 @@
-# Load zgen
-if [[ ! -e $HOME/.zgen ]]; then
-    echo "\e[1m[*] Installing zgen...\e[m"
-    git clone https://github.com/tarjoilija/zgen.git $HOME/.zgen
+# Load zinit
+if [[ ! -e $HOME/.zinit ]]; then
+    echo "\e[1m[*] Installing zinit...\e[m"
+    git clone https://github.com/zdharma/zinit.git $HOME/.zinit
 fi
-source $HOME/.zgen/zgen.zsh
+source $HOME/.zinit/zinit.zsh
 
-# Install plugins
-if ! zgen saved; then
-    zgen oh-my-zsh
-    zgen oh-my-zsh themes/agnoster
+# Load libraries
+zinit snippet OMZ::lib/termsupport.zsh
+zinit snippet OMZ::lib/theme-and-appearance.zsh
+zinit snippet OMZ::lib/completion.zsh
+zinit snippet OMZ::lib/key-bindings.zsh
+zinit snippet OMZ::lib/history.zsh
+zinit snippet OMZ::lib/grep.zsh
+zinit snippet OMZ::lib/git.zsh
 
-    zgen load willghatch/zsh-cdr
-    zgen load zsh-users/zaw
-    zgen load zsh-users/zsh-autosuggestions
-    zgen load zsh-users/zsh-syntax-highlighting
+# Load theme
+zinit snippet OMZ::themes/agnoster.zsh-theme
 
-    zgen save
-fi
+# Load plugins
+zinit light willghatch/zsh-cdr
+zinit light zsh-users/zaw
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
 
 # Zsh functions
 zshaddhistory() { [[ ${#1%%$'\n'} -ge 5 ]] }
