@@ -33,9 +33,11 @@ prompt_context() {
         prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m"
     fi
 }
-yay() {
-    /usr/bin/yay $@ && rm -rf ~/.{cache,config}/yay
-}
+if which yay &> /dev/null; then
+    yay() {
+        /usr/bin/yay $@ && rm -rf ~/.{cache,config}/yay
+    }
+fi
 
 # Ignore C-s
 stty stop undef
