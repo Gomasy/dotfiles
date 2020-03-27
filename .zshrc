@@ -24,7 +24,26 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 
 # Zsh functions
-zshaddhistory() { [[ ${#1%%$'\n'} -ge 5 ]] }
+__record_command() {
+  typeset -g _LASTCMD=${1%%$'\n'}
+  return 1
+}
+__update_history() {
+  local last_status="$?"
+
+  # hist_ignore_space
+  if [[ ! -n ${_LASTCMD%% *} ]]; then
+    return
+  fi
+
+  # hist_reduce_blanks
+  local cmd_reduce_blanks=$(echo ${_LASTCMD} | tr -s ' ')
+
+  # Record the commands that have succeeded
+  if [[ ${last_status} == 0 ]]; then
+    print -sr -- "${cmd_reduce_blanks}"
+  fi
+}
 zshexit() {
     ! tmux has 2> /dev/null && [[ `ps x | grep \[p\]owerline-daemon | wc -l` -ne 0 ]] && powerline-daemon -k
 }
@@ -38,6 +57,9 @@ if which yay &> /dev/null; then
         /usr/bin/yay $@ && rm -rf ~/.{cache,config}/yay
     }
 fi
+
+zshaddhistory_functions+=(__record_command)
+precmd_functions+=(__update_history)
 
 # Ignore C-s
 stty stop undef
