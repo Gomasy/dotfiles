@@ -141,8 +141,31 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+if = '!has("nvim")'
+hook_add = 'set helplang=ja,en'
+
+[[plugins]]
 repo = 'tpope/vim-endwise'
 on_event = 'InsertEnter'
+
+[[plugins]]
+repo = 'AndrewRadev/switch.vim'
+hook_add = 'nnoremap <silent>t :Switch<CR>'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+hook_add = '''
+  let g:molokai_original = 1
+  let g:rehash256 = 1
+
+  highlight Visual ctermbg=239 guibg=#545050
+  autocmd VimEnter * nested colorscheme molokai
+'''
+
+[[plugins]]
+repo = 'lilydjwg/colorizer'
+on_ft = ['css', 'html', 'scss']
 
 [[plugins]]
 repo = 'posva/vim-vue'
@@ -162,24 +185,6 @@ repo = 'tyru/open-browser.vim'
 on_ft = ['markdown']
 
 [[plugins]]
-repo = 'AndrewRadev/switch.vim'
-hook_add = 'nnoremap <silent>t :Switch<CR>'
-
-[[plugins]]
-repo = 'vim-jp/vimdoc-ja'
-if = '!has("nvim")'
-hook_add = 'set helplang=ja,en'
-
-[[plugins]]
-repo = 'lilydjwg/colorizer'
-on_ft = ['css', 'html', 'scss']
-
-[[plugins]]
-repo = 'tomasr/molokai'
-hook_add = '''
-  let g:molokai_original = 1
-  let g:rehash256 = 1
-
-  highlight Visual ctermbg=239 guibg=#545050
-  autocmd VimEnter * nested colorscheme molokai
-'''
+repo = 'chr4/nginx.vim'
+if = 'has("nvim")'
+on_ft = ['nginx']
